@@ -52,6 +52,7 @@ myCar instanceof Car; // true
 From the derived class, you can use super from any constructor or method to access its base class:
 
 To call the parent constructor, use **super()**
+
 To call another member, use, for example, **super.getName()**
 
 Example of subclass:

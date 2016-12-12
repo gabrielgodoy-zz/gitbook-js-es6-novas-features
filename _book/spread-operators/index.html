@@ -457,7 +457,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../proxy/">
+        <li class="chapter " data-level="1.13" data-path="../promises/">
+            
+                <a href="../promises/">
+            
+                    
+                    Promises
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../promises/methods.html">
+            
+                <a href="../promises/methods.html">
+            
+                    
+                    Promise methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../proxy/">
             
                 <a href="../proxy/">
             
@@ -470,7 +502,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.14" data-path="./">
+        <li class="chapter active" data-level="1.15" data-path="./">
             
                 <a href="./">
             
@@ -483,7 +515,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15" >
+        <li class="chapter " data-level="1.16" >
             
                 <span>
             
@@ -497,7 +529,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.15.1" data-path="../sets-and-weaksets/sets.html">
+        <li class="chapter " data-level="1.16.1" data-path="../sets-and-weaksets/sets.html">
             
                 <a href="../sets-and-weaksets/sets.html">
             
@@ -510,7 +542,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15.2" data-path="../sets-and-weaksets/weaksets.html">
+        <li class="chapter " data-level="1.16.2" data-path="../sets-and-weaksets/weaksets.html">
             
                 <a href="../sets-and-weaksets/weaksets.html">
             
@@ -528,7 +560,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" >
+        <li class="chapter " data-level="1.17" >
             
                 <span>
             
@@ -542,7 +574,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="../strings/new-methods.html">
+        <li class="chapter " data-level="1.17.1" data-path="../strings/new-methods.html">
             
                 <a href="../strings/new-methods.html">
             
@@ -555,7 +587,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="../strings/tagged-templates.html">
+        <li class="chapter " data-level="1.17.2" data-path="../strings/tagged-templates.html">
             
                 <a href="../strings/tagged-templates.html">
             
@@ -568,7 +600,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="../strings/template-literals.html">
+        <li class="chapter " data-level="1.17.3" data-path="../strings/template-literals.html">
             
                 <a href="../strings/template-literals.html">
             
@@ -586,7 +618,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="../symbols/">
+        <li class="chapter " data-level="1.18" data-path="../symbols/">
             
                 <a href="../symbols/">
             
@@ -645,42 +677,47 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="spread-operators">Spread Operators</h2>
-<p>The spread operator (...) is a syntax to expand elements of an array in specific places, such as arguments in function calls.</p>
-<p>First, let&#x2019;s see how to expand elements of an array within another array:</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">let</span> some <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8]</span>
-<span class="token keyword">let</span> more <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8, 1, 2, 4]</span>
+<p>The spread operator <code>...</code> is a syntax to expand elements of an array in specific places, such as arguments in function calls.</p>
+<h3 id="in-arrays">In Arrays</h3>
+<p>Expand elements of an array within another array:</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    some <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8]</span>
+    more <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8, 1, 2, 4]</span>
 
-
-<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
+<span class="token comment" spellcheck="true">// Old JS</span>
 <span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// Iterate, push, sweat, repeat...</span>
 <span class="token comment" spellcheck="true">// Iterate, push, sweat, repeat...</span>
 </code></pre>
+<h3 id="in-function-calls">In Function calls</h3>
 <p>The spread syntax is also powerful when calling functions with arguments:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">doSomething</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-   <span class="token comment" spellcheck="true">// x = 1, y = 2, z = 4</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
-doSomething<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Same as doSomething(values[0], values[1], values[2])</span>
 </code></pre>
-<p>As you can see, this saves us from the often-used fn.apply() workaround. The syntax is very flexible, because the spread operator can be used anywhere in the argument list. This means that the following invocation produces the same result:</p>
+<p><strong>Difference between Rest and Spread operator</strong></p>
+<p>Rest parameters is used in function definitions, and the spread operator is used in function invocations</p>
+<p>The syntax is very flexible, because the spread operator can be used anywhere in the argument list. </p>
+<p>This means that the following invocation produces the same result:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Same as doSomething(1, values[0], values[1])</span>
 </code></pre>
-<p>We&#x2019;ve been applying the spread operator to arrays and arguments. In fact, it can be applied to all iterable objects, such as a NodeList:</p>
+<h3 id="in-iterables">In iterables</h3>
+<p>It can be applied to all iterable objects, such as a NodeList:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> form <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#my-form&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-   inputs <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-   selects <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;select&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    inputs <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    selects <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;select&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">let</span> allTheThings <span class="token operator">=</span> <span class="token punctuation">[</span>form<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>inputs<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>selects<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> allElements <span class="token operator">=</span> <span class="token punctuation">[</span>form<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>inputs<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>selects<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Now, allElements is a flat array containing the `&lt;form&gt;` node and its `&lt;input \&gt;` and `&lt;select&gt;` child nodes.</span>
 </code></pre>
-<p>Now, allTheThings is a flat array containing the <form> node and its <input> and <select> child nodes.</select></form></p>
+<h3 id="in-objects">In Objects</h3>
+<p>Lets you use the spread <code>...</code> operator to copy enumerable properties from one object to another or override them</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>someProp<span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> visibilityFilter<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">mergeObjects</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>state<span class="token punctuation">,</span> visibilityFilter<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 
                                 
                                 </section>
@@ -714,7 +751,7 @@ doSomething<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spread Operators","level":"1.14","depth":1,"next":{"title":"Sets and Weaksets","level":"1.15","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"previous":{"title":"Proxy","level":"1.13","depth":1,"path":"proxy/README.md","ref":"proxy/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"spread-operators/README.md","mtime":"2016-12-12T01:17:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:23:02.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spread Operators","level":"1.15","depth":1,"next":{"title":"Sets and Weaksets","level":"1.16","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.16.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.16.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"previous":{"title":"Proxy","level":"1.14","depth":1,"path":"proxy/README.md","ref":"proxy/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"spread-operators/README.md","mtime":"2016-12-12T14:08:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T13:02:33.624Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -722,6 +759,10 @@ doSomething<span class="token punctuation">.</span><span class="token function">
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

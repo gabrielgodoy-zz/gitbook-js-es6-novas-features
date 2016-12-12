@@ -15,10 +15,10 @@
 * [Iterators and Iterables](iterators-and-iterables/README.md)
     * [for...of loops](iterators-and-iterables/for-of-loops.md)
 * [let and const](let-and-const/README.md)
-* [Map and Weakmaps](map-and-weakmaps.md)
+* Map and Weakmaps
     * [Map](map-and-weakmaps/map.md)
     * [Weakmaps](map-and-weakmaps/weakmap.md)
-* [Math Object](math-object.md)
+* Math Object
     * [New Methods](math-object/new-methods.md)
 * [Modules](modules/README.md)
 * Objects
@@ -26,6 +26,8 @@
     * [Object Assign](objects/object-assign.md)
     * [Object Destructuring](objects/object-destructuring.md)
     * [Object Initializer](objects/object-initializer.md)
+* [Promises](promises/README.md)
+	* [Promise methods](promises/methods.md)
 * [Proxy](proxy/README.md)
 * [Spread Operators](spread-operators/README.md)
 * Sets and Weaksets

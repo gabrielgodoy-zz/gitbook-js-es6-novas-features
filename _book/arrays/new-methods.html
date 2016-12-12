@@ -459,7 +459,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../proxy/">
+        <li class="chapter " data-level="1.13" data-path="../promises/">
+            
+                <a href="../promises/">
+            
+                    
+                    Promises
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../promises/methods.html">
+            
+                <a href="../promises/methods.html">
+            
+                    
+                    Promise methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../proxy/">
             
                 <a href="../proxy/">
             
@@ -472,7 +504,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="../spread-operators/">
+        <li class="chapter " data-level="1.15" data-path="../spread-operators/">
             
                 <a href="../spread-operators/">
             
@@ -485,7 +517,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15" >
+        <li class="chapter " data-level="1.16" >
             
                 <span>
             
@@ -499,7 +531,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.15.1" data-path="../sets-and-weaksets/sets.html">
+        <li class="chapter " data-level="1.16.1" data-path="../sets-and-weaksets/sets.html">
             
                 <a href="../sets-and-weaksets/sets.html">
             
@@ -512,7 +544,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15.2" data-path="../sets-and-weaksets/weaksets.html">
+        <li class="chapter " data-level="1.16.2" data-path="../sets-and-weaksets/weaksets.html">
             
                 <a href="../sets-and-weaksets/weaksets.html">
             
@@ -530,7 +562,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" >
+        <li class="chapter " data-level="1.17" >
             
                 <span>
             
@@ -544,7 +576,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="../strings/new-methods.html">
+        <li class="chapter " data-level="1.17.1" data-path="../strings/new-methods.html">
             
                 <a href="../strings/new-methods.html">
             
@@ -557,7 +589,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="../strings/tagged-templates.html">
+        <li class="chapter " data-level="1.17.2" data-path="../strings/tagged-templates.html">
             
                 <a href="../strings/tagged-templates.html">
             
@@ -570,7 +602,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="../strings/template-literals.html">
+        <li class="chapter " data-level="1.17.3" data-path="../strings/template-literals.html">
             
                 <a href="../strings/template-literals.html">
             
@@ -588,7 +620,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="../symbols/">
+        <li class="chapter " data-level="1.18" data-path="../symbols/">
             
                 <a href="../symbols/">
             
@@ -646,68 +678,73 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="new-array-methods">New Array Methods</h2>
+                                <h2 id="array-static-methods">Array Static Methods</h2>
 <p>The Array object now has some new static class methods, as well as new methods on the Array prototype.</p>
-<h3 id="arrayfind">Array.find</h3>
-<p>Array.find returns the first element in the array that satisfies a provided testing function</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Find an admin in this array of users</span>
-<span class="token keyword">let</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-    login<span class="token punctuation">:</span> <span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span>
-    admin<span class="token punctuation">:</span> <span class="token boolean">false</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    login<span class="token punctuation">:</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">,</span>
-    admin<span class="token punctuation">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    login<span class="token punctuation">:</span> <span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span>
-    admin<span class="token punctuation">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// Returns first object for which user.admin is true</span>
-<span class="token keyword">let</span> admin <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> user<span class="token punctuation">.</span>adm<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>admin<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//{login: &quot;Brook&quot;, admin: true}</span>
-</code></pre>
-<h3 id="arrayfrom">Array.from</h3>
-<p>First, Array.from creates Array instances from array-like and iterable objects. 
-Examples of array-like objects include:</p>
+<h3 id="arrayfrom">Array.from()</h3>
+<p>Array.from creates Array instances from array-like and iterable objects.<br>Examples of array-like objects include:</p>
 <ul>
 <li>a nodeList returned by document.getElementsByTagName();</li>
 <li>the new Map and Set data structures.</li>
 </ul>
-<p>The items array has the forEach method, which isn&#x2019;t available in the itemElements collection.</p>
+<p>The items array has the forEach method, which isn&#x2019;t available in the itemElements collection</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> itemElements <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;.items&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> items <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>itemElements<span class="token punctuation">)</span><span class="token punctuation">;</span>
-items<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+items<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>nodeType<span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// A workaround often used in ES5:</span>
 <span class="token keyword">let</span> items <span class="token operator">=</span> Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>slice<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>itemElements<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>An interesting feature of Array.from is the second optional mapFunction argument. This allows you to create a new mapped array in a single invocation:</p>
+<p>An interesting feature of Array.from is the second optional mapFunction argument. 
+This allows you to create a new mapped array in a single invocation:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> navElements <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;nav li&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     navTitles <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span>navElements<span class="token punctuation">,</span> el <span class="token operator">=</span><span class="token operator">&gt;</span> el<span class="token punctuation">.</span>textContent<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="arrayof">Array.of</h3>
-<p>Then, we have Array.of, which behaves much like the Array constructor. It fixes the special case when passing it a single number argument. This results in Array.of being preferable to new Array(). However, in most cases, you&#x2019;ll want to use array literals.</p>
+<h3 id="arrayof">Array.of()</h3>
+<p>Array.of behaves much like the Array constructor. 
+It fixes the special case when passing it a single number argument. 
+This results in Array.of being preferable to new Array(). 
+However, in most cases, you&#x2019;ll want to use array literals.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [undefined, undefined, undefined]</span>
 <span class="token keyword">let</span> y <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">of</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [8]</span>
 <span class="token keyword">let</span> z <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Array literal</span>
 </code></pre>
-<p>Last but not least, a couple of methods have been added to the Array prototype.
-I think the find methods will be very welcome to most JavaScript developers.</p>
-<p><strong>find</strong> returns the first element for which the callback returns true.
-<strong>findIndex</strong> returns the index of the first element for which the callback returns true.
-<strong>fill</strong> &#x201C;overwrites&#x201D; the elements of an array with the given argument.</p>
-<pre class="language-"><code class="lang-js"><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>n <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">===</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 10</span>
+<h2 id="array-prototype-methods">Array Prototype Methods</h2>
+<p>Last but not least, a couple of methods have been added to the Array prototype.<br>I think the find methods will be very welcome to most JavaScript developers.</p>
+<h3 id="arrayfind">Array.find()</h3>
+<p>Array.find returns the first element in the array that satisfies a provided testing function</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Find an admin in this array of users</span>
+<span class="token keyword">let</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    login<span class="token punctuation">:</span> <span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span>
+    isAdmin<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    login<span class="token punctuation">:</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">,</span>
+    isAdmin<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    login<span class="token punctuation">:</span> <span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span>
+    isAdmin<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
+<span class="token comment" spellcheck="true">// Returns first object for which user.admin is true</span>
+<span class="token keyword">let</span> admin <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> user<span class="token punctuation">.</span>isAdmin<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>admin<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {login: &quot;Brook&quot;, isAdmin: true}</span>
+</code></pre>
+<p><strong>find</strong> returns the first element for which the callback returns true.<br><strong>findIndex</strong> returns the index of the first element for which the callback returns true.<br><strong>fill</strong> &#x201C;overwrites&#x201D; the elements of an array with the given argument.</p>
+<pre class="language-"><code class="lang-js"><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>n <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">===</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 10</span>
 
 <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span>n <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">===</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 2</span>
 
-<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// [7, 7, 7]</span>
-<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// [0, 7, 7, 7, 0]</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [7, 7, 7]</span>
+<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [0, 7, 7, 7, 0]</span>
+</code></pre>
+<h3 id="arraycopywithin">Array.copyWithin()</h3>
+<p>The copyWithin() method shallow copies part of an array to another location in the same array and returns it, without modifying its size. Though copyWithin() don&apos;t change array size, it mutates the array.</p>
+<pre class="language-"><code class="lang-js"><span class="token punctuation">[</span><span class="token string">&quot;alpha&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;bravo&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;charlie&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;delta&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">copyWithin</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// results in [&quot;alpha&quot;, &quot;bravo&quot;, &quot;alpha&quot;, &quot;bravo&quot;]</span>
 </code></pre>
 
                                 
@@ -742,7 +779,7 @@ I think the find methods will be very welcome to most JavaScript developers.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"New Methods","level":"1.2.2","depth":2,"next":{"title":"Async Functions and Await operator","level":"1.3","depth":1,"path":"async-await/README.md","ref":"async-await/README.md","articles":[]},"previous":{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"arrays/new-methods.md","mtime":"2016-12-11T23:34:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:23:02.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"New Methods","level":"1.2.2","depth":2,"next":{"title":"Async Functions and Await operator","level":"1.3","depth":1,"path":"async-await/README.md","ref":"async-await/README.md","articles":[]},"previous":{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"arrays/new-methods.md","mtime":"2016-12-12T13:15:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T13:02:33.624Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -750,6 +787,10 @@ I think the find methods will be very welcome to most JavaScript developers.</p>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

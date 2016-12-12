@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Object Assign · ES6 and Beyond</title>
+        <title>Promise methods · ES6 and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -53,10 +53,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="object-destructuring.html" />
+    <link rel="next" href="../proxy/" />
     
     
-    <link rel="prev" href="method-initializer.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -402,9 +402,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="method-initializer.html">
+        <li class="chapter " data-level="1.12.1" data-path="../objects/method-initializer.html">
             
-                <a href="method-initializer.html">
+                <a href="../objects/method-initializer.html">
             
                     
                     Method Initializer
@@ -415,9 +415,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.12.2" data-path="object-assign.html">
+        <li class="chapter " data-level="1.12.2" data-path="../objects/object-assign.html">
             
-                <a href="object-assign.html">
+                <a href="../objects/object-assign.html">
             
                     
                     Object Assign
@@ -428,9 +428,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="object-destructuring.html">
+        <li class="chapter " data-level="1.12.3" data-path="../objects/object-destructuring.html">
             
-                <a href="object-destructuring.html">
+                <a href="../objects/object-destructuring.html">
             
                     
                     Object Destructuring
@@ -441,9 +441,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="object-initializer.html">
+        <li class="chapter " data-level="1.12.4" data-path="../objects/object-initializer.html">
             
-                <a href="object-initializer.html">
+                <a href="../objects/object-initializer.html">
             
                     
                     Object Initializer
@@ -459,9 +459,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../promises/">
+        <li class="chapter " data-level="1.13" data-path="./">
             
-                <a href="../promises/">
+                <a href="./">
             
                     
                     Promises
@@ -473,9 +473,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="../promises/methods.html">
+        <li class="chapter active" data-level="1.13.1" data-path="methods.html">
             
-                <a href="../promises/methods.html">
+                <a href="methods.html">
             
                     
                     Promise methods
@@ -663,7 +663,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Object Assign</a>
+        <a href=".." >Promise methods</a>
     </h1>
 </div>
 
@@ -678,44 +678,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="objectassign-equivalent-to-extend-in-jquery">Object.assign (equivalent to .extend() in jQuery)</h1>
-<p>Writing flexible and reusable functions</p>
-<p>The Object.assign method copies properties from one or more source objects to a target object specified as the very first argument.</p>
-<p>Object.assign(target, ...sources);</p>
-<p>What if we want to call countdownTimer with different options:</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// The example function countdownTimer needs to be called in many different ways</span>
-<span class="token keyword">let</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.btn-undo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// As simple as this</span>
-<span class="token function">countdownTimer</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// and as complicated as this</span>
-<span class="token function">countdownTimer</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    container<span class="token punctuation">:</span> <span class="token string">&apos;.new-post-options&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">countdownTimer</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    container<span class="token punctuation">:</span> <span class="token string">&apos;.new-post-options&apos;</span><span class="token punctuation">,</span>
-    timeUnit<span class="token punctuation">:</span> <span class="token string">&apos;minutes&apos;</span><span class="token punctuation">,</span>
-    timeoutClass<span class="token punctuation">:</span> <span class="token string">&apos;.time-is-up&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h2 id="objectassign-to-the-rescue">Object.assign to the rescue</h2>
-<p>We want to merge &apos;options&apos; passed by the caller of the function countdownTimer, with &apos;defaults&apos;.
-Upon duplicate properties, those from &apos;options&apos; must override properties from &apos;defaults&apos;.
-Like the extend() jQuery method.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">countdownTimer</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> timeLeft<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
-        container<span class="token punctuation">:</span> <span class="token string">&apos;.timer-display&apos;</span><span class="token punctuation">,</span>
-        timeUnit<span class="token punctuation">:</span> <span class="token string">&apos;seconds&apos;</span><span class="token punctuation">,</span>
-        cloneDataAttribute<span class="token punctuation">:</span> <span class="token string">&apos;cloned&apos;</span><span class="token punctuation">,</span>
-        timeoutClass<span class="token punctuation">:</span> <span class="token string">&apos;.is-timeout&apos;</span><span class="token punctuation">,</span>
-        timeoutSoonClass<span class="token punctuation">:</span> <span class="token string">&apos;.is-timeout-soon&apos;</span><span class="token punctuation">,</span>
-        timeoutSoonTime<span class="token punctuation">:</span> <span class="token number">10</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">// This creates an entire new object with defaults and options merged</span>
-    <span class="token keyword">let</span> settings <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+                                <h2 id="promise-methods">Promise methods</h2>
+<h3 id="promisealliterable">Promise.all(iterable)</h3>
+<p>Returns a promise that resolves when all of the promises in the iterable argument have resolved. This is useful for aggregating results of multiple promises together.</p>
+<h3 id="promiseraceiterable">Promise.race(iterable)</h3>
+<p>Returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.</p>
+<h3 id="promiserejectreason">Promise.reject(reason)</h3>
+<p>Returns a Promise object that is rejected with the given reason.</p>
+<h3 id="promiseresolvevalue">Promise.resolve(value)</h3>
+<p>Returns a Promise object that is resolved with the given value. If the value is a thenable (i.e. has a then method), the returned promise will &quot;follow&quot; that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value. Generally, if you want to know if a value is a promise or not - Promise.resolve(value) it instead and work with the return value as a promise.</p>
 
                                 
                                 </section>
@@ -749,7 +720,7 @@ Like the extend() jQuery method.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object Assign","level":"1.12.2","depth":2,"next":{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},"previous":{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/object-assign.md","mtime":"2016-12-12T13:50:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T13:02:33.624Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promise methods","level":"1.13.1","depth":2,"next":{"title":"Proxy","level":"1.14","depth":1,"path":"proxy/README.md","ref":"proxy/README.md","articles":[]},"previous":{"title":"Promises","level":"1.13","depth":1,"path":"promises/README.md","ref":"promises/README.md","articles":[{"title":"Promise methods","level":"1.13.1","depth":2,"path":"promises/methods.md","ref":"promises/methods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"promises/methods.md","mtime":"2016-12-12T12:22:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T13:02:33.624Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,38 +1,42 @@
 ## Object Initializer
 Only works if the variable have the same names as the keys of the object being initialized
+
 ```js
 // Old JS
-let name = "Brook";
-let totalReplies = 249;
-let avatar = "/users/avatars/brook-user-1.jpg";
-let user = {name: name, totalReplies: totalReplies, avatar: avatar};
+var name = "Brook",
+	totalReplies = 249,
+	avatar = "/users/avatars/brook-user-1.jpg",
+	user = {name: name, totalReplies: totalReplies, avatar: avatar};
 
 // ES6
-let name = "Brook";
-let totalReplies = 249;
-let avatar = "/users/avatars/brook-user-1.jpg";
-let user = {name, totalReplies, avatar};
+let name = "Brook",
+	totalReplies = 249,
+	avatar = "/users/avatars/brook-user-1.jpg",
+	user = {name, totalReplies, avatar};
+```
 
-// Shorthand property names (ES6)
+### Shorthand Object property names (ES6)
+```js
+// Old JS
+var a = "foo", 
+    b = 42,
+    c = {},
+	obj = {a: a, b: b, c: c};
+
+// ES6
 let a = "foo", 
     b = 42, 
-    c = {};
+    c = {},
+	obj = {a, b, c};
+```
 
-let o = { a, b, c };
+### Computed property names (ES6)
+This feature lets you set dynamic key names of a literal object
 
-// Shorthand method names (ES6)
-let o = {
-  property([parameters]) {},
-  get property() {},
-  set property(value) {},
-  * generator() {}
-};
-
-// Computed property names (ES6)
-let prop = "foo";
-let o = {
-  [prop]: "hey",
-  ["b" + "ar"]: "there",
-};
-
+```js
+let prop = "foo",
+	obj = {
+	  [prop]: "hey",
+	  ["b" + "ar"]: "there",
+	};
 ```

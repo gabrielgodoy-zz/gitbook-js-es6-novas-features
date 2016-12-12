@@ -24,7 +24,7 @@ function foo(bar) {
      }
      console.log(bam); // Error
    }
-    console.log(baz) // Error
+    console.log(baz); // Error
 }
 foo("bar");
 ```
@@ -45,12 +45,9 @@ In different scope it can be redeclared
 ```js
 let message = "web forum";
 
-
 function printInCaps(value){
-  let message = value.toUpperCase();
-  return message;
+  return value.toUpperCase();
 }
-
 
 printInCaps("profiles");
 console.log( message ); // web forum
@@ -60,24 +57,24 @@ console.log( message ); // web forum
 
 ## const
 Use of Const to create immutable Variables
+
 Constants are block-scoped, much like variables defined using the let statement. 
+
 The value of a constant cannot change through re-assignment, and it can't be redeclared.
 
 Constants always needs to be assigned:
 
 ```js
 const MAX_USERS = 15; // Right
-
 const MAX_USERS; // Wrong
 ```
 
-There is another way to declare block-scoped variables. With const, you declare a read-only reference to a value. You must assign a variable directly. 
+There is another way to declare block-scoped variables. 
+
+With const, you declare a read-only reference to a value. You must assign a variable directly. 
 
 ```js
 const myVar = 2;
-myVar = 3;
-// 3
-myVar
-// 2, and will always be two
+myVar = 3; // 3
+myVar // Still 2, and will always be 2
 ```
-

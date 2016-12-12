@@ -8,26 +8,25 @@ Object.assign(target, ...sources);
 What if we want to call countdownTimer with different options:
 ```js
 // The example function countdownTimer needs to be called in many different ways
-
+let btn = document.querySelector('.btn-undo');
 // As simple as this
-countdownTimer($('.btn-undo'), 60);
+countdownTimer(btn, 60);
 
 // and as complicated as this
-countdownTimer($('.btn-undo'), 60, {
+countdownTimer(btn, 60, {
 	container: '.new-post-options'
 });
-countdownTimer($('.btn-undo'), 3, {
+countdownTimer(btn, 3, {
 	container: '.new-post-options',
 	timeUnit: 'minutes',
 	timeoutClass: '.time-is-up'
 });
 ```
 
-Object.assign to the rescue
+## Object.assign to the rescue
 We want to merge 'options' passed by the caller of the function countdownTimer, with 'defaults'.
 Upon duplicate properties, those from 'options' must override properties from 'defaults'.
 Like the extend() jQuery method.
-
 ```js
 function countdownTimer(target, timeLeft, options = {}){
 	let defaults = {
@@ -38,6 +37,8 @@ function countdownTimer(target, timeLeft, options = {}){
 		timeoutSoonClass: '.is-timeout-soon',
 		timeoutSoonTime: 10
 	};
+	
+	// This creates an entire new object with defaults and options merged
 	let settings = Object.assign({}, defaults, options);
 }
 ```

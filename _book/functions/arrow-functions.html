@@ -457,7 +457,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../proxy/">
+        <li class="chapter " data-level="1.13" data-path="../promises/">
+            
+                <a href="../promises/">
+            
+                    
+                    Promises
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../promises/methods.html">
+            
+                <a href="../promises/methods.html">
+            
+                    
+                    Promise methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../proxy/">
             
                 <a href="../proxy/">
             
@@ -470,7 +502,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="../spread-operators/">
+        <li class="chapter " data-level="1.15" data-path="../spread-operators/">
             
                 <a href="../spread-operators/">
             
@@ -483,7 +515,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15" >
+        <li class="chapter " data-level="1.16" >
             
                 <span>
             
@@ -497,7 +529,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.15.1" data-path="../sets-and-weaksets/sets.html">
+        <li class="chapter " data-level="1.16.1" data-path="../sets-and-weaksets/sets.html">
             
                 <a href="../sets-and-weaksets/sets.html">
             
@@ -510,7 +542,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15.2" data-path="../sets-and-weaksets/weaksets.html">
+        <li class="chapter " data-level="1.16.2" data-path="../sets-and-weaksets/weaksets.html">
             
                 <a href="../sets-and-weaksets/weaksets.html">
             
@@ -528,7 +560,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" >
+        <li class="chapter " data-level="1.17" >
             
                 <span>
             
@@ -542,7 +574,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="../strings/new-methods.html">
+        <li class="chapter " data-level="1.17.1" data-path="../strings/new-methods.html">
             
                 <a href="../strings/new-methods.html">
             
@@ -555,7 +587,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="../strings/tagged-templates.html">
+        <li class="chapter " data-level="1.17.2" data-path="../strings/tagged-templates.html">
             
                 <a href="../strings/tagged-templates.html">
             
@@ -568,7 +600,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.3" data-path="../strings/template-literals.html">
+        <li class="chapter " data-level="1.17.3" data-path="../strings/template-literals.html">
             
                 <a href="../strings/template-literals.html">
             
@@ -586,7 +618,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="../symbols/">
+        <li class="chapter " data-level="1.18" data-path="../symbols/">
             
                 <a href="../symbols/">
             
@@ -645,28 +677,35 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="arrow-functions">Arrow Functions</h2>
-<p><strong>Arrow functions are always anonymous.</strong>
-The <em>this</em> reference of an arrow function is the &apos;outer&apos; this. The arrow function don&apos;t have its own this. </p>
+<p>Arrow functions main characteristics:</p>
+<ul>
+<li>Arrow functions are always anonymous</li>
+<li>The arrow function don&apos;t have its own this. The <em>this</em> reference of an arrow function is the &apos;outer&apos; this. </li>
+<li>There is no function keyword. Just the <code>=&gt;</code> </li>
+<li>The return statement is implicitly added</li>
+</ul>
 <p>Example:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> books <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>title<span class="token punctuation">:</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">,</span> price<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>title<span class="token punctuation">:</span> <span class="token string">&apos;Y&apos;</span><span class="token punctuation">,</span> price<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// ES6 Arrow function</span>
-<span class="token keyword">let</span> titles <span class="token operator">=</span> books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> item <span class="token operator">=</span><span class="token operator">&gt;</span> item<span class="token punctuation">.</span>title <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// With Arrow function</span>
+<span class="token keyword">let</span> titles <span class="token operator">=</span> books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>item <span class="token operator">=</span><span class="token operator">&gt;</span> item<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// The above is the same as:</span>
+<span class="token comment" spellcheck="true">// Without Arrow Function</span>
 <span class="token keyword">var</span> titles <span class="token operator">=</span> books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token keyword">return</span> item<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>If we look at the syntax of arrow functions, there is no function keyword. What remains is zero or more arguments, the &#x201C;fat arrow&#x201D; (=&gt;) and the function expression. The return statement is implicitly added.</p>
+<p>With just one argument on a function, you can ommit parentheses:</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> functionWithOneParam <span class="token operator">=</span> value <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+</code></pre>
 <p>With zero or more than one argument, you must provide parentheses:</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// No arguments</span>
-books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 1]</span>
+books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 1]</span>
 
 <span class="token comment" spellcheck="true">// Multiple arguments</span>
-<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">*</span> index <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [0, 2]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">*</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [0, 2]</span>
 </code></pre>
-<p>Put the function expression in a block ({ ... }) if you need more logic or more white space:</p>
+<p>Put the function expression in a braces block <code>{...}</code> if you need more logic or more white space:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> n <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
    n <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">;</span>
    <span class="token keyword">return</span> n<span class="token punctuation">;</span>
@@ -705,7 +744,7 @@ books<span class="token punctuation">.</span><span class="token function">map</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arrow Functions","level":"1.5.1","depth":2,"next":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"previous":{"title":"Functions","level":"1.5","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.5.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Named Parameters","level":"1.5.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/arrow-functions.md","mtime":"2016-12-11T23:45:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:23:02.794Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Arrow Functions","level":"1.5.1","depth":2,"next":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"previous":{"title":"Functions","level":"1.5","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.5.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Named Parameters","level":"1.5.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/arrow-functions.md","mtime":"2016-12-12T13:42:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T13:02:33.624Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -713,6 +752,10 @@ books<span class="token punctuation">.</span><span class="token function">map</s
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
