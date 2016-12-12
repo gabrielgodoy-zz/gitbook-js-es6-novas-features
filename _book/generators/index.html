@@ -682,12 +682,13 @@
 <p>A Generator manages its own iterative state, they are &apos;pausable&apos; functions.</p>
 <p>A function becomes a generator if it contains one or more <strong>yield</strong> expressions and if it uses the <code>function*</code> syntax.</p>
 <h3 id="the-next-method-of-a-generator">The <code>next()</code> method of a Generator</h3>
+<p>The <code>next()</code> lets you iterate your generator.</p>
 <p>When you assign a variable that store your generator function like:</p>
 <p><code>const ajaxGenSetup = ajaxGen();</code></p>
-<p>You have as many <code>next()</code> methods to use as the number of yields present in the generator function, until <code>done = true</code>.</p>
+<p>You have as many <code>next()</code> methods to use as the number of yields present in the generator function, until <code>done = true</code></p>
 <p>The <code>next()</code> method returns an object with two properties, <strong>done</strong> and <strong>value</strong>.
 <code>{ value: 3, done: false }</code></p>
-<p>Each yield keyword is a stop point for a <code>next()</code> method. </p>
+<p>Each yield keyword is a stop point for a <code>next()</code> method</p>
 <p>On the function below, when there are no more yields left to stop, the generator returns the property done as <code>true</code></p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> myGenerator <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">yield</span> <span class="token number">1</span><span class="token punctuation">;</span>
@@ -716,7 +717,7 @@ storeGen<span class="token punctuation">.</span><span class="token function">nex
 <span class="token comment" spellcheck="true">// Logs x = 51;</span>
 </code></pre>
 <p>The yield &quot;foo&quot; expression will send the &quot;foo&quot; string value out when pausing the generator function at that point, and whenever the generator is restarted with another <code>next()</code> function, whatever value is sent in, will be the result of that yield expression, which will then get added to 1 and assigned to the x variable.</p>
-<p><strong>It&apos;s almost as if the yield keyword is pausing and sort of making an external request for a value. Waiting for the next <code>next()</code></strong></p>
+<p><strong>It&apos;s almost as if the yield keyword is pausing and sort of making an external request for a value. Waiting for the next <code>next()</code> with a value in it</strong></p>
 <p>The value passed on the <code>next()</code> method kind of &apos;replaces&apos; the entire yield expression that was last paused on.</p>
 <h3 id="generators-for-async-actions">Generators for Async actions</h3>
 <p>We can set a specific order for asynchronous request to run with generators.</p>
@@ -745,7 +746,7 @@ storeGen<span class="token punctuation">.</span><span class="token function">nex
 <span class="token keyword">const</span> ajaxGenSetup <span class="token operator">=</span> <span class="token function">ajaxGen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">// This first next() triggers the generator and stop on the first yield </span>
-<span class="token comment" spellcheck="true">// Has value of undefined</span>
+<span class="token comment" spellcheck="true">// Has value of undefined, because there was no &apos;yield&apos; initially &apos;waiting&apos; for a value</span>
 ajaxGenSetup<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// {value: undefined, done: false}</span>
 
 <span class="token comment" spellcheck="true">// Searching posts...</span>
@@ -788,7 +789,7 @@ ajaxGenSetup<span class="token punctuation">.</span><span class="token function"
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generators","level":"1.6","depth":1,"next":{"title":"Iterators and Iterables","level":"1.7","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"previous":{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"generators/README.md","mtime":"2016-12-12T21:07:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:07:15.858Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Generators","level":"1.6","depth":1,"next":{"title":"Iterators and Iterables","level":"1.7","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"previous":{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"generators/README.md","mtime":"2016-12-12T21:16:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:42:43.149Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

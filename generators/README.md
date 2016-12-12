@@ -4,16 +4,18 @@ A Generator manages its own iterative state, they are 'pausable' functions.
 A function becomes a generator if it contains one or more **yield** expressions and if it uses the `function*` syntax.
 
 ### The `next()` method of a Generator
+The `next()` lets you iterate your generator.
+
 When you assign a variable that store your generator function like:
 
 `const ajaxGenSetup = ajaxGen();`
 
-You have as many `next()` methods to use as the number of yields present in the generator function, until `done = true`.
+You have as many `next()` methods to use as the number of yields present in the generator function, until `done = true`
 
 The `next()` method returns an object with two properties, **done** and **value**.
 `{ value: 3, done: false }`
 
-Each yield keyword is a stop point for a `next()` method. 
+Each yield keyword is a stop point for a `next()` method
 
 On the function below, when there are no more yields left to stop, the generator returns the property done as `true`
 
@@ -49,7 +51,7 @@ storeGen.next(50); // {value: undefined, done: true}
 
 The yield "foo" expression will send the "foo" string value out when pausing the generator function at that point, and whenever the generator is restarted with another `next()` function, whatever value is sent in, will be the result of that yield expression, which will then get added to 1 and assigned to the x variable.
 
-**It's almost as if the yield keyword is pausing and sort of making an external request for a value. Waiting for the next `next()`**
+**It's almost as if the yield keyword is pausing and sort of making an external request for a value. Waiting for the next `next()` with a value in it**
 
 The value passed on the `next()` method kind of 'replaces' the entire yield expression that was last paused on.
 
@@ -83,7 +85,7 @@ function* ajaxGen() {
 const ajaxGenSetup = ajaxGen();
 
 // This first next() triggers the generator and stop on the first yield 
-// Has value of undefined
+// Has value of undefined, because there was no 'yield' initially 'waiting' for a value
 ajaxGenSetup.next(); // {value: undefined, done: false}
 
 // Searching posts...

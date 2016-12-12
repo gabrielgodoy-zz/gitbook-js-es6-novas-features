@@ -60,6 +60,8 @@ Use of Const to create immutable Variables
 
 Constants are block-scoped, much like variables defined using the let statement. 
 
+*'const' statement does not hoist, that is why you need to put all your let statements on top of the blocks*
+
 The value of a constant cannot change through re-assignment, and it can't be redeclared.
 
 Constants always needs to be assigned:

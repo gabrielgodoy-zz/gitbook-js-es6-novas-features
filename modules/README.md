@@ -4,18 +4,18 @@ When loaded via the module system, ES6 treats a file as a separate module.
 Each module can both import other modules or specific API members, as well export their own public API members.
 
 There are two kinds of exports: 
-**named exports* (several per module)
-**default exports** (one per module).
+- **named exports** (several per module)
+- **default exports** (one per module)
 
-Modules on ES6 are designed around the export and import keywords. 
+Modules on ES6 are designed around the `export` and `import` keywords. 
 
 ES6 modules must be defined in separate files (one per module). 
-The browsers/engines have a default “module loader”, which synchronously loads a module file when it’s imported.
 
+The browsers/engines have a default "module loader", which synchronously loads a module file when it’s imported.
 
 Let’s examine an example with two modules right away:
 ```js
-///bar.js File
+// bar.js File
 function hello(who) { 
 	return `Let me introduce: ${who}`; 
 }
@@ -39,15 +39,17 @@ foo.awesome(); // LET ME INTRODUCE: HIPPO
 
 ### Default Exports
 **Modules that only export single values** are very popular in the Node.js community. 
+
 But they are also common in frontend development where you often have constructors/classes for models, with one model per module. 
 
-An ECMAScript 6 module can pick a default export, the most important exported value. 
+An ECMAScript 6 module can pick a default export, the most important exported value.
+ 
 Default exports are especially easy to import.
 
-The following ECMAScript 6 module “is” a single function:
+The following ECMAScript 6 module "is" a single function:
 ```js
 //------ myFunc.js ------
-export default function () { ... };
+export default function () {...};
     
 //------ main1.js ------
 import myFunc from './myFunc';
@@ -64,10 +66,12 @@ import MyClass from 'MyClass';
 let inst = new MyClass();
 ```
 
-Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified via its module’s name.
+Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified **via its module’s name**.
 
 ### Named Exports (Several per module)
-A module can export multiple things by prefixing their declarations with the keyword export. These exports are distinguished by their names and are called **named exports**.
+A module can export multiple things by prefixing their declarations with the keyword `export`. 
+
+These exports are distinguished by their names and are called **named exports**.
 
 ```js
 //------ lib.js ------
@@ -85,9 +89,7 @@ console.log(square(11)); // 121
 console.log(diag(4, 3)); // 5
 ```
 
-There are other ways to specify named exports (which are explained later), but I find this one quite convenient: simply write your code as if there were no outside world, then label everything that you want to export with a keyword.
-
-If you want to, you can also import the whole module and refer to its named exports via property notation:
+It is also possible to import the whole module and refer to its named exports via property notation:
 ```js
 //------ main.js ------
 import * as lib from 'lib';
@@ -96,7 +98,7 @@ console.log(lib.diag(4, 3)); // 5
 ```
 
 #### Exporting multiple function at once with curly braces
-You can also store something in a variable then export it. If you do that, you have to wrap the variable in a set of curly braces.
+It is also possible to store something in a variable, then export it 
 
 ```js
 function double(x) {

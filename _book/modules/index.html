@@ -679,14 +679,16 @@
                                 <h2 id="modules">Modules</h2>
 <p>When loaded via the module system, ES6 treats a file as a separate module. </p>
 <p>Each module can both import other modules or specific API members, as well export their own public API members.</p>
-<p>There are two kinds of exports: 
-<strong>named exports* (several per module)
-</strong>default exports** (one per module).</p>
-<p>Modules on ES6 are designed around the export and import keywords. </p>
-<p>ES6 modules must be defined in separate files (one per module). 
-The browsers/engines have a default &#x201C;module loader&#x201D;, which synchronously loads a module file when it&#x2019;s imported.</p>
+<p>There are two kinds of exports: </p>
+<ul>
+<li><strong>named exports</strong> (several per module)</li>
+<li><strong>default exports</strong> (one per module)</li>
+</ul>
+<p>Modules on ES6 are designed around the <code>export</code> and <code>import</code> keywords. </p>
+<p>ES6 modules must be defined in separate files (one per module). </p>
+<p>The browsers/engines have a default &quot;module loader&quot;, which synchronously loads a module file when it&#x2019;s imported.</p>
 <p>Let&#x2019;s examine an example with two modules right away:</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">///bar.js File</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// bar.js File</span>
 <span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span>who<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
     <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Let me introduce: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>who<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
@@ -708,13 +710,13 @@ console<span class="token punctuation">.</span><span class="token function">log<
 foo<span class="token punctuation">.</span><span class="token function">awesome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// LET ME INTRODUCE: HIPPO</span>
 </code></pre>
 <h3 id="default-exports">Default Exports</h3>
-<p><strong>Modules that only export single values</strong> are very popular in the Node.js community. 
-But they are also common in frontend development where you often have constructors/classes for models, with one model per module. </p>
-<p>An ECMAScript 6 module can pick a default export, the most important exported value. 
-Default exports are especially easy to import.</p>
-<p>The following ECMAScript 6 module &#x201C;is&#x201D; a single function:</p>
+<p><strong>Modules that only export single values</strong> are very popular in the Node.js community. </p>
+<p>But they are also common in frontend development where you often have constructors/classes for models, with one model per module. </p>
+<p>An ECMAScript 6 module can pick a default export, the most important exported value.</p>
+<p>Default exports are especially easy to import.</p>
+<p>The following ECMAScript 6 module &quot;is&quot; a single function:</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ myFunc.js ------</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">//------ main1.js ------</span>
 <span class="token keyword">import</span> myFunc <span class="token keyword">from</span> <span class="token string">&apos;./myFunc&apos;</span><span class="token punctuation">;</span>
@@ -728,9 +730,10 @@ Default exports are especially easy to import.</p>
 <span class="token keyword">import</span> MyClass <span class="token keyword">from</span> <span class="token string">&apos;MyClass&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> inst <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified via its module&#x2019;s name.</p>
+<p>Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified <strong>via its module&#x2019;s name</strong>.</p>
 <h3 id="named-exports-several-per-module">Named Exports (Several per module)</h3>
-<p>A module can export multiple things by prefixing their declarations with the keyword export. These exports are distinguished by their names and are called <strong>named exports</strong>.</p>
+<p>A module can export multiple things by prefixing their declarations with the keyword <code>export</code>. </p>
+<p>These exports are distinguished by their names and are called <strong>named exports</strong>.</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ lib.js ------</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> sqrt <span class="token operator">=</span> Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">;</span>
 <span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">square</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -745,15 +748,14 @@ Default exports are especially easy to import.</p>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">square</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 121</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">diag</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
 </code></pre>
-<p>There are other ways to specify named exports (which are explained later), but I find this one quite convenient: simply write your code as if there were no outside world, then label everything that you want to export with a keyword.</p>
-<p>If you want to, you can also import the whole module and refer to its named exports via property notation:</p>
+<p>It is also possible to import the whole module and refer to its named exports via property notation:</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ main.js ------</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> lib <span class="token keyword">from</span> <span class="token string">&apos;lib&apos;</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lib<span class="token punctuation">.</span><span class="token function">square</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 121</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lib<span class="token punctuation">.</span><span class="token function">diag</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
 </code></pre>
 <h4 id="exporting-multiple-function-at-once-with-curly-braces">Exporting multiple function at once with curly braces</h4>
-<p>You can also store something in a variable then export it. If you do that, you have to wrap the variable in a set of curly braces.</p>
+<p>It is also possible to store something in a variable, then export it </p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">double</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> x <span class="token operator">+</span> x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -799,7 +801,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modules","level":"1.11","depth":1,"next":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"modules/README.md","mtime":"2016-12-12T01:10:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:07:15.858Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modules","level":"1.11","depth":1,"next":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"modules/README.md","mtime":"2016-12-12T21:45:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:42:43.149Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

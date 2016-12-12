@@ -4,9 +4,7 @@ Async function can contain await expression, that pauses the execution of the as
 ```js
 // Some function that returns a Promise
 function getPromise() {
-    return new Promise((resolve, reject) => {
-        (Math.random() > .5) ? resolve('You are lucky!') : reject('Bad Luck :(');
-    });
+    return new Promise((resolve, reject) => Math.random() > .5 ? resolve('Lucky') : reject('Bad Luck'));
 }
 
 /*

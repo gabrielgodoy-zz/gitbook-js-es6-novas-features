@@ -679,145 +679,42 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="proxy">Proxy</h2>
-<p><strong>TODO:</strong> Needs more study and personal elaboration 
-For now is almost copy paste from <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank">MDN docs</a>:</p>
-<p>The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).</p>
-<p><strong>handler</strong>
-Placeholder object which contains traps.</p>
-<p><strong>traps</strong>
-The methods that provide property access. This is analogous to the concept of traps in operating systems.</p>
-<p><strong>target</strong>
-Object which the proxy virtualizes. It is often used as storage backend for the proxy. Invariants (semantics that remain unchanged) regarding object non-extensibility or non-configurable properties are verified against the target.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p><strong>target</strong>
-A target object (can be any sort of objects, including a native array, a function or even another proxy) or function to wrap with Proxy.</p>
-<p><strong>handler</strong>
-An object whose properties are functions which define the behavior of the proxy when an operation is performed on it.</p>
+<p>Define different behaviours for methods inside an object.</p>
+<p>The base syntax is <code>let myProxy = new Proxy(target, handler);</code></p>
+<p><strong>target</strong> is an object (can be any object, including arrays, functions or even another proxy) or a function to wrap with Proxy.</p>
+<p><strong>handler</strong> is an object whose properties are functions which define the behavior of the proxy when an operation is performed on it.</p>
+<p><strong>traps</strong> Traps are used in Proxies to override native methods from an object. Trap is analogous to the concept of traps in operating systems.</p>
+<h3 id="list-of-handler-methods">List of Handler methods</h3>
+<ul>
+<li><code>handler.getPrototypeOf()</code> A trap for Object.getPrototypeOf</li>
+<li><code>handler.setPrototypeOf()</code> A trap for Object.setPrototypeOf</li>
+<li><code>handler.isExtensible()</code> A trap for Object.isExtensible</li>
+<li><code>handler.preventExtensions()</code> A trap for Object.preventExtensions</li>
+<li><code>handler.getOwnPropertyDescriptor()</code> A trap for Object.getOwnPropertyDescriptor</li>
+<li><code>handler.defineProperty()</code> A trap for Object.defineProperty</li>
+<li><code>handler.has()</code> A trap for the in operator</li>
+<li><code>handler.get()</code> A trap for getting property values</li>
+<li><code>handler.set()</code> A trap for setting property values</li>
+<li><code>handler.deleteProperty()</code> A trap for the delete operator</li>
+<li><code>handler.ownKeys()</code> A trap for Object.getOwnPropertyNames</li>
+<li><code>handler.apply()</code> A trap for a function call</li>
+<li><code>handler.construct()</code> A trap for the new operator</li>
+</ul>
 <h4 id="basic-example">Basic Example</h4>
-<p>In this simple example the number 37 gets returned as the default value when the property name is not in the object. It is using the get handler.</p>
+<p>In this example a random number between 1 and 10 gets returned as the default value when the object property does not exist </p>
+<p>It is using the get handler inside the object propety</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> name <span class="token keyword">in</span> target<span class="token operator">?</span>
-            target<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token punctuation">:</span>
-            <span class="token number">37</span><span class="token punctuation">;</span>
+    <span class="token keyword">get</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span> prop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> prop <span class="token keyword">in</span> object <span class="token operator">?</span> object<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token punctuation">:</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">let</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span>b <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+<span class="token keyword">let</span> myProxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+myProxy<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+myProxy<span class="token punctuation">.</span>b <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>a<span class="token punctuation">,</span> p<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1, undefined</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;c&apos;</span> <span class="token keyword">in</span> p<span class="token punctuation">,</span> p<span class="token punctuation">.</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false, 37</span>
-</code></pre>
-<h4 id="no-op-forwarding-proxy">No-op forwarding proxy</h4>
-<p>In this example, we are using a native JavaScript object to which our proxy will forward all operations that are applied to it.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> target <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-p<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// operation forwarded to the target</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>target<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 37. The operation has been properly forwarded</span>
-</code></pre>
-<h4 id="validation">Validation</h4>
-<p>With a Proxy, you can easily validate the passed value for an object. This example uses the set handler.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> validator <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token keyword">set</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>prop <span class="token operator">===</span> <span class="token string">&apos;age&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Number<span class="token punctuation">.</span><span class="token function">isInteger</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">&apos;The age is not an integer&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">&gt;</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RangeError</span><span class="token punctuation">(</span><span class="token string">&apos;The age seems invalid&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">// The default behavior to store the value</span>
-    obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">// Indicate success</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> validator<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 100</span>
-person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token string">&apos;young&apos;</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Throws an exception</span>
-person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">300</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Throws an exceptio</span>
-</code></pre>
-<h4 id="extending-constructor">Extending constructor</h4>
-<p>A function proxy could easily extend a constructor with a new constructor. This example uses the construct and apply handlers.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">extend</span><span class="token punctuation">(</span>sup<span class="token punctuation">,</span>base<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> descriptor <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>
-    base<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span><span class="token string">&quot;constructor&quot;</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  base<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>sup<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">let</span> handler <span class="token operator">=</span> <span class="token punctuation">{</span>
-    construct<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">let</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>base<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span>obj<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    apply<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> that<span class="token punctuation">,</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      sup<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      base<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>that<span class="token punctuation">,</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token keyword">let</span> proxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span>handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  descriptor<span class="token punctuation">.</span>value <span class="token operator">=</span> proxy<span class="token punctuation">;</span>
-  Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>base<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token string">&quot;constructor&quot;</span><span class="token punctuation">,</span> descriptor<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> proxy<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">let</span> Person <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> Boy <span class="token operator">=</span> <span class="token function">extend</span><span class="token punctuation">(</span>Person<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-Boy<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sex <span class="token operator">=</span> <span class="token string">&quot;M&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> Peter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Boy</span><span class="token punctuation">(</span><span class="token string">&quot;Peter&quot;</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Peter<span class="token punctuation">.</span>sex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// &quot;M&quot;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Peter<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot;Peter&quot;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Peter<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 13</span>
-</code></pre>
-<h4 id="manipulating-dom-nodes">Manipulating DOM nodes</h4>
-<p>Sometimes you want to toggle the attribute or class name of two different elements. Here&apos;s how using the set handler.</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selected<span class="token punctuation">:</span> <span class="token keyword">null</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">{</span>
-  <span class="token keyword">set</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> prop<span class="token punctuation">,</span> newval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> oldval <span class="token operator">=</span> obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>prop <span class="token operator">===</span> <span class="token string">&apos;selected&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>oldval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        oldval<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&apos;aria-selected&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;false&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>newval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        newval<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&apos;aria-selected&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;true&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">// The default behavior to store the value</span>
-    obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span> <span class="token operator">=</span> newval<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">// Indicate success</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> i1 <span class="token operator">=</span> view<span class="token punctuation">.</span>selected <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;item-1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i1<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&apos;aria-selected&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;true&apos;</span>
-
-<span class="token keyword">let</span> i2 <span class="token operator">=</span> view<span class="token punctuation">.</span>selected <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;item-2&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i1<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">&apos;aria-selected&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;fal</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myProxy<span class="token punctuation">.</span>a<span class="token punctuation">,</span> myProxy<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1, undefined</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>myProxy<span class="token punctuation">.</span>anotherProperty<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Random number between 1 and 10</span>
 </code></pre>
 
                                 
@@ -852,7 +749,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Proxy","level":"1.14","depth":1,"next":{"title":"Spread Operators","level":"1.15","depth":1,"path":"spread-operators/README.md","ref":"spread-operators/README.md","articles":[]},"previous":{"title":"Promise methods","level":"1.13.1","depth":2,"path":"promises/methods.md","ref":"promises/methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"proxy/README.md","mtime":"2016-12-12T01:38:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:07:15.858Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Proxy","level":"1.14","depth":1,"next":{"title":"Spread Operators","level":"1.15","depth":1,"path":"spread-operators/README.md","ref":"spread-operators/README.md","articles":[]},"previous":{"title":"Promise methods","level":"1.13.1","depth":2,"path":"promises/methods.md","ref":"promises/methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"proxy/README.md","mtime":"2016-12-12T22:18:09.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T21:42:43.149Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
