@@ -10,37 +10,37 @@ Array.find returns the first element in the array that satisfies a provided test
 // Find an admin in this array of users
 let names = [{
     login: "Sam",
-    admin: false
+    isAdmin: false
 }, {
     login: "Brook",
-    admin: true
+    isAdmin: true
 }, {
     login: "Tyler",
-    admin: true
+    isAdmin: true
 }];
 
 // Returns first object for which user.admin is true
 let admin = users.find((user) => {
-    return user.admin;
+    return user.isAdmin;
 });
 
-console.log(admin); //{login: "Brook", admin: true}
+console.log(admin); // {login: "Brook", isAdmin: true}
 ```
 
 ### Array.from
 
-First, Array.from creates Array instances from array-like and iterable objects.   
+Array.from creates Array instances from array-like and iterable objects.  
 Examples of array-like objects include:
 
 * a nodeList returned by document.getElementsByTagName\(\);
 * the new Map and Set data structures.
 
-The items array has the forEach method, which isn’t available in the itemElements collection.
+The items array has the forEach method, which isn’t available in the itemElements collection
 
 ```js
 let itemElements = document.querySelectorAll('.items');
 let items = Array.from(itemElements);
-items.forEach(function(element) {
+items.forEach((element) => {
     console.log(element.nodeType)
 });
 
