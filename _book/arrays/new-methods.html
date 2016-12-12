@@ -1,0 +1,799 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>New Methods · ES6 and Beyond</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Gabriel Godoy">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../async-await/" />
+    
+    
+    <link rel="prev" href="array-destructuring.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Arrays
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="array-destructuring.html">
+            
+                <a href="array-destructuring.html">
+            
+                    
+                    Array Destructuring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="new-methods.html">
+            
+                <a href="new-methods.html">
+            
+                    
+                    New Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../async-await/">
+            
+                <a href="../async-await/">
+            
+                    
+                    Async Functions and Await operator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../classes/">
+            
+                <a href="../classes/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Functions
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../functions/arrow-functions.html">
+            
+                <a href="../functions/arrow-functions.html">
+            
+                    
+                    Arrow Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../functions/default-parameters.html">
+            
+                <a href="../functions/default-parameters.html">
+            
+                    
+                    Default Parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../functions/named-parameters.html">
+            
+                <a href="../functions/named-parameters.html">
+            
+                    
+                    Named Parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../functions/rest-parameters.html">
+            
+                <a href="../functions/rest-parameters.html">
+            
+                    
+                    Rest Parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../generators/">
+            
+                <a href="../generators/">
+            
+                    
+                    Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../iterators-and-iterables/">
+            
+                <a href="../iterators-and-iterables/">
+            
+                    
+                    Iterators and Iterables
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../iterators-and-iterables/for-of-loops.html">
+            
+                <a href="../iterators-and-iterables/for-of-loops.html">
+            
+                    
+                    for...of loops
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../let-and-const/">
+            
+                <a href="../let-and-const/">
+            
+                    
+                    let and const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Map and Weakmaps
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../map-and-weakmaps/map.html">
+            
+                <a href="../map-and-weakmaps/map.html">
+            
+                    
+                    Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../map-and-weakmaps/weakmap.html">
+            
+                <a href="../map-and-weakmaps/weakmap.html">
+            
+                    
+                    Weakmaps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    Math Object
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../math-object/new-methods.html">
+            
+                <a href="../math-object/new-methods.html">
+            
+                    
+                    New Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../modules/">
+            
+                <a href="../modules/">
+            
+                    
+                    Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Objects
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../objects/method-initializer.html">
+            
+                <a href="../objects/method-initializer.html">
+            
+                    
+                    Method Initializer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../objects/object-assign.html">
+            
+                <a href="../objects/object-assign.html">
+            
+                    
+                    Object Assign
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../objects/object-destructuring.html">
+            
+                <a href="../objects/object-destructuring.html">
+            
+                    
+                    Object Destructuring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../objects/object-initializer.html">
+            
+                <a href="../objects/object-initializer.html">
+            
+                    
+                    Object Initializer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../proxy/">
+            
+                <a href="../proxy/">
+            
+                    
+                    Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../spread-operators/">
+            
+                <a href="../spread-operators/">
+            
+                    
+                    Spread Operators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" >
+            
+                <span>
+            
+                    
+                    Sets and Weaksets
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../sets-and-weaksets/sets.html">
+            
+                <a href="../sets-and-weaksets/sets.html">
+            
+                    
+                    Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../sets-and-weaksets/weaksets.html">
+            
+                <a href="../sets-and-weaksets/weaksets.html">
+            
+                    
+                    Weaksets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    Strings
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../strings/new-methods.html">
+            
+                <a href="../strings/new-methods.html">
+            
+                    
+                    New Methods
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../strings/tagged-templates.html">
+            
+                <a href="../strings/tagged-templates.html">
+            
+                    
+                    Tagged templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../strings/template-literals.html">
+            
+                <a href="../strings/template-literals.html">
+            
+                    
+                    Template Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../symbols/">
+            
+                <a href="../symbols/">
+            
+                    
+                    Symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >New Methods</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="new-array-methods">New Array Methods</h2>
+<p>The Array object now has some new static class methods, as well as new methods on the Array prototype.</p>
+<h3 id="arrayfind">Array.find</h3>
+<p>Array.find returns the first element in the array that satisfies a provided testing function</p>
+<pre><code class="lang-js"><span class="hljs-comment">// Find an admin in this array of users</span>
+<span class="hljs-keyword">let</span> names = [{
+    login: <span class="hljs-string">&quot;Sam&quot;</span>,
+    admin: <span class="hljs-literal">false</span>
+}, {
+    login: <span class="hljs-string">&quot;Brook&quot;</span>,
+    admin: <span class="hljs-literal">true</span>
+}, {
+    login: <span class="hljs-string">&quot;Tyler&quot;</span>,
+    admin: <span class="hljs-literal">true</span>
+}];
+
+<span class="hljs-comment">// Returns first object for which user.admin is true</span>
+<span class="hljs-keyword">let</span> admin = users.find((user) =&gt; {
+    <span class="hljs-keyword">return</span> user.adm;
+});
+
+<span class="hljs-built_in">console</span>.log(admin); <span class="hljs-comment">//{login: &quot;Brook&quot;, admin: true}</span>
+</code></pre>
+<h3 id="arrayfrom">Array.from</h3>
+<p>First, Array.from creates Array instances from array-like and iterable objects. 
+Examples of array-like objects include:</p>
+<ul>
+<li>a nodeList returned by document.getElementsByTagName();</li>
+<li>the new Map and Set data structures.</li>
+</ul>
+<p>The items array has the forEach method, which isn&#x2019;t available in the itemElements collection.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> itemElements = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&apos;.items&apos;</span>);
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">Array</span>.from(itemElements);
+items.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(element.nodeType)
+});
+
+<span class="hljs-comment">// A workaround often used in ES5:</span>
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">Array</span>.prototype.slice.call(itemElements);
+</code></pre>
+<p>An interesting feature of Array.from is the second optional mapFunction argument. This allows you to create a new mapped array in a single invocation:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> navElements = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&apos;nav li&apos;</span>),
+    navTitles = <span class="hljs-built_in">Array</span>.from(navElements, el =&gt; el.textContent);
+</code></pre>
+<h3 id="arrayof">Array.of</h3>
+<p>Then, we have Array.of, which behaves much like the Array constructor. It fixes the special case when passing it a single number argument. This results in Array.of being preferable to new Array(). However, in most cases, you&#x2019;ll want to use array literals.</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">3</span>); <span class="hljs-comment">// [undefined, undefined, undefined]</span>
+<span class="hljs-keyword">let</span> y = <span class="hljs-built_in">Array</span>.of(<span class="hljs-number">8</span>); <span class="hljs-comment">// [8]</span>
+<span class="hljs-keyword">let</span> z = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]; <span class="hljs-comment">// Array literal</span>
+</code></pre>
+<p>Last but not least, a couple of methods have been added to the Array prototype.
+I think the find methods will be very welcome to most JavaScript developers.</p>
+<p><strong>find</strong> returns the first element for which the callback returns true.
+<strong>findIndex</strong> returns the index of the first element for which the callback returns true.
+<strong>fill</strong> &#x201C;overwrites&#x201D; the elements of an array with the given argument.</p>
+<pre><code class="lang-js">[<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">8</span>].find(n =&gt; n === <span class="hljs-number">10</span>) <span class="hljs-comment">// 10</span>
+
+
+[<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">8</span>].findIndex(n =&gt; n === <span class="hljs-number">10</span>) <span class="hljs-comment">// 2</span>
+
+[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>].fill(<span class="hljs-number">7</span>) <span class="hljs-comment">// [7, 7, 7]</span>
+[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>].fill(<span class="hljs-number">7</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">// [0, 7, 7, 7, 0]</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="array-destructuring.html" class="navigation navigation-prev " aria-label="Previous page: Array Destructuring">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../async-await/" class="navigation navigation-next " aria-label="Next page: Async Functions and Await operator">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"New Methods","level":"1.2.2","depth":2,"next":{"title":"Async Functions and Await operator","level":"1.3","depth":1,"path":"async-await/README.md","ref":"async-await/README.md","articles":[]},"previous":{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"arrays/new-methods.md","mtime":"2016-12-11T23:34:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
