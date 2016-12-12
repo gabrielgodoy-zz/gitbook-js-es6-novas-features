@@ -1,23 +1,28 @@
 ## Generators
-A Generator maintain its own iterative state. Each yield keyword is a stop point for the next() method. 
+A Generator manages its own iterative state, they are 'pausable' functions.
+
+Each yield keyword is a stop point for the `next()` method. 
 
 A function becomes a generator if it contains one or more 'yield' expressions and if it uses the `function*` syntax.
 
 On the function below, when the array passed to the function finishes its iteration, there are no more yields left, so the generator return the property done as 'true'
 
 ```js
-function* generatorForCustomIterator (array) {
-    let nextIndex = 0;
-    while (nextIndex < array.length) {
-        yield array[nextIndex++];
-    }
-}
+let myGenerator = function*() {
+    let one = yield 1;
+    let two = yield 2;
+    let three = yield 3;
+    console.log(one, two, three);
+};
 
-let myGenerator = generatorForCustomIterator(["Gabriel", "Godoy"]);
+// Store and setup myGenerator
+let gen = myGenerator();
 
-console.log('Generator: ', myGenerator.next()); // { value: 'Gabriel', done: false } 
-console.log('Generator: ', myGenerator.next()); // { value: 'Godoy', done: false } 
-console.log('Generator: ', myGenerator.next().done); // true
+console.log(gen.next()); // { value: 1, done: false } 
+console.log(gen.next()); // { value: 2, done: false } 
+console.log(gen.next()); // { value: 3, done: false } 
+console.log(gen.next()); // { value: undefined, done: true } 
+console.log(gen.next()); // { value: undefined, done: true } 
 ```
 
 ### Generators for Async actions
