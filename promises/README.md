@@ -8,9 +8,9 @@ Creating a new Promise automatically sets it to the **pending state**.
 
 ### Promises States
 Internally, a promise can be in one of three states:
-- Pending, when the final value is not available yet
-- Fulfilled, when and if the final value becomes available. A fulfillment value becomes permanently associated with the promise. This may be any value, including undefined.
-- Rejected, if an error prevented the final value from being determined. This may be any value, including undefined, though it is generally an Error object, like in exception handling.
+- **Pending**, when the final value is not available yet
+- **Fulfilled**, when and if the final value becomes available. A fulfillment value becomes permanently associated with the promise. This may be any value, including undefined.
+- **Rejected**, if an error prevented the final value from being determined. This may be any value, including undefined, though it is generally an Error object, like in exception handling.
 
 ### Creating Promises
 The Promise Constructor function takes an anonymous function with 2 arguments known as handlers (resolve, reject)

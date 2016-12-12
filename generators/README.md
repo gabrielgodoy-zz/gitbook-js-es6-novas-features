@@ -1,33 +1,57 @@
 ## Generators
 A Generator manages its own iterative state, they are 'pausable' functions.
 
-Each yield keyword is a stop point for the `next()` method. 
+A function becomes a generator if it contains one or more **yield** expressions and if it uses the `function*` syntax.
 
-A function becomes a generator if it contains one or more 'yield' expressions and if it uses the `function*` syntax.
+### The `next()` method of a Generator
+When you assign a variable that store your generator function like:
 
-On the function below, when the array passed to the function finishes its iteration, there are no more yields left, so the generator return the property done as 'true'
+`const ajaxGenSetup = ajaxGen();`
+
+You have as many `next()` methods to use as the number of yields present in the generator function, until `done = true`.
+
+The `next()` method returns an object with two properties, **done** and **value**.
+`{ value: 3, done: false }`
+
+Each yield keyword is a stop point for a `next()` method. 
+
+On the function below, when there are no more yields left to stop, the generator returns the property done as `true`
 
 ```js
 let myGenerator = function*() {
-    let one = yield 1;
-    let two = yield 2;
-    let three = yield 3;
-    console.log(one, two, three); // 1, 2, 3
+    yield 1;
+    yield 2;
+    yield 3;
 };
 
 // Store and setup myGenerator
 let gen = myGenerator();
 
-// The first next just initializes the generator, and stop on the first yield
+// The next method returns what it is programmed to be yielded on the function
 console.log(gen.next()); // { value: 1, done: false } 
-
-// The second next(1) actually sends data to the first yield, so var one becomes 1
-console.log(gen.next(1)); // { value: 2, done: false } 
-
-console.log(gen.next(2)); // { value: 3, done: false } 
-console.log(gen.next(3)); // { value: undefined, done: true } 
-console.log(gen.next(4)); // { value: undefined, done: true } 
+console.log(gen.next()); // { value: 2, done: false } 
+console.log(gen.next()); // { value: 3, done: false }
+console.log(gen.next()); // { value: undefined, done: true } 
 ```
+
+### Sending values to the Generator via `next()` method
+```js
+function *foo() {
+    let x = 1 + (yield "foo");
+    console.log(x);
+}
+
+let storeGen = foo();
+storeGen.next(); // {value: "foo", done: false}
+storeGen.next(50); // {value: undefined, done: true}
+// Logs x = 51;
+```
+
+The yield "foo" expression will send the "foo" string value out when pausing the generator function at that point, and whenever the generator is restarted with another `next()` function, whatever value is sent in, will be the result of that yield expression, which will then get added to 1 and assigned to the x variable.
+
+**It's almost as if the yield keyword is pausing and sort of making an external request for a value. Waiting for the next `next()`**
+
+The value passed on the `next()` method kind of 'replaces' the entire yield expression that was last paused on.
 
 ### Generators for Async actions
 We can set a specific order for asynchronous request to run with generators.
@@ -38,8 +62,7 @@ Got this example in a [very good ES6 course of a friend of mine](http://willianj
 function ajax(url) {
 	fetch(url)
 		.then(data => data.json())
-		// This function calls the next yield inside ajaxGen
-		// with the retrieved data in it as argument
+		// This function calls the next yield inside ajaxGen with the fetched data as argument
 		.then(data => ajaxGenSetup.next(data));
 }
 
@@ -56,7 +79,7 @@ function* ajaxGen() {
 	console.log(github2);
 }
 
-// Gets the generator and all next() methods according to the yields in it
+// Gets the generator and all next() methods according to the number of yields in it
 const ajaxGenSetup = ajaxGen();
 
 // This first next() triggers the generator and stop on the first yield 
@@ -69,23 +92,4 @@ ajaxGenSetup.next(); // {value: undefined, done: false}
 // Ajax Data
 // Searching data from Github 2...
 // Ajax Data
-```
-
-### Advanced Generators
-The next() method also accepts a value which can be used to modify the internal state of the generator. 
-
-A value passed to next() will be treated as the result of the last yield expression that paused the generator.
-
-```js
-function* customGenerator() {
-    let receiveValueFromNextMethod = yield "batata";
-    console.log('Value from next(): ', receiveValueFromNextMethod);
-}
-
-let storeCustomGenerator = customGenerator();
-// The first call did not log anything, because the generator 
-// was not yielding anything initially
-
-storeCustomGenerator.next(); // First next stops on the first yield
-storeCustomGenerator.next(10); // Value from next():  10
 ```
