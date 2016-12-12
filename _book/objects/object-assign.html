@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -655,36 +651,36 @@
 <p>The Object.assign method copies properties from one or more source objects to a target object specified as the very first argument.</p>
 <p>Object.assign(target, ...sources);</p>
 <p>What if we want to call countdownTimer with different options:</p>
-<pre><code class="lang-js"><span class="hljs-comment">// The example function countdownTimer needs to be called in many different ways</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// The example function countdownTimer needs to be called in many different ways</span>
 
-<span class="hljs-comment">// As simple as this</span>
-countdownTimer($(<span class="hljs-string">&apos;.btn-undo&apos;</span>), <span class="hljs-number">60</span>);
+<span class="token comment" spellcheck="true">// As simple as this</span>
+<span class="token function">countdownTimer</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;.btn-undo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// and as complicated as this</span>
-countdownTimer($(<span class="hljs-string">&apos;.btn-undo&apos;</span>), <span class="hljs-number">60</span>, {
-    container: <span class="hljs-string">&apos;.new-post-options&apos;</span>
-});
-countdownTimer($(<span class="hljs-string">&apos;.btn-undo&apos;</span>), <span class="hljs-number">3</span>, {
-    container: <span class="hljs-string">&apos;.new-post-options&apos;</span>,
-    timeUnit: <span class="hljs-string">&apos;minutes&apos;</span>,
-    timeoutClass: <span class="hljs-string">&apos;.time-is-up&apos;</span>
-});
+<span class="token comment" spellcheck="true">// and as complicated as this</span>
+<span class="token function">countdownTimer</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;.btn-undo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">:</span> <span class="token string">&apos;.new-post-options&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">countdownTimer</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&apos;.btn-undo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">:</span> <span class="token string">&apos;.new-post-options&apos;</span><span class="token punctuation">,</span>
+    timeUnit<span class="token punctuation">:</span> <span class="token string">&apos;minutes&apos;</span><span class="token punctuation">,</span>
+    timeoutClass<span class="token punctuation">:</span> <span class="token string">&apos;.time-is-up&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Object.assign to the rescue
 We want to merge &apos;options&apos; passed by the caller of the function countdownTimer, with &apos;defaults&apos;.
 Upon duplicate properties, those from &apos;options&apos; must override properties from &apos;defaults&apos;.
 Like the extend() jQuery method.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">countdownTimer</span>(<span class="hljs-params">target, timeLeft, options = {}</span>)</span>{
-    <span class="hljs-keyword">let</span> defaults = {
-        container: <span class="hljs-string">&apos;.timer-display&apos;</span>,
-        timeUnit: <span class="hljs-string">&apos;seconds&apos;</span>,
-        cloneDataAttribute: <span class="hljs-string">&apos;cloned&apos;</span>,
-        timeoutClass: <span class="hljs-string">&apos;.is-timeout&apos;</span>,
-        timeoutSoonClass: <span class="hljs-string">&apos;.is-timeout-soon&apos;</span>,
-        timeoutSoonTime: <span class="hljs-number">10</span>
-    };
-    <span class="hljs-keyword">let</span> settings = <span class="hljs-built_in">Object</span>.assign({}, defaults, options);
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">countdownTimer</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> timeLeft<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
+        container<span class="token punctuation">:</span> <span class="token string">&apos;.timer-display&apos;</span><span class="token punctuation">,</span>
+        timeUnit<span class="token punctuation">:</span> <span class="token string">&apos;seconds&apos;</span><span class="token punctuation">,</span>
+        cloneDataAttribute<span class="token punctuation">:</span> <span class="token string">&apos;cloned&apos;</span><span class="token punctuation">,</span>
+        timeoutClass<span class="token punctuation">:</span> <span class="token string">&apos;.is-timeout&apos;</span><span class="token punctuation">,</span>
+        timeoutSoonClass<span class="token punctuation">:</span> <span class="token string">&apos;.is-timeout-soon&apos;</span><span class="token punctuation">,</span>
+        timeoutSoonTime<span class="token punctuation">:</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> settings <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -712,24 +708,14 @@ Like the extend() jQuery method.</p>
             </div>
 
             
-                
-                <a href="method-initializer.html" class="navigation navigation-prev " aria-label="Previous page: Method Initializer">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="object-destructuring.html" class="navigation navigation-next " aria-label="Next page: Object Destructuring">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object Assign","level":"1.12.2","depth":2,"next":{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},"previous":{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/object-assign.md","mtime":"2016-12-12T01:16:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object Assign","level":"1.12.2","depth":2,"next":{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},"previous":{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/object-assign.md","mtime":"2016-12-12T01:16:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -764,6 +750,10 @@ Like the extend() jQuery method.</p>
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

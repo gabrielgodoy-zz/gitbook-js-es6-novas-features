@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -649,43 +645,43 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="array-destructuring">Array destructuring</h2>
-<pre><code class="lang-js"><span class="hljs-comment">// Old way</span>
-<span class="hljs-keyword">let</span> users = [<span class="hljs-string">&quot;Sam&quot;</span>,<span class="hljs-string">&quot;Tyler&quot;</span>,<span class="hljs-string">&quot;Brook&quot;</span>];
-<span class="hljs-keyword">let</span> a = users[<span class="hljs-number">0</span>];
-<span class="hljs-keyword">let</span> b = users[<span class="hljs-number">1</span>];
-<span class="hljs-keyword">let</span> c = users[<span class="hljs-number">2</span>];
-<span class="hljs-built_in">console</span>.log(a,b,c);
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Old way</span>
+<span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> users<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> users<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> c <span class="token operator">=</span> users<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// ES6 way</span>
-<span class="hljs-keyword">let</span> users = [<span class="hljs-string">&quot;Sam&quot;</span>,<span class="hljs-string">&quot;Tyler&quot;</span>,<span class="hljs-string">&quot;Brook&quot;</span>];
-<span class="hljs-keyword">let</span> [a,b,c] = users;
-<span class="hljs-built_in">console</span>.log(a,b,c);
+<span class="token comment" spellcheck="true">// ES6 way</span>
+<span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">]</span> <span class="token operator">=</span> users<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Another example</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> [x, y] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]; <span class="hljs-comment">// x = 1, y = 2</span>
-<span class="hljs-comment">// ES5 equivalent:</span>
-<span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
-<span class="hljs-keyword">var</span> x = arr[<span class="hljs-number">0</span>];
-<span class="hljs-keyword">var</span> y = arr[<span class="hljs-number">1</span>];
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// x = 1, y = 2</span>
+<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> y <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 <p>With this syntax, multiple variables can be assigned a value in one go.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>,
-    y = <span class="hljs-number">2</span>;
-[x, y] = [y, x]; <span class="hljs-comment">// x = 2, y = 1</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>y<span class="token punctuation">,</span> x<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// x = 2, y = 1</span>
 </code></pre>
 <p>Combining Array destructuring with Rest parameters</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> users = [<span class="hljs-string">&quot;Sam&quot;</span>,<span class="hljs-string">&quot;Tyler&quot;</span>,<span class="hljs-string">&quot;Brook&quot;</span>];
-<span class="hljs-keyword">let</span> [first, ...rest] = users;
-<span class="hljs-built_in">console</span>.log(first + <span class="hljs-string">&quot;, &quot;</span> + rest); <span class="hljs-comment">// Sam, [&quot;Tyler&quot;, &quot;Brook&quot;]</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> users<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>first <span class="token operator">+</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">+</span> rest<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Sam, [&quot;Tyler&quot;, &quot;Brook&quot;]</span>
 </code></pre>
 <p>Destructuring arrays from return values</p>
-<pre><code class="lang-js"><span class="hljs-comment">// When returning arrays from functions, we can assign to multiple variables at once</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">activeUsers</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">let</span> users = [<span class="hljs-string">&quot;Sam&quot;</span>, <span class="hljs-string">&quot;Alex&quot;</span>, <span class="hljs-string">&quot;Brook&quot;</span>];
-    <span class="hljs-keyword">return</span> users;
-}
-<span class="hljs-keyword">let</span> [a, b, c] = activeUsers();
-<span class="hljs-built_in">console</span>.log(a, b, c);
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// When returning arrays from functions, we can assign to multiple variables at once</span>
+<span class="token keyword">function</span> <span class="token function">activeUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Alex&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> users<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">activeUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -713,20 +709,14 @@
             </div>
 
             
-                
-                
-                <a href="new-methods.html" class="navigation navigation-next navigation-unique" aria-label="Next page: New Methods">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Array Destructuring","level":"1.2.1","depth":2,"next":{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"previous":{"title":"Arrays","level":"1.2","depth":1,"ref":"","articles":[{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"arrays/array-destructuring.md","mtime":"2016-12-11T23:29:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Array Destructuring","level":"1.2.1","depth":2,"next":{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"previous":{"title":"Arrays","level":"1.2","depth":1,"ref":"","articles":[{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"arrays/array-destructuring.md","mtime":"2016-12-11T23:29:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -761,6 +751,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -650,12 +646,12 @@
                                 
                                 <h2 id="string-new-methods">String new methods</h2>
 <p>A couple of convenience methods have been added to the String prototype. Most of them basically eliminate some workarounds with the indexOf() method to achieve the same:</p>
-<pre><code class="lang-js"><span class="hljs-string">&apos;my string&apos;</span>.startsWith(<span class="hljs-string">&apos;my&apos;</span>); <span class="hljs-comment">//true</span>
-<span class="hljs-string">&apos;my string&apos;</span>.endsWith(<span class="hljs-string">&apos;my&apos;</span>); <span class="hljs-comment">// false</span>
-<span class="hljs-string">&apos;my string&apos;</span>.includes(<span class="hljs-string">&apos;str&apos;</span>); <span class="hljs-comment">// true</span>
+<pre class="language-"><code class="lang-js"><span class="token string">&apos;my string&apos;</span><span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">&apos;my&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+<span class="token string">&apos;my string&apos;</span><span class="token punctuation">.</span><span class="token function">endsWith</span><span class="token punctuation">(</span><span class="token string">&apos;my&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token string">&apos;my string&apos;</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">&apos;str&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <p>Another convenience method has been added to create a repeating string:</p>
-<pre><code class="lang-js"><span class="hljs-string">&apos;my &apos;</span>.repeat(<span class="hljs-number">3</span>); <span class="hljs-comment">// &apos;my my my &apos;</span>
+<pre class="language-"><code class="lang-js"><span class="token string">&apos;my &apos;</span><span class="token punctuation">.</span><span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;my my my &apos;</span>
 </code></pre>
 
                                 
@@ -683,20 +679,14 @@
             </div>
 
             
-                
-                
-                <a href="tagged-templates.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Tagged templates">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"New Methods","level":"1.16.1","depth":2,"next":{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},"previous":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"strings/new-methods.md","mtime":"2016-12-12T01:20:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"New Methods","level":"1.16.1","depth":2,"next":{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},"previous":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"strings/new-methods.md","mtime":"2016-12-12T01:20:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -731,6 +721,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

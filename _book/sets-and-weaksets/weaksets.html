@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,44 +648,44 @@
 <p>More memory efficient type of Sets
 The WeakSets is a type where only objects are allowed to be stored</p>
 <p><strong>WeakSets are not iterable, and you cannot read values</strong></p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> weakTags = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>();
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> weakTags <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-weakTags.add(<span class="hljs-string">&quot;Javascript&quot;</span>); <span class="hljs-comment">// Invalid, Only objects can be added to Weaksets</span>
-weakTags.add({name: <span class="hljs-string">&quot;Javascript&quot;</span>});
-<span class="hljs-keyword">let</span> iOS = {name: <span class="hljs-string">&quot;iOS&quot;</span>};
-weakTags.add(iOS);
-weakTags.has(iOS); <span class="hljs-comment">// true</span>
-weakTags.delete(iOS); <span class="hljs-comment">// true</span>
+weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Invalid, Only objects can be added to Weaksets</span>
+weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> iOS <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;iOS&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+weakTags<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+weakTags<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <h3 id="weaksets-use-cases">WeakSets use cases</h3>
 <p>We can use weakSets to create special groups from existing objects <strong>without mutating them</strong>. Favoring immutable objects allows for much simpler code with <strong>no unexpected side efffetcs</strong>.</p>
 <p>Example of unecessary mutation on each post object without Weaksets</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> readPosts = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>();
-postList.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, (event) =&gt; {
-    <span class="hljs-comment">// Mutates &apos;post&apos; objets, crating a new property to indicate if it has been read</span>
-    post.isRead = <span class="hljs-literal">true</span>; 
-});
-<span class="hljs-comment">// ... rendering posts</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> post <span class="hljs-keyword">of</span> postArray) {
-    <span class="hljs-keyword">if</span>(!post.isRead) { <span class="hljs-comment">// Checks a property on each post</span>
-        _addClassToPost(post.element);
-    }
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> readPosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+postList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Mutates &apos;post&apos; objets, crating a new property to indicate if it has been read</span>
+    post<span class="token punctuation">.</span>isRead <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// ... rendering posts</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> post <span class="token keyword">of</span> postArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>post<span class="token punctuation">.</span>isRead<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// Checks a property on each post</span>
+        <span class="token function">_addClassToPost</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>Example using WeakSets without the need to mutate objects (create flag properties)
 Creating group of objects and check for the presence of those objects on the weakset group</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> readPosts = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakSet</span>();
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> readPosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-postList.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, (event) =&gt; {
-    readPosts.add(post); <span class="hljs-comment">// Add objects to a group of read posts weakset</span>
-});
+postList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    readPosts<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Add objects to a group of read posts weakset</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// ... rendering posts</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> post <span class="hljs-keyword">of</span> postArray) {
-    <span class="hljs-keyword">if</span>(!readPosts.has(post)) { <span class="hljs-comment">// has() checks wether an object is present in the WeakSet</span>
-        _addClassToPost(post.element);
-    }
-}
+<span class="token comment" spellcheck="true">// ... rendering posts</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> post <span class="token keyword">of</span> postArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>readPosts<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// has() checks wether an object is present in the WeakSet</span>
+        <span class="token function">_addClassToPost</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -717,20 +713,14 @@ postList.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, (e
             </div>
 
             
-                
-                <a href="sets.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Sets">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Weaksets","level":"1.15.2","depth":2,"next":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"previous":{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"sets-and-weaksets/weaksets.md","mtime":"2016-12-12T01:03:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Weaksets","level":"1.15.2","depth":2,"next":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"previous":{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"sets-and-weaksets/weaksets.md","mtime":"2016-12-12T01:03:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -765,6 +755,10 @@ postList.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, (e
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

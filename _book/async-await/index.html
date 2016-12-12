@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,30 +648,30 @@
                                 
                                 <h2 id="async-functions-and-await-operator">Async Functions and await operator</h2>
 <p>Async function can contain await expression, that pauses the execution of the async function and waits for the passed promise&apos;s resolution, and resumes the async function&apos;s execution and returns the resolved value.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Some function that returns a Promise</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPromise</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
-        (<span class="hljs-built_in">Math</span>.random() &gt; <span class="hljs-number">.5</span>) ? resolve(<span class="hljs-string">&apos;You are lucky!&apos;</span>) : reject(<span class="hljs-string">&apos;Bad Luck :(&apos;</span>);
-    });
-}
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Some function that returns a Promise</span>
+<span class="token keyword">function</span> <span class="token function">getPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;You are lucky!&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">&apos;Bad Luck :(&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">/*
+<span class="token comment" spellcheck="true">/*
 async function
 async/await let you write asynchronous code, using synchronous code structure
 */</span>
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">let</span> result;
-    <span class="hljs-comment">// await receives a Promise, if rejected goes to catch block with respective error</span>
-    <span class="hljs-keyword">try</span> {
-        result = <span class="hljs-keyword">await</span> getPromise();
-    } <span class="hljs-keyword">catch</span> (error) {
-        result = <span class="hljs-string">`Error: <span class="hljs-subst">${error}</span>`</span>;
-    }
-    <span class="hljs-built_in">console</span>.log(result);
-}
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> result<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// await receives a Promise, if rejected goes to catch block with respective error</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Error: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>error<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// Run async function</span>
-main();
+<span class="token comment" spellcheck="true">// Run async function</span>
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -703,24 +699,14 @@ main();
             </div>
 
             
-                
-                <a href="../arrays/new-methods.html" class="navigation navigation-prev " aria-label="Previous page: New Methods">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../classes/" class="navigation navigation-next " aria-label="Next page: Classes">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Async Functions and Await operator","level":"1.3","depth":1,"next":{"title":"Classes","level":"1.4","depth":1,"path":"classes/README.md","ref":"classes/README.md","articles":[]},"previous":{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"async-await/README.md","mtime":"2016-12-12T00:02:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Async Functions and Await operator","level":"1.3","depth":1,"next":{"title":"Classes","level":"1.4","depth":1,"path":"classes/README.md","ref":"classes/README.md","articles":[]},"previous":{"title":"New Methods","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"async-await/README.md","mtime":"2016-12-12T00:02:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -755,6 +741,10 @@ main();
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

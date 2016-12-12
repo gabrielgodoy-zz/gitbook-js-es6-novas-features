@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -653,62 +649,62 @@
 <p>Using <strong>var = variable</strong> Its scope is trapped in the nearest surrounding function 
 Using <strong>let = variable</strong> Its scoped is trapped in the nearest curly braces</p>
 <p><em>&apos;let&apos; statement does not hoist, that is why you need to put all your let statements on top of the blocks</em></p>
-<pre><code class="lang-js"><span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>) {
-   <span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;
-}
-<span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// undefined</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
 </code></pre>
 <p>This can make for cleaner code, resulting in fewer variables hanging around. </p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">bar</span>) </span>{
-   <span class="hljs-keyword">if</span>(bar) {
-     <span class="hljs-keyword">let</span> baz = bar;
-     <span class="hljs-keyword">if</span>(baz) {
-          <span class="hljs-keyword">let</span> bam = baz;
-     }
-     <span class="hljs-built_in">console</span>.log(bam); <span class="hljs-comment">// Error</span>
-   }
-    <span class="hljs-built_in">console</span>.log(baz) <span class="hljs-comment">// Error</span>
-}
-foo(<span class="hljs-string">&quot;bar&quot;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">if</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">let</span> baz <span class="token operator">=</span> bar<span class="token punctuation">;</span>
+     <span class="token keyword">if</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> bam <span class="token operator">=</span> baz<span class="token punctuation">;</span>
+     <span class="token punctuation">}</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bam<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Error</span>
+   <span class="token punctuation">}</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Error</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">&quot;bar&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>let variables can be reassigned</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;Jerry Only&quot;</span>;
-name = <span class="hljs-string">&quot;Glenn Danzig&quot;</span>;
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&quot;Jerry Only&quot;</span><span class="token punctuation">;</span>
+name <span class="token operator">=</span> <span class="token string">&quot;Glenn Danzig&quot;</span><span class="token punctuation">;</span>
 </code></pre>
 <p>but not redeclared on the same scope. This gives a typeError</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;Jerry Only&quot;</span>;
-<span class="hljs-keyword">let</span> name = <span class="hljs-string">&quot;Glenn Danzig&quot;</span>;
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&quot;Jerry Only&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&quot;Glenn Danzig&quot;</span><span class="token punctuation">;</span>
 </code></pre>
 <p>In different scope it can be redeclared</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> message = <span class="hljs-string">&quot;web forum&quot;</span>;
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">&quot;web forum&quot;</span><span class="token punctuation">;</span>
 
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printInCaps</span>(<span class="hljs-params">value</span>)</span>{
-  <span class="hljs-keyword">let</span> message = value.toUpperCase();
-  <span class="hljs-keyword">return</span> message;
-}
+<span class="token keyword">function</span> <span class="token function">printInCaps</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> message <span class="token operator">=</span> value<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
-printInCaps(<span class="hljs-string">&quot;profiles&quot;</span>);
-<span class="hljs-built_in">console</span>.log( message ); <span class="hljs-comment">// web forum</span>
+<span class="token function">printInCaps</span><span class="token punctuation">(</span><span class="token string">&quot;profiles&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> message <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// web forum</span>
 
-<span class="hljs-comment">// Because message inside function is trapped with let, and console sees only the global message</span>
+<span class="token comment" spellcheck="true">// Because message inside function is trapped with let, and console sees only the global message</span>
 </code></pre>
 <h2 id="const">const</h2>
 <p>Use of Const to create immutable Variables
 Constants are block-scoped, much like variables defined using the let statement. 
 The value of a constant cannot change through re-assignment, and it can&apos;t be redeclared.</p>
 <p>Constants always needs to be assigned:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> MAX_USERS = <span class="hljs-number">15</span>; <span class="hljs-comment">// Right</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> MAX_USERS <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Right</span>
 
-<span class="hljs-keyword">const</span> MAX_USERS; <span class="hljs-comment">// Wrong</span>
+<span class="token keyword">const</span> MAX_USERS<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Wrong</span>
 </code></pre>
 <p>There is another way to declare block-scoped variables. With const, you declare a read-only reference to a value. You must assign a variable directly. </p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> myVar = <span class="hljs-number">2</span>;
-myVar = <span class="hljs-number">3</span>;
-<span class="hljs-comment">// 3</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> myVar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+myVar <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 3</span>
 myVar
-<span class="hljs-comment">// 2, and will always be two</span>
+<span class="token comment" spellcheck="true">// 2, and will always be two</span>
 </code></pre>
 
                                 
@@ -736,20 +732,14 @@ myVar
             </div>
 
             
-                
-                <a href="../iterators-and-iterables/for-of-loops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: for...of loops">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"let and const","level":"1.8","depth":1,"next":{"title":"Map and Weakmaps","level":"1.9","depth":1,"ref":"","articles":[{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"previous":{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"let-and-const/README.md","mtime":"2016-12-12T00:07:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"let and const","level":"1.8","depth":1,"next":{"title":"Map and Weakmaps","level":"1.9","depth":1,"ref":"","articles":[{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"previous":{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"let-and-const/README.md","mtime":"2016-12-12T00:07:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -784,6 +774,10 @@ myVar
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

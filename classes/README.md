@@ -1,20 +1,20 @@
 ## Classes
 Classes are a well-debated feature of ES6. Some believe that they go against the prototypal nature of JavaScript, while others think they lower the barrier to entry for beginners and people coming from other languages and that they help people writing large-scale applications. In any case, they are part of ES6. Here’s a very quick introduction.
-
+ 
 Classes are built around the class and constructor keywords
 ```js
 class Vehicle {
-	// Runs everytime a new instance is create with 'new'
+       // constructor runs everytime a new instance is create with 'new'
    	constructor(name){ 
-      this.name = name;
-      this.kind = 'vehicle';
+  		this.name = name;
+  		this.kind = 'vehicle';
    	}
    	getName() {
-      return this.name;
+  		return this.name;
    	},
    	// Prefixing with underscore. Convention for private
    	_privateMethod() { 
-      //...
+  		//...
    }
 }
 
@@ -38,10 +38,10 @@ To inherit from a base class, use **extends**:
 
 ```js
 class Car extends Vehicle {
-   constructor(name) {
-      super(name);
-      this.kind = 'car'
-   }
+	constructor(name) {
+  		super(name);
+  		this.kind = 'car'
+	}
 }
 
 let myCar = new Car('bumpy');

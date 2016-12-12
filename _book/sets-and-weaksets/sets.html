@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,42 +648,42 @@
 <p>The <strong>Set</strong> Object stores unique values of any type, wheter primitives or object references</p>
 <p>Problems with arrays
 In arrays, duplicate entries are allowed, like below:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> tags = [];
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> tags <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 
-tags.push(<span class="hljs-string">&quot;Javascript&quot;</span>);
-tags.push(<span class="hljs-string">&quot;Programming&quot;</span>);
-tags.push(<span class="hljs-string">&quot;Web&quot;</span>);
-tags.push(<span class="hljs-string">&quot;Web&quot;</span>); <span class="hljs-comment">// Duplicate entry</span>
+tags<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;Programming&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;Web&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;Web&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Duplicate entry</span>
 
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Total items: &quot;</span>, tags.length); <span class="hljs-comment">// 4</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Total items: &quot;</span><span class="token punctuation">,</span> tags<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 4</span>
 </code></pre>
 <p>Sets prevent duplicate entries
 We use the add() method to add elements to a Set</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> tags = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
-tags.add(<span class="hljs-string">&quot;Javascript&quot;</span>);
-tags.add(<span class="hljs-string">&quot;Programming&quot;</span>);
-tags.add({version: <span class="hljs-string">&quot;2015&quot;</span>}); <span class="hljs-comment">// Primitive values and objects are allowed</span>
-tags.add(<span class="hljs-string">&quot;Web&quot;</span>);
-tags.add(<span class="hljs-string">&quot;Web&quot;</span>); <span class="hljs-comment">// Duplicate entries are ignored</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> tags <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Programming&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>version<span class="token punctuation">:</span> <span class="token string">&quot;2015&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Primitive values and objects are allowed</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Web&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Web&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Duplicate entries are ignored</span>
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Total items: &apos;</span>, tags.size); <span class="hljs-comment">// 4, the second &quot;Web&quot; was ignored</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Total items: &apos;</span><span class="token punctuation">,</span> tags<span class="token punctuation">.</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 4, the second &quot;Web&quot; was ignored</span>
 </code></pre>
 <p><strong>Set objects are iterable. We can use them with for...of and destructuring</strong></p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> tags = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>();
-tags.add(<span class="hljs-string">&quot;Javascript&quot;</span>);
-tags.add(<span class="hljs-string">&quot;Programming&quot;</span>);
-tags.add({version: <span class="hljs-string">&quot;2015&quot;</span>});
-tags.add(<span class="hljs-string">&quot;Web&quot;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> tags <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Programming&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>version<span class="token punctuation">:</span> <span class="token string">&quot;2015&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+tags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Web&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> tag <span class="hljs-keyword">of</span> tags) {
-    <span class="hljs-built_in">console</span>.log(tag);
-}
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> tag <span class="token keyword">of</span> tags<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// Destructure assignment allowed on Sets</span>
-<span class="hljs-keyword">let</span> [a, b, c, d] = tags;
-<span class="hljs-built_in">console</span>.log(a, b, c, d);
+<span class="token comment" spellcheck="true">// Destructure assignment allowed on Sets</span>
+<span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">]</span> <span class="token operator">=</span> tags<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -715,20 +711,14 @@ tags.add(<span class="hljs-string">&quot;Web&quot;</span>);
             </div>
 
             
-                
-                
-                <a href="weaksets.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Weaksets">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sets","level":"1.15.1","depth":2,"next":{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]},"previous":{"title":"Sets and Weaksets","level":"1.15","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"sets-and-weaksets/sets.md","mtime":"2016-12-12T01:03:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sets","level":"1.15.1","depth":2,"next":{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]},"previous":{"title":"Sets and Weaksets","level":"1.15","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"sets-and-weaksets/sets.md","mtime":"2016-12-12T01:03:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -763,6 +753,10 @@ tags.add(<span class="hljs-string">&quot;Web&quot;</span>);
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,60 +648,60 @@
                                 
                                 <h2 id="tagged-templates-literal">Tagged templates literal</h2>
 <p>Allows to modify the output of template literals using a function.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> a = <span class="hljs-number">5</span>,
-    b = <span class="hljs-number">10</span>;
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">/*
+<span class="token comment" spellcheck="true">/*
 The first argument contains an array of string 
 literals (&quot;Hello &quot; , &quot; world&quot;, and &quot;&quot; in this case below)
 The second, and each argument after the first one, 
 are the values of the processed 
 (or sometimes called cooked) substitution expressions (&quot;15&quot; and &quot;50&quot; here).
 */</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">someFunction</span>(<span class="hljs-params">strings, ...values</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(strings[<span class="hljs-number">0</span>]); <span class="hljs-comment">// &quot;Hello &quot;</span>
-  <span class="hljs-built_in">console</span>.log(strings[<span class="hljs-number">1</span>]); <span class="hljs-comment">// &quot; world &quot;</span>
-  <span class="hljs-built_in">console</span>.log(strings[<span class="hljs-number">2</span>]); <span class="hljs-comment">// &quot;&quot;</span>
-  <span class="hljs-built_in">console</span>.log(values[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// 15</span>
-  <span class="hljs-built_in">console</span>.log(values[<span class="hljs-number">1</span>]);  <span class="hljs-comment">// 50</span>
+<span class="token keyword">function</span> <span class="token function">someFunction</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot;Hello &quot;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot; world &quot;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot;&quot;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>values<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 15</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>values<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 50</span>
 
-  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Bazinga!&quot;</span>;
-}
+  <span class="token keyword">return</span> <span class="token string">&quot;Bazinga!&quot;</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-someFunction<span class="hljs-string">`Hello <span class="hljs-subst">${ a + b }</span> world <span class="hljs-subst">${ a * b }</span>`</span>;
-<span class="hljs-comment">//In the end, your function returns your manipulated string.</span>
-<span class="hljs-comment">// &quot;Bazinga!&quot;</span>
+someFunction<span class="token template-string"><span class="token string">`Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> a <span class="token operator">+</span> b <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> world </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> a <span class="token operator">*</span> b <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//In the end, your function returns your manipulated string.</span>
+<span class="token comment" spellcheck="true">// &quot;Bazinga!&quot;</span>
 </code></pre>
 <p>Tag functions don&apos;t need to return a string, as shown in the following example.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">template</span>(<span class="hljs-params">strings, ...keys</span>) </span>{
-  <span class="hljs-keyword">return</span> (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...values</span>) </span>{
-    <span class="hljs-keyword">let</span> dict = values[values.length - <span class="hljs-number">1</span>] || {},
-        result = [strings[<span class="hljs-number">0</span>]];
-    keys.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key, i</span>) </span>{
-      <span class="hljs-keyword">let</span> value = <span class="hljs-built_in">Number</span>.isInteger(key) ? values[key] : dict[key];
-      result.push(value, strings[i + <span class="hljs-number">1</span>]);
-    });
-    <span class="hljs-keyword">return</span> result.join(<span class="hljs-string">&apos;&apos;</span>);
-  });
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">template</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>keys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> dict <span class="token operator">=</span> values<span class="token punctuation">[</span>values<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        result <span class="token operator">=</span> <span class="token punctuation">[</span>strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    keys<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> value <span class="token operator">=</span> Number<span class="token punctuation">.</span><span class="token function">isInteger</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">?</span> values<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token punctuation">:</span> dict<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> strings<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&apos;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">let</span> t1Closure = template<span class="hljs-string">`<span class="hljs-subst">${0}</span><span class="hljs-subst">${1}</span><span class="hljs-subst">${0}</span>!`</span>;
-t1Closure(<span class="hljs-string">&apos;Y&apos;</span>, <span class="hljs-string">&apos;A&apos;</span>);  <span class="hljs-comment">// &quot;YAY!&quot; </span>
-<span class="hljs-keyword">let</span> t2Closure = template<span class="hljs-string">`<span class="hljs-subst">${0}</span> <span class="hljs-subst">${&apos;foo&apos;}</span>!`</span>;
-t2Closure(<span class="hljs-string">&apos;Hello&apos;</span>, {foo: <span class="hljs-string">&apos;World&apos;</span>});  <span class="hljs-comment">// &quot;Hello World!&quot;</span>
+<span class="token keyword">let</span> t1Closure <span class="token operator">=</span> template<span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">0</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">0</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token function">t1Closure</span><span class="token punctuation">(</span><span class="token string">&apos;Y&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;A&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// &quot;YAY!&quot; </span>
+<span class="token keyword">let</span> t2Closure <span class="token operator">=</span> template<span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">0</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token string">&apos;foo&apos;</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token function">t2Closure</span><span class="token punctuation">(</span><span class="token string">&apos;Hello&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>foo<span class="token punctuation">:</span> <span class="token string">&apos;World&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// &quot;Hello World!&quot;</span>
 </code></pre>
 <h3 id="raw-strings">Raw Strings</h3>
 <p>The special raw property, available on the first function argument of tagged template literals, allows you to access the raw strings as they were entered.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">tag</span>(<span class="hljs-params">strings, ...values</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(strings.raw[<span class="hljs-number">0</span>]); 
-  <span class="hljs-comment">// &quot;string text line 1 \n string text line 2&quot;</span>
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">tag</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">.</span>raw<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token comment" spellcheck="true">// &quot;string text line 1 \n string text line 2&quot;</span>
+<span class="token punctuation">}</span>
 
-tag<span class="hljs-string">`string text line 1 \n string text line 2`</span>;
+tag<span class="token template-string"><span class="token string">`string text line 1 \n string text line 2`</span></span><span class="token punctuation">;</span>
 </code></pre>
 <p>In addition, the String.raw() method exists to create raw strings just like the default template function and string concatenation would create.</p>
-<pre><code class="lang-js"><span class="hljs-built_in">String</span>.raw<span class="hljs-string">`Hi\n<span class="hljs-subst">${2+3}</span>!`</span>;
-<span class="hljs-comment">// &quot;Hi\n5!&quot;</span>
+<pre class="language-"><code class="lang-js">String<span class="token punctuation">.</span>raw<span class="token template-string"><span class="token string">`Hi\n</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &quot;Hi\n5!&quot;</span>
 </code></pre>
 
                                 
@@ -733,24 +729,14 @@ tag<span class="hljs-string">`string text line 1 \n string text line 2`</span>;
             </div>
 
             
-                
-                <a href="new-methods.html" class="navigation navigation-prev " aria-label="Previous page: New Methods">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="template-literals.html" class="navigation navigation-next " aria-label="Next page: Template Strings">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tagged templates","level":"1.16.2","depth":2,"next":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"previous":{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"strings/tagged-templates.md","mtime":"2016-12-12T01:30:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tagged templates","level":"1.16.2","depth":2,"next":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"previous":{"title":"New Methods","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"strings/tagged-templates.md","mtime":"2016-12-12T01:30:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -785,6 +771,10 @@ tag<span class="hljs-string">`string text line 1 \n string text line 2`</span>;
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

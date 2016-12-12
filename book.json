@@ -1,5 +1,23 @@
 {
 	"title": "ES6 and Beyond",
 	"description": "Annotations about Javascript Features",
-	"author": "Gabriel Godoy"
+	"author": "Gabriel Godoy",
+	"styles": {
+		"website": "./assets/main.css"
+	},
+	"plugins": [
+		"theme-api",
+		"prism", 
+		"-highlight"
+	],
+	"pluginsConfig": {
+		"theme-api": {
+			"theme": "dark"
+		},
+		"prism": {
+			"css": [
+				"prismjs/themes/prism-tomorrow.css"
+			]
+		}
+	}
 }

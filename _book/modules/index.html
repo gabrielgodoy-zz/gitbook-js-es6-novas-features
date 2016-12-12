@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -658,26 +654,26 @@
 <p>ES6 modules must be defined in separate files (one per module). 
 The browsers/engines have a default &#x201C;module loader&#x201D;, which synchronously loads a module file when it&#x2019;s imported.</p>
 <p>Let&#x2019;s examine an example with two modules right away:</p>
-<pre><code class="lang-js"><span class="hljs-comment">///bar.js File</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span>(<span class="hljs-params">who</span>) </span>{ 
-    <span class="hljs-keyword">return</span> <span class="hljs-string">`Let me introduce: <span class="hljs-subst">${who}</span>`</span>; 
-}
-<span class="hljs-keyword">export</span> hello; 
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">///bar.js File</span>
+<span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span>who<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Let me introduce: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>who<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> hello<span class="token punctuation">;</span> 
 
-<span class="hljs-comment">//foo.js File</span>
-<span class="hljs-comment">// import only `hello()` from the &apos;bar&apos; module </span>
-<span class="hljs-keyword">import</span> hello <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;bar&apos;</span>; 
-<span class="hljs-keyword">var</span> hungry = <span class="hljs-string">&apos;hippo&apos;</span>; 
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">awesome</span>(<span class="hljs-params"></span>) </span>{ 
-    <span class="hljs-built_in">console</span>.log(hello(hungry).toUpperCase()); 
-}
+<span class="token comment" spellcheck="true">//foo.js File</span>
+<span class="token comment" spellcheck="true">// import only `hello()` from the &apos;bar&apos; module </span>
+<span class="token keyword">import</span> hello <span class="token keyword">from</span> <span class="token string">&apos;bar&apos;</span><span class="token punctuation">;</span> 
+<span class="token keyword">var</span> hungry <span class="token operator">=</span> <span class="token string">&apos;hippo&apos;</span><span class="token punctuation">;</span> 
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">awesome</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hello</span><span class="token punctuation">(</span>hungry<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// baz.js File</span>
-<span class="hljs-comment">// import the entire &apos;foo&apos; and &apos;bar&apos; modules </span>
-<span class="hljs-built_in">module</span> foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;foo&apos;</span>; 
-<span class="hljs-built_in">module</span> bar <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;bar&apos;</span>; 
-<span class="hljs-built_in">console</span>.log( bar.hello( <span class="hljs-string">&apos;rhino&apos;</span> ) ); <span class="hljs-comment">// Let me introduce: rhino </span>
-foo.awesome(); <span class="hljs-comment">// LET ME INTRODUCE: HIPPO</span>
+<span class="token comment" spellcheck="true">// baz.js File</span>
+<span class="token comment" spellcheck="true">// import the entire &apos;foo&apos; and &apos;bar&apos; modules </span>
+module foo <span class="token keyword">from</span> <span class="token string">&apos;foo&apos;</span><span class="token punctuation">;</span> 
+module bar <span class="token keyword">from</span> <span class="token string">&apos;bar&apos;</span><span class="token punctuation">;</span> 
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> bar<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span> <span class="token string">&apos;rhino&apos;</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Let me introduce: rhino </span>
+foo<span class="token punctuation">.</span><span class="token function">awesome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// LET ME INTRODUCE: HIPPO</span>
 </code></pre>
 <h3 id="default-exports">Default Exports</h3>
 <p><strong>Modules that only export single values</strong> are very popular in the Node.js community. 
@@ -685,58 +681,58 @@ But they are also common in frontend development where you often have constructo
 <p>An ECMAScript 6 module can pick a default export, the most important exported value. 
 Default exports are especially easy to import.</p>
 <p>The following ECMAScript 6 module &#x201C;is&#x201D; a single function:</p>
-<pre><code class="lang-js"><span class="hljs-comment">//------ myFunc.js ------</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ ... };
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ myFunc.js ------</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">//------ main1.js ------</span>
-<span class="hljs-keyword">import</span> myFunc <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./myFunc&apos;</span>;
-myFunc();
+<span class="token comment" spellcheck="true">//------ main1.js ------</span>
+<span class="token keyword">import</span> myFunc <span class="token keyword">from</span> <span class="token string">&apos;./myFunc&apos;</span><span class="token punctuation">;</span>
+<span class="token function">myFunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>An ECMAScript 6 module whose default export is a class looks as follows:</p>
-<pre><code class="lang-js"><span class="hljs-comment">//------ MyClass.js ------</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{ ... };
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ MyClass.js ------</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token punctuation">{</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">//------ main2.js ------</span>
-<span class="hljs-keyword">import</span> MyClass <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;MyClass&apos;</span>;
-<span class="hljs-keyword">let</span> inst = <span class="hljs-keyword">new</span> MyClass();
+<span class="token comment" spellcheck="true">//------ main2.js ------</span>
+<span class="token keyword">import</span> MyClass <span class="token keyword">from</span> <span class="token string">&apos;MyClass&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> inst <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified via its module&#x2019;s name.</p>
 <h3 id="named-exports-several-per-module">Named Exports (Several per module)</h3>
 <p>A module can export multiple things by prefixing their declarations with the keyword export. These exports are distinguished by their names and are called <strong>named exports</strong>.</p>
-<pre><code class="lang-js"><span class="hljs-comment">//------ lib.js ------</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> sqrt = <span class="hljs-built_in">Math</span>.sqrt;
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">square</span>(<span class="hljs-params">x</span>) </span>{
-   <span class="hljs-keyword">return</span> x * x;
-}
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">diag</span>(<span class="hljs-params">x, y</span>) </span>{
-   <span class="hljs-keyword">return</span> sqrt(square(x) + square(y));
-}
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ lib.js ------</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> sqrt <span class="token operator">=</span> Math<span class="token punctuation">.</span>sqrt<span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">square</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> x <span class="token operator">*</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">diag</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> <span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token function">square</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">square</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">//------ main.js ------</span>
-<span class="hljs-keyword">import</span> { square, diag } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lib&apos;</span>;
-<span class="hljs-built_in">console</span>.log(square(<span class="hljs-number">11</span>)); <span class="hljs-comment">// 121</span>
-<span class="hljs-built_in">console</span>.log(diag(<span class="hljs-number">4</span>, <span class="hljs-number">3</span>)); <span class="hljs-comment">// 5</span>
+<span class="token comment" spellcheck="true">//------ main.js ------</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> square<span class="token punctuation">,</span> diag <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;lib&apos;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">square</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 121</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">diag</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
 </code></pre>
 <p>There are other ways to specify named exports (which are explained later), but I find this one quite convenient: simply write your code as if there were no outside world, then label everything that you want to export with a keyword.</p>
 <p>If you want to, you can also import the whole module and refer to its named exports via property notation:</p>
-<pre><code class="lang-js"><span class="hljs-comment">//------ main.js ------</span>
-<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> lib <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;lib&apos;</span>;
-<span class="hljs-built_in">console</span>.log(lib.square(<span class="hljs-number">11</span>)); <span class="hljs-comment">// 121</span>
-<span class="hljs-built_in">console</span>.log(lib.diag(<span class="hljs-number">4</span>, <span class="hljs-number">3</span>)); <span class="hljs-comment">// 5</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ main.js ------</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> lib <span class="token keyword">from</span> <span class="token string">&apos;lib&apos;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lib<span class="token punctuation">.</span><span class="token function">square</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 121</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lib<span class="token punctuation">.</span><span class="token function">diag</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
 </code></pre>
 <h4 id="exporting-multiple-function-at-once-with-curly-braces">Exporting multiple function at once with curly braces</h4>
 <p>You can also store something in a variable then export it. If you do that, you have to wrap the variable in a set of curly braces.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">double</span>(<span class="hljs-params">x</span>) </span>{
-  <span class="hljs-keyword">return</span> x + x;
-}
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">triple</span>(<span class="hljs-params">x</span>) </span>{
-  <span class="hljs-keyword">return</span> x + x;
-}
-<span class="hljs-keyword">export</span> { double, triple };
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">double</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">triple</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> double<span class="token punctuation">,</span> triple <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// A module can then import the double function like so:</span>
-<span class="hljs-keyword">import</span> { double, triple } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;filePath&apos;</span>;
-double(<span class="hljs-number">2</span>); <span class="hljs-comment">// 4</span>
+<span class="token comment" spellcheck="true">// A module can then import the double function like so:</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> double<span class="token punctuation">,</span> triple <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;filePath&apos;</span><span class="token punctuation">;</span>
+<span class="token function">double</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 4</span>
 </code></pre>
 
                                 
@@ -764,20 +760,14 @@ double(<span class="hljs-number">2</span>); <span class="hljs-comment">// 4</spa
             </div>
 
             
-                
-                <a href="../math-object/new-methods.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: New Methods">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Modules","level":"1.11","depth":1,"next":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"modules/README.md","mtime":"2016-12-12T01:10:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Modules","level":"1.11","depth":1,"next":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"modules/README.md","mtime":"2016-12-12T01:10:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -812,6 +802,10 @@ double(<span class="hljs-number">2</span>); <span class="hljs-comment">// 4</spa
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

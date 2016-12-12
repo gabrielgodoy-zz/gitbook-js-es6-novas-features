@@ -1,0 +1,25 @@
+.page-wrapper {
+    padding-bottom: 30px;
+}
+
+ul.summary li span {
+    opacity: .5;
+}
+
+ul.summary li a {
+    transition: color .3s
+}
+
+ul.summary > li > a,
+ul.summary > li > span {
+    font-weight: bold;
+}
+
+ul.summary li a:hover {
+    color: #008cff;
+    text-decoration: none !important;
+}
+
+pre.language- {
+    border-radius: 4px;
+}

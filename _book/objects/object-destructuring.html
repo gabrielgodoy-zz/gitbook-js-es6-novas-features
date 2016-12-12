@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,28 +648,28 @@
                                 
                                 <h2 id="destructuring-an-object-into-variables">Destructuring an Object into variables</h2>
 <p>Example of object destructuring:</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildUser</span>(<span class="hljs-params">first, last</span>)</span>{
-  <span class="hljs-keyword">let</span> fullName = first + <span class="hljs-string">&quot; &quot;</span> + last;
-  <span class="hljs-keyword">return</span> { first, last, fullName };
-}
-<span class="hljs-comment">// Creating variable fullName, and assigning the fullName property returned by buildUser Function Object </span>
-<span class="hljs-keyword">let</span> { fullName } = buildUser(<span class="hljs-string">&quot;Tyler&quot;</span>, <span class="hljs-string">&quot;Williams&quot;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">buildUser</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> last<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> fullName <span class="token operator">=</span> first <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> last<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> first<span class="token punctuation">,</span> last<span class="token punctuation">,</span> fullName <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// Creating variable fullName, and assigning the fullName property returned by buildUser Function Object </span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span> fullName <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">buildUser</span><span class="token punctuation">(</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Williams&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Destructuring objects. 
 <strong>Make sure to have matching keys:</strong></p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> obj = {x: <span class="hljs-number">1</span>, y: <span class="hljs-number">2</span>};
-<span class="hljs-keyword">let</span> {x, y} = obj; <span class="hljs-comment">// x = 1, y = 2</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>x<span class="token punctuation">,</span> y<span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// x = 1, y = 2</span>
 </code></pre>
 <p>You could also use this mechanism to change variable names:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> obj = {x: <span class="hljs-number">1</span>, y: <span class="hljs-number">2</span>};
-<span class="hljs-keyword">let</span> {x: a, y: b} = obj; <span class="hljs-comment">// a = 1, b = 2</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>x<span class="token punctuation">:</span> a<span class="token punctuation">,</span> y<span class="token punctuation">:</span> b<span class="token punctuation">}</span> <span class="token operator">=</span> obj<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// a = 1, b = 2</span>
 </code></pre>
 <p>Destructuring can be used to assign default values to argument objects. 
 With an object literal, you can actually simulate named parameters.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params">{y = 1, z = 0}</span>) </span>{
-   <span class="hljs-built_in">console</span>.log(y, z);
-}
-doSomething({y: <span class="hljs-number">2</span>});
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">{</span>y <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">{</span>y<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -701,24 +697,14 @@ doSomething({y: <span class="hljs-number">2</span>});
             </div>
 
             
-                
-                <a href="object-assign.html" class="navigation navigation-prev " aria-label="Previous page: Object Assign">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="object-initializer.html" class="navigation navigation-next " aria-label="Next page: Object Initializer">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object Destructuring","level":"1.12.3","depth":2,"next":{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]},"previous":{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/object-destructuring.md","mtime":"2016-12-12T01:13:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object Destructuring","level":"1.12.3","depth":2,"next":{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]},"previous":{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/object-destructuring.md","mtime":"2016-12-12T01:13:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -753,6 +739,10 @@ doSomething({y: <span class="hljs-number">2</span>});
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

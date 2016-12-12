@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -651,22 +647,22 @@
                                 <h2 id="weakmaps">Weakmaps</h2>
 <p>The WeakMap is a type of Map where <strong>only objects</strong> can be passed as keys.
 Primitive data types - such as strings, numbers, booleans, etc - are not allowed</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> user = {};
-<span class="hljs-keyword">let</span> mapSettings = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>();
-mapSettings.set(user, <span class="hljs-string">&quot;ES2015&quot;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> mapSettings <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mapSettings<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token string">&quot;ES2015&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(mapSettings.get(user)); <span class="hljs-comment">// Get reads the &apos;user&apos; entry | &apos;ES2015&apos;</span>
-<span class="hljs-built_in">console</span>.log(mapSettings.has(user)); <span class="hljs-comment">// Returns true if there is an entrance for that key</span>
-<span class="hljs-built_in">console</span>.log(mapSettings.delete(user)); <span class="hljs-comment">// Removes an entry, and returns a boolean based on whether that entrance existed</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mapSettings<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Get reads the &apos;user&apos; entry | &apos;ES2015&apos;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mapSettings<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Returns true if there is an entrance for that key</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>mapSettings<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Removes an entry, and returns a boolean based on whether that entrance existed</span>
 </code></pre>
 <p><strong>WeakMaps are not iterables with for...of for example</strong></p>
 <p><strong>Weakmaps are better with memory</strong>
 WeakMaps are called weaks, because they hold weak references to the objects used as keys</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> user = {}; <span class="hljs-comment">// All objects occupy memory space</span>
-<span class="hljs-keyword">let</span> userStatus = <span class="hljs-keyword">new</span> <span class="hljs-built_in">WeakMap</span>();
-mapStatus.set(user, <span class="hljs-string">&quot;logged&quot;</span>); <span class="hljs-comment">// Object reference passed as key to WeakMap</span>
-<span class="hljs-comment">// ..</span>
-someOtherFunction(user); <span class="hljs-comment">//Once it returns, &apos;user&apos; can be garbage collected</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// All objects occupy memory space</span>
+<span class="token keyword">let</span> userStatus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mapStatus<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token string">&quot;logged&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Object reference passed as key to WeakMap</span>
+<span class="token comment" spellcheck="true">// ..</span>
+<span class="token function">someOtherFunction</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//Once it returns, &apos;user&apos; can be garbage collected</span>
 </code></pre>
 <p>WeakMaps don&apos;t prevent the garbage collector from collecting objects currently used as keys, but that are no longer referenced anywhere else in the system.</p>
 
@@ -695,20 +691,14 @@ someOtherFunction(user); <span class="hljs-comment">//Once it returns, &apos;use
             </div>
 
             
-                
-                <a href="map.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Map">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Weakmaps","level":"1.9.2","depth":2,"next":{"title":"Math Object","level":"1.10","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]}]},"previous":{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"map-and-weakmaps/weakmap.md","mtime":"2016-12-12T00:30:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Weakmaps","level":"1.9.2","depth":2,"next":{"title":"Math Object","level":"1.10","depth":1,"ref":"","articles":[{"title":"New Methods","level":"1.10.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]}]},"previous":{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"map-and-weakmaps/weakmap.md","mtime":"2016-12-12T00:30:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -743,6 +733,10 @@ someOtherFunction(user); <span class="hljs-comment">//Once it returns, &apos;use
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

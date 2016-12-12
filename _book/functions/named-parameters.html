@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,16 +648,16 @@
                                 
                                 <h2 id="named-parameters">Named Parameters</h2>
 <p>Using named parameters for optional settings makes it easier to understand how a function should be invoked.</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPageThread</span>(<span class="hljs-params">name, { popular, expires, activeClass } = {}</span>) </span>{
-   <span class="hljs-comment">// ...</span>
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">setPageThread</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token punctuation">{</span> popular<span class="token punctuation">,</span> expires<span class="token punctuation">,</span> activeClass <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>and to call. If you omit one of those object properties, they will only be undefined.</p>
-<pre><code class="lang-js">setPageThread(<span class="hljs-string">&quot;New Version&quot;</span>, { 
-   popular: <span class="hljs-literal">true</span>, 
-   expires: <span class="hljs-number">10000</span>, 
-   activeClass: <span class="hljs-string">&quot;is-page-thread&quot;</span> 
-});
+<pre class="language-"><code class="lang-js"><span class="token function">setPageThread</span><span class="token punctuation">(</span><span class="token string">&quot;New Version&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> 
+   popular<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> 
+   expires<span class="token punctuation">:</span> <span class="token number">10000</span><span class="token punctuation">,</span> 
+   activeClass<span class="token punctuation">:</span> <span class="token string">&quot;is-page-thread&quot;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -689,24 +685,14 @@
             </div>
 
             
-                
-                <a href="default-parameters.html" class="navigation navigation-prev " aria-label="Previous page: Default Parameters">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="rest-parameters.html" class="navigation navigation-next " aria-label="Next page: Rest Parameters">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Named Parameters","level":"1.5.3","depth":2,"next":{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"previous":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/named-parameters.md","mtime":"2016-12-11T23:55:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Named Parameters","level":"1.5.3","depth":2,"next":{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"previous":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/named-parameters.md","mtime":"2016-12-11T23:55:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -741,6 +727,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

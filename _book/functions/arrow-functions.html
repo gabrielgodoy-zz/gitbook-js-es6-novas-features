@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -652,29 +648,29 @@
 <p><strong>Arrow functions are always anonymous.</strong>
 The <em>this</em> reference of an arrow function is the &apos;outer&apos; this. The arrow function don&apos;t have its own this. </p>
 <p>Example:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> books = [{title: <span class="hljs-string">&apos;X&apos;</span>, price: <span class="hljs-number">10</span>}, {title: <span class="hljs-string">&apos;Y&apos;</span>, price: <span class="hljs-number">15</span>}];
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> books <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>title<span class="token punctuation">:</span> <span class="token string">&apos;X&apos;</span><span class="token punctuation">,</span> price<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>title<span class="token punctuation">:</span> <span class="token string">&apos;Y&apos;</span><span class="token punctuation">,</span> price<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// ES6 Arrow function</span>
-<span class="hljs-keyword">let</span> titles = books.map( item =&gt; item.title );
+<span class="token comment" spellcheck="true">// ES6 Arrow function</span>
+<span class="token keyword">let</span> titles <span class="token operator">=</span> books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> item <span class="token operator">=</span><span class="token operator">&gt;</span> item<span class="token punctuation">.</span>title <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// The above is the same as:</span>
-<span class="hljs-keyword">var</span> titles = books.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>) </span>{
-   <span class="hljs-keyword">return</span> item.title;
-});
+<span class="token comment" spellcheck="true">// The above is the same as:</span>
+<span class="token keyword">var</span> titles <span class="token operator">=</span> books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">return</span> item<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>If we look at the syntax of arrow functions, there is no function keyword. What remains is zero or more arguments, the &#x201C;fat arrow&#x201D; (=&gt;) and the function expression. The return statement is implicitly added.</p>
 <p>With zero or more than one argument, you must provide parentheses:</p>
-<pre><code class="lang-js"><span class="hljs-comment">// No arguments</span>
-books.map( () =&gt; <span class="hljs-number">1</span> ); <span class="hljs-comment">// [1, 1]</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// No arguments</span>
+books<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 1]</span>
 
-<span class="hljs-comment">// Multiple arguments</span>
-[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>].map( (n, index) =&gt; n * index ); <span class="hljs-comment">// [0, 2]</span>
+<span class="token comment" spellcheck="true">// Multiple arguments</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> <span class="token punctuation">(</span>n<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> n <span class="token operator">*</span> index <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [0, 2]</span>
 </code></pre>
 <p>Put the function expression in a block ({ ... }) if you need more logic or more white space:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> result = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>].map( n =&gt; {
-   n = n % <span class="hljs-number">3</span>;
-   <span class="hljs-keyword">return</span> n;
-});
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> n <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+   n <span class="token operator">=</span> n <span class="token operator">%</span> <span class="token number">3</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
                                 
@@ -702,20 +698,14 @@ books.map( () =&gt; <span class="hljs-number">1</span> ); <span class="hljs-comm
             </div>
 
             
-                
-                
-                <a href="default-parameters.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Default Parameters">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arrow Functions","level":"1.5.1","depth":2,"next":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"previous":{"title":"Functions","level":"1.5","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.5.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Named Parameters","level":"1.5.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/arrow-functions.md","mtime":"2016-12-11T23:45:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Arrow Functions","level":"1.5.1","depth":2,"next":{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},"previous":{"title":"Functions","level":"1.5","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.5.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Default Parameters","level":"1.5.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Named Parameters","level":"1.5.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Rest Parameters","level":"1.5.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"functions/arrow-functions.md","mtime":"2016-12-11T23:45:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -750,6 +740,10 @@ books.map( () =&gt; <span class="hljs-number">1</span> ); <span class="hljs-comm
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

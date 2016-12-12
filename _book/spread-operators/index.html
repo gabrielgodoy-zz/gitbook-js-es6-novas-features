@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -651,38 +647,38 @@
                                 <h2 id="spread-operators">Spread Operators</h2>
 <p>The spread operator (...) is a syntax to expand elements of an array in specific places, such as arguments in function calls.</p>
 <p>First, let&#x2019;s see how to expand elements of an array within another array:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> values = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>];
-<span class="hljs-keyword">let</span> some = [...values, <span class="hljs-number">8</span>]; <span class="hljs-comment">// [1, 2, 4, 8]</span>
-<span class="hljs-keyword">let</span> more = [...values, <span class="hljs-number">8</span>, ...values]; <span class="hljs-comment">// [1, 2, 4, 8, 1, 2, 4]</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> some <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8]</span>
+<span class="token keyword">let</span> more <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [1, 2, 4, 8, 1, 2, 4]</span>
 
 
-<span class="hljs-comment">// ES5 equivalent:</span>
-<span class="hljs-keyword">let</span> values = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>];
-<span class="hljs-comment">// Iterate, push, sweat, repeat...</span>
-<span class="hljs-comment">// Iterate, push, sweat, repeat...</span>
+<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
+<span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Iterate, push, sweat, repeat...</span>
+<span class="token comment" spellcheck="true">// Iterate, push, sweat, repeat...</span>
 </code></pre>
 <p>The spread syntax is also powerful when calling functions with arguments:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> values = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>];
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-doSomething(...values);
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doSomething</span>(<span class="hljs-params">x, y, z</span>) </span>{
-   <span class="hljs-comment">// x = 1, y = 2, z = 4</span>
-}
+<span class="token keyword">function</span> <span class="token function">doSomething</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true">// x = 1, y = 2, z = 4</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">// ES5 equivalent:</span>
-doSomething.apply(<span class="hljs-literal">null</span>, values);
+<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
+doSomething<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> values<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>As you can see, this saves us from the often-used fn.apply() workaround. The syntax is very flexible, because the spread operator can be used anywhere in the argument list. This means that the following invocation produces the same result:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> values = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>];
-doSomething(<span class="hljs-number">1</span>, ...values);
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> values <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>We&#x2019;ve been applying the spread operator to arrays and arguments. In fact, it can be applied to all iterable objects, such as a NodeList:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> form = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;#my-form&apos;</span>),
-   inputs = form.querySelectorAll(<span class="hljs-string">&apos;input&apos;</span>),
-   selects = form.querySelectorAll(<span class="hljs-string">&apos;select&apos;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> form <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#my-form&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   inputs <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   selects <span class="token operator">=</span> form<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">&apos;select&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">let</span> allTheThings = [form, ...inputs, ...selects];
+<span class="token keyword">let</span> allTheThings <span class="token operator">=</span> <span class="token punctuation">[</span>form<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>inputs<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>selects<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Now, allTheThings is a flat array containing the <form> node and its <input> and <select> child nodes.</select></form></p>
 
@@ -711,20 +707,14 @@ doSomething(<span class="hljs-number">1</span>, ...values);
             </div>
 
             
-                
-                <a href="../proxy/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Proxy">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spread Operators","level":"1.14","depth":1,"next":{"title":"Sets and Weaksets","level":"1.15","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"previous":{"title":"Proxy","level":"1.13","depth":1,"path":"proxy/README.md","ref":"proxy/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"spread-operators/README.md","mtime":"2016-12-12T01:17:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spread Operators","level":"1.14","depth":1,"next":{"title":"Sets and Weaksets","level":"1.15","depth":1,"ref":"","articles":[{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},{"title":"Weaksets","level":"1.15.2","depth":2,"path":"sets-and-weaksets/weaksets.md","ref":"sets-and-weaksets/weaksets.md","articles":[]}]},"previous":{"title":"Proxy","level":"1.13","depth":1,"path":"proxy/README.md","ref":"proxy/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"spread-operators/README.md","mtime":"2016-12-12T01:17:26.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -759,6 +749,10 @@ doSomething(<span class="hljs-number">1</span>, ...values);
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

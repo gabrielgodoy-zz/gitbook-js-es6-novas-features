@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -650,19 +646,19 @@
                                 
                                 <h2 id="method-initializer">Method Initializer</h2>
 <p>Create methods on objects using a shorthand</p>
-<pre><code class="lang-js"><span class="hljs-comment">//ES6</span>
-{
-    render() {
-        <span class="hljs-keyword">return</span> teste;
-    }
-}
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//ES6</span>
+<span class="token punctuation">{</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> teste<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">//ES5</span>
-{
-    render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">return</span> teste;
-    }
-}
+<span class="token comment" spellcheck="true">//ES5</span>
+<span class="token punctuation">{</span>
+    render<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> teste<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -690,20 +686,14 @@
             </div>
 
             
-                
-                
-                <a href="object-assign.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Object Assign">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Method Initializer","level":"1.12.1","depth":2,"next":{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},"previous":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/method-initializer.md","mtime":"2016-12-11T23:47:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Method Initializer","level":"1.12.1","depth":2,"next":{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},"previous":{"title":"Objects","level":"1.12","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.12.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.12.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.12.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.12.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"objects/method-initializer.md","mtime":"2016-12-11T23:47:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -738,6 +728,10 @@
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

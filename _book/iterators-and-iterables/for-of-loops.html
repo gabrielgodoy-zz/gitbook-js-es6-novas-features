@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -656,19 +652,19 @@
 <li>for..of only works with iterables. 
 Try to run for...of on objects return TypeError</li>
 </ul>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> names = [<span class="hljs-string">&quot;Sam&quot;</span>, <span class="hljs-string">&quot;Alex&quot;</span>, <span class="hljs-string">&quot;Brook&quot;</span>];
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Alex&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 
-<span class="hljs-comment">// Uses index to read actual element</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> names) {
-    <span class="hljs-built_in">console</span>.log(name[i]);
-}
+<span class="token comment" spellcheck="true">// Uses index to read actual element</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> names<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
-<span class="hljs-comment">// Reads element directly and with less code involved</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> name <span class="hljs-keyword">of</span> names) {
-    <span class="hljs-built_in">console</span>.log(name);
-}
+<span class="token comment" spellcheck="true">// Reads element directly and with less code involved</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> name <span class="token keyword">of</span> names<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -696,24 +692,14 @@ Try to run for...of on objects return TypeError</li>
             </div>
 
             
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Iterators and Iterables">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="../let-and-const/" class="navigation navigation-next " aria-label="Next page: let and const">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"for...of loops","level":"1.7.1","depth":2,"next":{"title":"let and const","level":"1.8","depth":1,"path":"let-and-const/README.md","ref":"let-and-const/README.md","articles":[]},"previous":{"title":"Iterators and Iterables","level":"1.7","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"iterators-and-iterables/for-of-loops.md","mtime":"2016-12-11T23:30:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"for...of loops","level":"1.7.1","depth":2,"next":{"title":"let and const","level":"1.8","depth":1,"path":"let-and-const/README.md","ref":"let-and-const/README.md","articles":[]},"previous":{"title":"Iterators and Iterables","level":"1.7","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"iterators-and-iterables/for-of-loops.md","mtime":"2016-12-11T23:30:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -748,6 +734,10 @@ Try to run for...of on objects return TypeError</li>
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

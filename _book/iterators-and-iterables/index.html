@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -653,24 +649,24 @@
                                 <h1 id="iterator">Iterator</h1>
 <p>An object is an iterator when it knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.</p>
 <p>In JavaScript an iterator is an object that provides a next() method which returns the next item in the sequence. This method returns an object with two properties: done and value.</p>
-<pre><code class="lang-js"><span class="hljs-comment">// Example of a custom Iterator Creator</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeCustomIterator</span> (<span class="hljs-params">array</span>) </span>{
-    <span class="hljs-keyword">let</span> nextIndex = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> {
-        next() {
-            <span class="hljs-keyword">return</span> nextIndex &lt; array.length ? { value: array[nextIndex++], done: <span class="hljs-literal">false</span> } : { done: <span class="hljs-literal">true</span> };
-        }
-    }
-}
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Example of a custom Iterator Creator</span>
+<span class="token keyword">function</span> makeCustomIterator <span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> nextIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> nextIndex <span class="token operator">&lt;</span> array<span class="token punctuation">.</span>length <span class="token operator">?</span> <span class="token punctuation">{</span> value<span class="token punctuation">:</span> array<span class="token punctuation">[</span>nextIndex<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">,</span> done<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span> done<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-comment">/*
+<span class="token comment" spellcheck="true">/*
  makeIteratorFunc holds an object with the next method in it
  */</span>
-<span class="hljs-keyword">let</span> makeIteratorFunc = makeCustomIterator([<span class="hljs-string">&quot;Gabriel&quot;</span>, <span class="hljs-string">&quot;Godoy&quot;</span>]);
+<span class="token keyword">let</span> makeIteratorFunc <span class="token operator">=</span> <span class="token function">makeCustomIterator</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;Gabriel&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Godoy&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Custom Iterator: &apos;</span>, makeIteratorFunc.next()); <span class="hljs-comment">// { value: &apos;Gabriel&apos;, done: false }</span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Custom Iterator: &apos;</span>, makeIteratorFunc.next()); <span class="hljs-comment">// { value: &apos;Godoy&apos;, done: false }</span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Custom Iterator: &apos;</span>, makeIteratorFunc.next().done); <span class="hljs-comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Custom Iterator: &apos;</span><span class="token punctuation">,</span> makeIteratorFunc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// { value: &apos;Gabriel&apos;, done: false }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Custom Iterator: &apos;</span><span class="token punctuation">,</span> makeIteratorFunc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// { value: &apos;Godoy&apos;, done: false }</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Custom Iterator: &apos;</span><span class="token punctuation">,</span> makeIteratorFunc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>done<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
 <p>Custom iterators like makeCustomIterator requires the management of the internal state of the iterator. Generators are &quot;iterators factories&quot;, where the keyword yield sets the point in which the function will stop when the next next() method is called</p>
 <p>The same result of makeCustomIterator function could be achieved with a generator without having to manually manage the state of the iterator, and what should be returned.</p>
@@ -679,41 +675,41 @@
 <p>In order to be iterable, an object must implement the @@iterator method, the object (or one of the objects up its prototype chain) must have a property with a Symbol.iterator key</p>
 <p>Built-in iterables</p>
 <p>String, Array, TypedArray, Map and Set are all built-in iterables, because the prototype objects of them all have a Symbol.iterator method</p>
-<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runIterable</span> (<span class="hljs-params">iterable</span>) </span>{
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> element <span class="hljs-keyword">of</span> iterable) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Iterable element: &apos;</span>, element);
-    }
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> runIterable <span class="token punctuation">(</span>iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> element <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Iterable element: &apos;</span><span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-runIterable([<span class="hljs-string">&apos;Gabriel&apos;</span>, <span class="hljs-string">&apos;Godoy&apos;</span>]);
-<span class="hljs-comment">// Iterable element:  Gabriel</span>
-<span class="hljs-comment">// Iterable element:  Godoy</span>
+<span class="token function">runIterable</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Godoy&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Iterable element:  Gabriel</span>
+<span class="token comment" spellcheck="true">// Iterable element:  Godoy</span>
 
-runIterable(<span class="hljs-string">&apos;Gabriel&apos;</span>);
-<span class="hljs-comment">// Iterable element:  G</span>
-<span class="hljs-comment">// Iterable element:  a</span>
-<span class="hljs-comment">// Iterable element:  b</span>
-<span class="hljs-comment">// Iterable element:  r</span>
-<span class="hljs-comment">// Iterable element:  i</span>
-<span class="hljs-comment">// Iterable element:  e</span>
-<span class="hljs-comment">// Iterable element:  l</span>
+<span class="token function">runIterable</span><span class="token punctuation">(</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Iterable element:  G</span>
+<span class="token comment" spellcheck="true">// Iterable element:  a</span>
+<span class="token comment" spellcheck="true">// Iterable element:  b</span>
+<span class="token comment" spellcheck="true">// Iterable element:  r</span>
+<span class="token comment" spellcheck="true">// Iterable element:  i</span>
+<span class="token comment" spellcheck="true">// Iterable element:  e</span>
+<span class="token comment" spellcheck="true">// Iterable element:  l</span>
 </code></pre>
 <h3 id="custom-iterable">Custom Iterable</h3>
 <p>This literal object below natively neither have nor inherit Symbol.iterator property. But we can make this one Iterable by addin [Symbol.iterator] property to it.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> myIterable = {};
-<span class="hljs-comment">// Add Symbol.iterator to it</span>
-myIterable[<span class="hljs-built_in">Symbol</span>.iterator] = <span class="hljs-function"><span class="hljs-keyword">function</span>* (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span>;
-    <span class="hljs-keyword">yield</span> <span class="hljs-number">3</span>;
-};
-<span class="hljs-comment">// And now it becomes iterable</span>
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> value <span class="hljs-keyword">of</span> myIterable){
-    <span class="hljs-built_in">console</span>.log(value);
-}
-<span class="hljs-comment">// 1</span>
-<span class="hljs-comment">// 2</span>
-<span class="hljs-comment">// 3</span>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> myIterable <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Add Symbol.iterator to it</span>
+myIterable<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">yield</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">yield</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">yield</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// And now it becomes iterable</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> value <span class="token keyword">of</span> myIterable<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 1</span>
+<span class="token comment" spellcheck="true">// 2</span>
+<span class="token comment" spellcheck="true">// 3</span>
 </code></pre>
 
                                 
@@ -741,24 +737,14 @@ myIterable[<span class="hljs-built_in">Symbol</span>.iterator] = <span class="hl
             </div>
 
             
-                
-                <a href="../generators/" class="navigation navigation-prev " aria-label="Previous page: Generators">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="for-of-loops.html" class="navigation navigation-next " aria-label="Next page: for...of loops">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Iterators and Iterables","level":"1.7","depth":1,"next":{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"previous":{"title":"Generators","level":"1.6","depth":1,"path":"generators/README.md","ref":"generators/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"iterators-and-iterables/README.md","mtime":"2016-12-12T00:01:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Iterators and Iterables","level":"1.7","depth":1,"next":{"title":"for...of loops","level":"1.7.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"previous":{"title":"Generators","level":"1.6","depth":1,"path":"generators/README.md","ref":"generators/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"iterators-and-iterables/README.md","mtime":"2016-12-12T00:01:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -793,6 +779,10 @@ myIterable[<span class="hljs-built_in">Symbol</span>.iterator] = <span class="hl
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Gabriel <ggodoyoliveira@gmail.com> (http://www.gabrielgodoy.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-api": "2.1.3"
+  }
 }

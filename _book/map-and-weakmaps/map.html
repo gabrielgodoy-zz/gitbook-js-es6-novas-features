@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -654,60 +650,60 @@ Maps are useful to store simple data, such as property values.</p>
 <p>The <strong>set</strong> method is used to add entries, and the <strong>get</strong> method to read entries</p>
 <h3 id="issues-with-using-objects-as-maps">Issues with using objects as maps</h3>
 <p>When using Objects as keys, <strong>its keys are always converted to strings</strong></p>
-<pre><code class="lang-js"><span class="hljs-comment">// Two different objects</span>
-<span class="hljs-keyword">let</span> user1 = {name: <span class="hljs-string">&quot;Sam&quot;</span>},
-    user2 = {name: <span class="hljs-string">&quot;Tyler&quot;</span>};
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Two different objects</span>
+<span class="token keyword">let</span> user1 <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Sam&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    user2 <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">let</span> totalReplies = {};
+<span class="token keyword">let</span> totalReplies <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// Both objects below are converted to the string &apos;[object Object]&apos;</span>
-totalReplies[user1] = <span class="hljs-number">5</span>;
-totalReplies[user2] = <span class="hljs-number">42</span>;
+<span class="token comment" spellcheck="true">// Both objects below are converted to the string &apos;[object Object]&apos;</span>
+totalReplies<span class="token punctuation">[</span>user1<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+totalReplies<span class="token punctuation">[</span>user2<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
 
-<span class="hljs-built_in">console</span>.log(totalReplies[user1]); <span class="hljs-comment">// 42</span>
-<span class="hljs-built_in">console</span>.log(totalReplies[user2]); <span class="hljs-comment">// 42</span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.keys(totalReplies)); <span class="hljs-comment">// [&apos;[object Object]&apos;]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>totalReplies<span class="token punctuation">[</span>user1<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 42</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>totalReplies<span class="token punctuation">[</span>user2<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 42</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>totalReplies<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [&apos;[object Object]&apos;]</span>
 </code></pre>
 <p>Map fixes that:
 When we use objects as keys on a map they are not converted to strings</p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> user1 = {name: <span class="hljs-string">&quot;Sam&quot;</span>},
-     user2 = {name: <span class="hljs-string">&quot;Tyler&quot;</span>};
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> user1 <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Sam&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+     user2 <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">let</span> totalReplies = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-<span class="hljs-comment">// These two values are properly assigned to different keys</span>
-totalReplies.set(user1, <span class="hljs-number">5</span>);
-totalReplies.set(user2, <span class="hljs-number">42</span>);
+<span class="token keyword">let</span> totalReplies <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// These two values are properly assigned to different keys</span>
+totalReplies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>user1<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+totalReplies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>user2<span class="token punctuation">,</span> <span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// We use the get() and set() methods to access values in Maps)</span>
-<span class="hljs-built_in">console</span>.log(totalReplies.get(user1)); <span class="hljs-comment">// 5</span>
-<span class="hljs-built_in">console</span>.log(totalReplies.get(user2)); <span class="hljs-comment">// 42</span>
+<span class="token comment" spellcheck="true">// We use the get() and set() methods to access values in Maps)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>totalReplies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>user1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>totalReplies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>user2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 42</span>
 </code></pre>
 <h3 id="when-to-use-maps-or-objects-to-store-data">When to use maps or objects to store data</h3>
 <p>Use Maps when keys are unknown until runtime</p>
 <p><em>Keys unknown until runtime, so...Map!</em></p>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> recentPosts = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-createPost(newPost, (data) =&gt; {
-    <span class="hljs-comment">// We dont know what data.author is going to be until you run this code</span>
-    recentPosts.set(data.author, data.message)
-});
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> recentPosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">createPost</span><span class="token punctuation">(</span>newPost<span class="token punctuation">,</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// We dont know what data.author is going to be until you run this code</span>
+    recentPosts<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>author<span class="token punctuation">,</span> data<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p><em>Keys are previously defined, so...Objects!</em></p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> POSTS_PER_PAGE = <span class="hljs-number">15</span>;
-<span class="hljs-keyword">let</span> userSettings = {
-    perPage: POSTS_PER_PAGE,
-    showRead: <span class="hljs-literal">true</span>
-}
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> POSTS_PER_PAGE <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> userSettings <span class="token operator">=</span> <span class="token punctuation">{</span>
+    perPage<span class="token punctuation">:</span> POSTS_PER_PAGE<span class="token punctuation">,</span>
+    showRead<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="iterating-maps-with-forof">Iterating Maps with for...of</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">let</span> mapSettings = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> mapSettings <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-mapSettings.set(<span class="hljs-string">&quot;user&quot;</span>, <span class="hljs-string">&quot;Sam&quot;</span>);
-mapSettings.set(<span class="hljs-string">&quot;topic&quot;</span>, <span class="hljs-string">&quot;ES2015&quot;</span>);
-mapSettings.set(<span class="hljs-string">&quot;replies&quot;</span>, [<span class="hljs-string">&quot;Can&apos;t wait!&quot;</span>, <span class="hljs-string">&quot;So Cool&quot;</span>]);
+mapSettings<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">&quot;user&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Sam&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mapSettings<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">&quot;topic&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ES2015&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+mapSettings<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">&quot;replies&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;Can&apos;t wait!&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;So Cool&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> [key, value] <span class="hljs-keyword">of</span> mapSettings) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${key}</span> = <span class="hljs-subst">${value}</span>`</span>);
-}
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> value<span class="token punctuation">]</span> <span class="token keyword">of</span> mapSettings<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>value<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
                                 
@@ -735,20 +731,14 @@ mapSettings.set(<span class="hljs-string">&quot;replies&quot;</span>, [<span cla
             </div>
 
             
-                
-                
-                <a href="weakmap.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Weakmaps">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Map","level":"1.9.1","depth":2,"next":{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]},"previous":{"title":"Map and Weakmaps","level":"1.9","depth":1,"ref":"","articles":[{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"map-and-weakmaps/map.md","mtime":"2016-12-12T00:31:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Map","level":"1.9.1","depth":2,"next":{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]},"previous":{"title":"Map and Weakmaps","level":"1.9","depth":1,"ref":"","articles":[{"title":"Map","level":"1.9.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.9.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"map-and-weakmaps/map.md","mtime":"2016-12-12T00:31:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -783,6 +773,10 @@ mapSettings.set(<span class="hljs-string">&quot;replies&quot;</span>, [<span cla
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 

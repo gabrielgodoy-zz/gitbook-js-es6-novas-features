@@ -17,7 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
                 
             
                 
@@ -28,21 +28,17 @@
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
         
 
     
 
     
         
-    
-        
-    
-        
-    
-        
-    
-        
-    
+        <link rel="stylesheet" href="../assets/main.css">
         
     
 
@@ -650,42 +646,42 @@
                                 
                                 <h2 id="symbols">Symbols</h2>
 <p>Symbols are a new primitive data type, like Number and String. You can use symbols to create unique identifiers for object properties or to create unique constants.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> MY_CONSTANT = <span class="hljs-built_in">Symbol</span>();
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> MY_CONSTANT <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">let</span> obj = {};
-obj[MY_CONSTANT] = <span class="hljs-number">1</span>;
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">[</span>MY_CONSTANT<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Note that key-value pairs set with symbols are not returned by Object.getOwnPropertyNames(), and they are not visible in for...in iterations, Object.keys() or JSON.stringify(). 
 This is in contrast to regular string-based keys. 
 You can get an array of symbols for an object with Object.getOwnPropertySymbols().
 Symbols work naturally with const because of their immutable character:</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> CHINESE = <span class="hljs-built_in">Symbol</span>();
-<span class="hljs-keyword">const</span> ENGLISH = <span class="hljs-built_in">Symbol</span>();
-<span class="hljs-keyword">const</span> SPANISH = <span class="hljs-built_in">Symbol</span>();
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> CHINESE <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> ENGLISH <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> SPANISH <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-<span class="hljs-keyword">switch</span>(language) {
-   <span class="hljs-keyword">case</span> CHINESE:
-      <span class="hljs-comment">// </span>
-      <span class="hljs-keyword">break</span>;
-   <span class="hljs-keyword">case</span> ENGLISH:
-      <span class="hljs-comment">// </span>
-      <span class="hljs-keyword">break</span>;
-   <span class="hljs-keyword">case</span> SPANISH:
-      <span class="hljs-comment">// </span>
-      <span class="hljs-keyword">break</span>;
-   <span class="hljs-keyword">default</span>:
-      <span class="hljs-comment">// </span>
-      <span class="hljs-keyword">break</span>;
-}
+<span class="token keyword">switch</span><span class="token punctuation">(</span>language<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">case</span> CHINESE<span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true">// </span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">case</span> ENGLISH<span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true">// </span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">case</span> SPANISH<span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true">// </span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+   <span class="token keyword">default</span><span class="token punctuation">:</span>
+      <span class="token comment" spellcheck="true">// </span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>You can give a symbol a description. You can&#x2019;t use it to access the symbol itself, but it&#x2019;s useful for debugging.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> CONST_1 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;my symbol&apos;</span>);
-<span class="hljs-keyword">const</span> CONST_2 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&apos;my symbol&apos;</span>);
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> CONST_1 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&apos;my symbol&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CONST_2 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&apos;my symbol&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-keyword">typeof</span> CONST_1 === <span class="hljs-string">&apos;symbol&apos;</span>; <span class="hljs-comment">// true</span>
+<span class="token keyword">typeof</span> CONST_1 <span class="token operator">===</span> <span class="token string">&apos;symbol&apos;</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 
-CONST_1 === CONST_2; <span class="hljs-comment">// false</span>
+CONST_1 <span class="token operator">===</span> CONST_2<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
 </code></pre>
 
                                 
@@ -713,20 +709,14 @@ CONST_1 === CONST_2; <span class="hljs-comment">// false</span>
             </div>
 
             
-                
-                <a href="../strings/template-literals.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Template Strings">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-            
+
         
     </div>
 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Symbols","level":"1.17","depth":1,"previous":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"symbols/README.md","mtime":"2016-12-12T01:18:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-11T23:41:30.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Symbols","level":"1.17","depth":1,"previous":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 and Beyond","gitbook":"*","description":"Annotations about Javascript Features"},"file":{"path":"symbols/README.md","mtime":"2016-12-12T01:18:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-12T04:03:18.412Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -761,6 +751,10 @@ CONST_1 === CONST_2; <span class="hljs-comment">// false</span>
     
         
         <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
         
     
 
