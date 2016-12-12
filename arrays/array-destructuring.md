@@ -19,7 +19,7 @@ Another example
 ```js
 let [x, y] = [1, 2]; // x = 1, y = 2
 
-// ES5 equivalent:
+// Old way
 var arr = [1, 2];
 var x = arr[0];
 var y = arr[1];

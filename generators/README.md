@@ -34,7 +34,8 @@ Got this example in a [very good ES6 course of a friend of mine](http://willianj
 function ajax(url) {
 	fetch(url)
 		.then(data => data.json())
-		.then(data => dados.next(data));
+		// This function calls the next yield inside ajaxGen
+		.then(data => ajaxGenSetup.next(data));
 }
 
 function* ajaxGen() {
@@ -48,8 +49,20 @@ function* ajaxGen() {
 	const github2 = yield ajax('https://api.github.com/users/willianjusten');
 	console.log(github2);
 }
-const dados = ajaxGen();
-dados.next();
+
+// Gets the generator and all next() methods according to the yields in it
+const ajaxGenSetup = ajaxGen();
+
+// This first next() triggers the generator and stop on the first yield 
+// Has value of undefined
+ajaxGenSetup.next(); // {value: undefined, done: false}
+
+// Searching posts...
+// Ajax Data
+// Searching data from Github...
+// Ajax Data
+// Searching data from Github 2...
+// Ajax Data
 ```
 
 ### Advanced Generators

@@ -1,6 +1,10 @@
 ## Spread Operators
 The spread operator `...` is a syntax to expand elements of an array in specific places, such as arguments in function calls.
 
+**Difference between Rest and Spread operator**
+ 
+Rest parameters is used in function definitions, and the spread operator is used in function invocations
+
 ### In Arrays
 Expand elements of an array within another array:
 
@@ -23,10 +27,6 @@ let values = [1, 2, 4];
 
 doSomething(...values); // Same as doSomething(values[0], values[1], values[2])
 ```
-
-**Difference between Rest and Spread operator**
- 
-Rest parameters is used in function definitions, and the spread operator is used in function invocations
 
 The syntax is very flexible, because the spread operator can be used anywhere in the argument list. 
 
