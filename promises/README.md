@@ -3,7 +3,6 @@
 The Promise object is used for deferred (to delay, to retard) and asynchronous computations. 
 
 A Promise represents an operation that hasn't completed yet, but is expected in the future.
-Promise represents a future value, such as the eventual result of an asynchronous operation.
 
 Creating a new Promise automatically sets it to the **pending state**.
 

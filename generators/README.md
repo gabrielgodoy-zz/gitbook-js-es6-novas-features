@@ -12,17 +12,21 @@ let myGenerator = function*() {
     let one = yield 1;
     let two = yield 2;
     let three = yield 3;
-    console.log(one, two, three);
+    console.log(one, two, three); // 1, 2, 3
 };
 
 // Store and setup myGenerator
 let gen = myGenerator();
 
+// The first next just initializes the generator, and stop on the first yield
 console.log(gen.next()); // { value: 1, done: false } 
-console.log(gen.next()); // { value: 2, done: false } 
-console.log(gen.next()); // { value: 3, done: false } 
-console.log(gen.next()); // { value: undefined, done: true } 
-console.log(gen.next()); // { value: undefined, done: true } 
+
+// The second next(1) actually sends data to the first yield, so var one becomes 1
+console.log(gen.next(1)); // { value: 2, done: false } 
+
+console.log(gen.next(2)); // { value: 3, done: false } 
+console.log(gen.next(3)); // { value: undefined, done: true } 
+console.log(gen.next(4)); // { value: undefined, done: true } 
 ```
 
 ### Generators for Async actions
@@ -35,9 +39,11 @@ function ajax(url) {
 	fetch(url)
 		.then(data => data.json())
 		// This function calls the next yield inside ajaxGen
+		// with the retrieved data in it as argument
 		.then(data => ajaxGenSetup.next(data));
 }
 
+// Asynchronous code that seems like it is synchronous
 function* ajaxGen() {
 	console.log('Searching posts...');
 	const posts = yield ajax('https://willianjusten.com.br/search.json');
