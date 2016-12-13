@@ -1,7 +1,9 @@
 # Iterator
 An object is an iterator when it knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.
 
-In JavaScript an iterator is an object that provides a next() method which returns the next item in the sequence. This method returns an object with two properties: done and value.
+In JavaScript an iterator is an object that provides a next() method which returns the next item in the sequence. 
+
+This method returns an object with two properties: done and value.
 
 ```js
 // Example of a custom Iterator Creator
@@ -64,12 +66,14 @@ This literal object below natively neither have nor inherit Symbol.iterator prop
 
 ```js
 let myIterable = {};
+
 // Add Symbol.iterator to it
 myIterable[Symbol.iterator] = function* () {
     yield 1;
     yield 2;
     yield 3;
 };
+
 // And now it becomes iterable
 for(let value of myIterable){
     console.log(value);

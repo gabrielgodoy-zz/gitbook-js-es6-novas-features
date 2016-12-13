@@ -95,3 +95,51 @@ ajaxGenSetup.next(); // {value: undefined, done: false}
 // Searching data from Github 2...
 // Ajax Data
 ```
+
+### yield*
+The expression **yield*** is used to delegate to another generator or iterable object.
+
+Example of delegating to another generator
+
+```js
+function* g1() {
+  yield 2;
+  yield 3;
+  yield 4;
+}
+
+function* g2() {
+  yield 1;
+  yield* g1();
+  yield 5;
+}
+
+let iterator = g2();
+
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: 2, done: false }
+console.log(iterator.next()); // { value: 3, done: false }
+console.log(iterator.next()); // { value: 4, done: false }
+console.log(iterator.next()); // { value: 5, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+```
+
+And with other iterable objects like Arrays and Strings
+
+```js
+function* g3() {
+  yield* [1, 2];
+  yield* "34";
+  yield* Array.from(arguments);
+}
+
+let iterator = g3(5, 6);
+
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: 2, done: false }
+console.log(iterator.next()); // { value: "3", done: false }
+console.log(iterator.next()); // { value: "4", done: false }
+console.log(iterator.next()); // { value: 5, done: false }
+console.log(iterator.next()); // { value: 6, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+```
