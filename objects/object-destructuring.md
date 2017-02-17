@@ -31,3 +31,6 @@ function doSomething({y = 1, z = 0}) {
 }
 doSomething({y: 2});
 ```
+
+More on destructuring
+[Destructuring gist examples](https://gist.github.com/mikaelbr/9900818)
