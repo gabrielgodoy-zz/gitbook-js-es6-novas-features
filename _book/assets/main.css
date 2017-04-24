@@ -23,3 +23,72 @@ ul.summary li a:hover {
 pre.language- {
     border-radius: 4px;
 }
+
+.articles {
+    opacity: .8;
+}
+
+p > code {
+    padding: 2px 6px !important;
+    background: #F2F7F9 !important;
+    color: #256FC7 !important;
+    border-radius: 4px;
+    font-size: 80%;
+}
+
+.markdown-section p {
+    color: #616161 !important;
+    line-height: 1.75;
+    font-size: 19px;
+}
+
+.markdown-section h2 {
+  margin-bottom: 5px;
+}
+
+.markdown-section h3 {
+    color: rgba(68, 68, 68, .85);
+    margin: 20px 0 0;
+}
+
+.markdown-section ul,
+.markdown-section ol {
+    font-size: 19px;
+}
+
+.book.color-theme-3 .book-body section a,
+.markdown-section a {
+    color: #F38B72;
+}
+
+.markdown-section li {
+    position: relative;
+    margin: 0 auto;
+    color: #7a7a7a;
+    line-height: 28px;
+}
+
+.markdown-section img {
+    border: 1px solid #F1F2F1!important;
+    max-width: 650px;
+    margin: 0 auto;
+    display: block;
+}
+
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
+  color: #555 !important;
+}
+
+.markdown-section table td {
+  padding: 0 2px !important;
+}
+
+.markdown-section hr {
+  height: 2px !important;
+  margin: 15px 0 !important;
+}
+
+#funções-nativas ~ h4 {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}

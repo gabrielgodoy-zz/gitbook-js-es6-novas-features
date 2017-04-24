@@ -1,7 +1,7 @@
 ## Default Parameters
-In ES6, defining default values for function parameters is possible. 
+Com ES6, definir valores padrão para parâmetros de uma função é possível 
 
-The syntax is as follows:
+A sintaxe é da seguinte maneira:
 ```js
 function doSomething(x, y = 2) {
    return x * y;
@@ -12,7 +12,7 @@ doSomething(5, undefined); // 10
 doSomething(5, 3); // 15
 ```
 
-### Rest and defaults
+### Rest e defaults
 
 ```
 let ajax = function({ url = "localhost", port: p = 80 }, ...data) {
@@ -25,16 +25,17 @@ ajax({}, "additional", "data", "hello"); // Url: localhost Port: 80 Rest: [ 'add
 
 ajax({}); // Url: localhost Port: 80 Rest: []
 
-// Doesn't work due to trying to destructure undefined
+// Não funciona porque se está tentando desestruturar undefined
 ajax(); // Uncaught TypeError: Cannot match against 'undefined' or 'null'
 
-// To fix this we need to have default value for parameter in function
-// Note: See the `= {}` at the end, saying default empty object if the first argument is undefined.
+// Para consertar isso, é preciso ter valores padrões para parâmetros da função
+// Nota: Olhe o "= {}" no final, sinaliza um objeto vazio como padrão, caso o primeiro argumento seja undefined
+
 let ajax = ({ url: url = "localhost", port: p = 80 } = {}) => {
     console.log("Url:", url, "Port:", p);
 };
 
-// Now this works.
+// Agora funciona
 ajax(); // Url: localhost Port: 80
 
 ajax({}); // Url: localhost Port: 80
@@ -44,5 +45,4 @@ ajax({ port: 8080 });
 
 ajax({ url: "someHost", port: 8080 });
 //  => Url: someHost Port: 8080
-
 ```

@@ -1,12 +1,13 @@
 ## Named Parameters
-Using named parameters for optional settings makes it easier to understand how a function should be invoked.
+Utilizando parâmetros nomeados para configurações opcionais torna mais fácil de entender como uma função deve ser invocada. 
 
 ```js
 function setPageThread(name, { popular, expires, activeClass } = {}) {
    // ...
 }
 ```
-and to call. If you omit one of those object properties, they will only be undefined.
+
+e para chamar. Se você omitir uma dessas propriedade do objeto, elas somente serão `undefined`
 
 ```js
 setPageThread("New Version", { 
@@ -15,4 +16,3 @@ setPageThread("New Version", {
    activeClass: "is-page-thread" 
 });
 ```
-

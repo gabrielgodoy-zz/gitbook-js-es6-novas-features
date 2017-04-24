@@ -1,10 +1,11 @@
 ## Classes
-Classes are a well-debated feature of ES6. Some believe that they go against the prototypal nature of JavaScript, while others think they lower the barrier to entry for beginners and people coming from other languages and that they help people writing large-scale applications. In any case, they are part of ES6. Here’s a very quick introduction.
- 
-Classes are built around the class and constructor keywords
+Classes em JS é um assunto muito debatido. Alguns acreditam que o conceito de classes vai contra a natureza prototipal do Javascript, enquanto outro acreditam que ter o conceito de classe facilita a adoção da linguagem por novatos e desenvolvedores de outras linguagens, e que a utilização de classes facilita a criação de aplicações escaláveis. 
+
+Classes são construídas ao redor de classes e construtores.
+
 ```js
 class Vehicle {
-       // constructor runs everytime a new instance is create with 'new'
+  // O contrutor roda toda vez que uma nova instância é criada com 'new'
    	constructor(name){ 
   		this.name = name;
   		this.kind = 'vehicle';
@@ -12,7 +13,7 @@ class Vehicle {
    	getName() {
   		return this.name;
    	},
-   	// Prefixing with underscore. Convention for private
+   	// Utilizar a convenção de prefixo com underline para métodos privados
    	_privateMethod() { 
   		//...
    }
@@ -22,20 +23,18 @@ class Vehicle {
 let myVehicle = new Vehicle('rocky');
 ```
 
-Note that the class definition is not a regular object. Hence, there are no commas between class members.
+Note que a definição de classe não é um objeto normal. Por isso, nào existem vírgulas entre membros da classe.
 
+O método construtor é um método especial para criar e inicializar um objeto.
 
-The constructor method is a special method for creating and intializing an object
-
-To create an instance of a class, **you must use the new keyword**.
+Para criar uma instância de uma classe, **é preciso usar o termo new**
  
  ```js
 let myCar = new Car('bumpy');
 ```
 
-### Creating a subclass
-To inherit from a base class, use **extends**:
-
+### Criando uma subclasse
+Para herdar de uma classe base, use **extends**:
 ```js
 class Car extends Vehicle {
 	constructor(name) {
@@ -49,13 +48,11 @@ myCar.getName(); // 'bumpy'
 myCar instanceof Car; // true
 ```
 
-From the derived class, you can use super from any constructor or method to access its base class:
+Através das subclasses, é possível utilizar o termo **super()** dentro do construtor ou métodos para acessar a classe base:
 
-To call the parent constructor, use **super()**
+Para chamar um outro membro, use, por exemplo **super.getName()**
 
-To call another member, use, for example, **super.getName()**
-
-Example of subclass:
+Exemplo de subclasse:
 ```js
 class Animal {
 	constructor(voice) {

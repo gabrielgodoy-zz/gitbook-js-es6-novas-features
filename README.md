@@ -1,5 +1,7 @@
-# [ES6 and Beyond](https://gabrielgodoy.gitbooks.io/es6-and-beyond/content/)
+**Content in PORTUGUESE**
 
-📚 Annotations about JS features from ES6 and beyond
+# [ES6 e além](https://gabrielgodoy.gitbooks.io/es6-e-alem/content/)
+
+📚 Anotações sobre as novas features do Javascript
 
 ![JS](assets/js-logo.png)

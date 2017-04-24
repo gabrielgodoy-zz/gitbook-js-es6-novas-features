@@ -1,15 +1,14 @@
-## Array Static Methods
-The Array object now has some new static class methods, as well as new methods on the Array prototype.
+## Métodos estáticos de Array
+O objeto Array recebeu novos métodos estáticos, assim como novos métodos em seu `prototype`
 
 ### Array.from()
-Array.from creates Array instances from array-like and iterable objects.  
-Examples of array-like objects include:
+`Array.from` cria instâncias de Array a partir de array-like e objetos iteráveis
 
-* a nodeList returned by document.getElementsByTagName\(\);
-* the new Map and Set data structures.
-
-The items array has the forEach method, which isn’t available in the itemElements collection
-
+Exemplos de objetos array-like incluem:
+* nodeList retornado por **document.getElementsByTagName\(\)**
+* As novas estruturas de dados como `Map` e `Set`
+  
+No exemplo abaixo, o array `items` possui o método forEach, que não está disponível na coleçào `itemElements` 
 ```js
 let itemElements = document.querySelectorAll('.items');
 let items = Array.from(itemElements);
@@ -17,22 +16,23 @@ items.forEach((element) => {
     console.log(element.nodeType)
 });
 
-// A workaround often used in ES5:
+// Solução alternativa utilizada no ES5:
 let items = Array.prototype.slice.call(itemElements);
 ```
 
-An interesting feature of Array.from is the second optional mapFunction argument. 
-This allows you to create a new mapped array in a single invocation:
+Uma feature interessante de `Array.from` é o segundo argumento `mapFunction` que é opcional.
+
+Ele permite que se crie um novo array mapeado em uma só chamada:
 ```js
 let navElements = document.querySelectorAll('nav li'),
     navTitles = Array.from(navElements, el => el.textContent);
 ```
 
 ### Array.of()
-Array.of behaves much like the Array constructor. 
-It fixes the special case when passing it a single number argument. 
-This results in Array.of being preferable to new Array(). 
-However, in most cases, you’ll want to use array literals.
+O método Array.of() cria um nova instancia do Array com um número variável de argumentos, independentemente do número ou do tipo dos argumentos.
+
+A diferença entre o Array.of() e os construtores do Array é no tratamento dos argumentos inteiros: Array.of(42) cria um array com um único elemento, 42, enquanto Array(42) cria um array com 42  elementos, cada um com valor undefined.
+
 ```js
 let x = new Array(3); // [undefined, undefined, undefined]
 let y = Array.of(8); // [8]
@@ -40,14 +40,13 @@ let z = [1, 2, 3]; // Array literal
 ```
 
 ## Array Prototype Methods
-Last but not least, a couple of methods have been added to the Array prototype.  
-I think the find methods will be very welcome to most JavaScript developers.
+Alguns métodos foram adicionados ao protótipo do Array.
 
 ### Array.find()
-Array.find returns the first element in the array that satisfies a provided testing function
+Array.find retorna o primeiro elemento na array que satisfaz uma determinada condição
 
 ```js
-// Find an admin in this array of users
+// Encontre um admin no array de users
 let names = [{
     login: "Sam",
     isAdmin: false
@@ -59,7 +58,7 @@ let names = [{
     isAdmin: true
 }];
 
-// Returns first object for which user.admin is true
+// Rertorna o primeiro objeto onde o usuário admin é true
 let admin = users.find((user) => {
     return user.isAdmin;
 });
@@ -67,9 +66,14 @@ let admin = users.find((user) => {
 console.log(admin); // {login: "Brook", isAdmin: true}
 ```
 
-**find** returns the first element for which the callback returns true.  
-**findIndex** returns the index of the first element for which the callback returns true.  
-**fill** “overwrites” the elements of an array with the given argument.
+**find** retorna o primeiro elemento no qual a funçao de avalia como `True`  
+`arr.find(callback[, thisArg])`
+
+**findIndex** retorna o index do primeiro elemento no qual a funçao de avalia como `True`
+`arr.findIndex(callback[, thisArg])`
+
+**fill** "substitui" os elementos do array com um argumento 
+`arr.fill(value[, start = 0[, end = this.length]])`
 
 ```js
 [5, 1, 10, 8].find(n => n === 10) // 10
@@ -81,7 +85,8 @@ console.log(admin); // {login: "Brook", isAdmin: true}
 ```
 
 ### Array.copyWithin()
-The copyWithin() method shallow copies part of an array to another location in the same array and returns it, without modifying its size. Though copyWithin() don't change array size, it mutates the array.
+O método `copyWithin()` copia de maneira superficial parte de uma array para outro lugar na mesma array e retorna isso, sem modificar o tamanho dessa array. Embora copyWithin() não modifique o tamanho da Array, ela causa uma mutação nela. 
+
 ```js
 ["alpha", "bravo", "charlie", "delta"].copyWithin(2, 0);
 // results in ["alpha", "bravo", "alpha", "bravo"]

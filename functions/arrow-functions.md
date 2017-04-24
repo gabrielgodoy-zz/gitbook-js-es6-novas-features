@@ -1,30 +1,30 @@
 ## Arrow Functions
-Arrow functions main characteristics:
+Principais características:
 
-- Arrow functions are always anonymous
-- The arrow function don't have its own this. The *this* reference of an arrow function is the 'outer' this. 
-- There is no function keyword. Just the `=>` 
-- The return statement is implicitly added
+- Arrow functions são sempre anônimas
+- Uma Arrow function não tem seu próprio `this`. A referência do `this` de uma arrow function é o `this` do escopo de fora.
+- Não se utiliza a palavra `function`. Somente a seta `=>`
+- A declaração de retorno é adiciona implicitamente 
 
-Example:
+Exemplo:
 ```js
 let books = [{title: 'X', price: 10}, {title: 'Y', price: 15}];
 
-// With Arrow function
+// Com Arrow function
 let titles = books.map(item => item.title);
 
-// Without Arrow Function
+// Sem Arrow Function
 var titles = books.map(function(item) {
    return item.title;
 });
 ```
 
-With just one argument on a function, you can ommit parentheses:
+Com somente um argumento em uma função, é possível omitir parênteses:
 ```js
 let functionWithOneParam = value => console.log(value)
 ```
 
-With zero or more than one argument, you must provide parentheses:
+Com zero ou mais de um argumento, os parênteses são obrigatórios: 
 ```js
 // No arguments
 books.map(() => 1); // [1, 1]
@@ -33,7 +33,8 @@ books.map(() => 1); // [1, 1]
 [1,2].map((n, index) => n * index); // [0, 2]
 ```
 
-Put the function expression in a braces block `{...}` if you need more logic or more white space:
+Coloque os colchetes `{...}` caso se tenha necessidade de inserir mais lógica na função, ou mais espaço em branco.
+
 ```js
 let result = [1, 2, 3, 4, 5].map( n => {
    n = n % 3;

@@ -1,26 +1,25 @@
 # Summary
 
-* [Introduction](README.md)
+* [Introdução](README.md)
 * Arrays
     * [Array Destructuring](arrays/array-destructuring.md)
-    * [New Methods](arrays/new-methods.md)
-* [Async Functions and Await operator](async-await/README.md)
+    * [Novo métodos](arrays/new-methods.md)
 * [Classes](classes/README.md)
-* Functions
+* Funções
     * [Arrow Functions](functions/arrow-functions.md)
     * [Default Parameters](functions/default-parameters.md)
     * [Named Parameters](functions/named-parameters.md)
     * [Rest Parameters](functions/rest-parameters.md)
 * [Generators](generators/README.md)
-* [Iterators and Iterables](iterators-and-iterables/README.md)
+* [Iterators e Iterables](iterators-and-iterables/README.md)
     * [for...of loops](iterators-and-iterables/for-of-loops.md)
-* [let and const](let-and-const/README.md)
-* Map and Weakmaps
+* [let e const](let-and-const/README.md)
+* Map e Weakmaps
     * [Map](map-and-weakmaps/map.md)
     * [Weakmaps](map-and-weakmaps/weakmap.md)
 * Math Object
-    * [New Methods](math-object/new-methods.md)
-* [Modules](modules/README.md)
+    * [Novo métodos](math-object/new-methods.md)
+* [Módulos import/export](modules/README.md)
 * Objects
     * [Method Initializer](objects/method-initializer.md)
     * [Object Assign](objects/object-assign.md)
@@ -30,12 +29,12 @@
 	* [Promise methods](promises/methods.md)
 * [Proxy](proxy/README.md)
 * [Spread Operators](spread-operators/README.md)
-* Sets and Weaksets
+* Sets e Weaksets
     * [Sets](sets-and-weaksets/sets.md)
     * [Weaksets](sets-and-weaksets/weaksets.md)
 * Strings
-    * [New Methods](strings/new-methods.md)
+    * [Novo métodos](strings/new-methods.md)
     * [Tagged templates](strings/tagged-templates.md)
     * [Template Strings](strings/template-literals.md)
 * [Symbols](symbols/README.md)
-
+* [Async Functions e o operador Await](async-await/README.md)
