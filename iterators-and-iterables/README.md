@@ -26,20 +26,18 @@ console.log('Custom Iterator: ', makeIteratorFunc.next()); // { value: 'Gabriel'
 console.log('Custom Iterator: ', makeIteratorFunc.next()); // { value: 'Godoy', done: false }
 console.log('Custom Iterator: ', makeIteratorFunc.next().done); // true
 ```
-
-
 Iterators customizados como makeCustomIterator requerem a administração do estado interno do Iterator. Generators são "fábricas de iterators", onde a palavra-chave **yield** define o ponto no qual a função irá parar quando o próximo método next() for chamado.
 
 O mesmo resultado da função makeCustomIterator pode ser alcançado com um generator sem ter que administrar manualmente o estado do iterator, e o que deve ser retornado.
 
 ## Iterables
-An object is iterable if it defines its iteration behavior, such as what values are looped over in a for..of construct.
+Um objeto é um iterable se define seu comportamento ao iterar, como quais valores são exibidos durante um loop do construtor `for...of`
 
-In order to be iterable, an object must implement the @@iterator method, the object (or one of the objects up its prototype chain) must have a property with a Symbol.iterator key
+Para ser iterable, um objeto precisa implementar o método @@iterator, o objeto (ou um dos objetos até ao longo da cadeia de protótipo) precisa ter a propriedade com a chave `Symbol.iterator`
 
-Built-in iterables
+### Iterables nativos
 
-String, Array, TypedArray, Map and Set are all built-in iterables, because the prototype objects of them all have a Symbol.iterator method
+String, Array, TypedArray, Map e Set são todos iterables nativos, porque os objetos de protótipo de todos eles tem o método `Symbol.iterator`
 ```js
 function runIterable (iterable) {
     for (let element of iterable) {
@@ -48,34 +46,32 @@ function runIterable (iterable) {
 }
 
 runIterable(['Gabriel', 'Godoy']);
-// Iterable element:  Gabriel
-// Iterable element:  Godoy
+// Elemento iterable:  Gabriel
+// Elemento iterable:  Godoy
 
 runIterable('Gabriel');
-// Iterable element:  G
-// Iterable element:  a
-// Iterable element:  b
-// Iterable element:  r
-// Iterable element:  i
-// Iterable element:  e
-// Iterable element:  l
+// Elemento Iterable :  G
+// Elemento Iterable :  a
+// Elemento Iterable :  b
+// Elemento Iterable :  r
+// Elemento Iterable :  i
+// Elemento Iterable :  e
+// Elemento Iterable :  l
 ```
 
-### Custom Iterable
-
-This literal object below natively neither have nor inherit Symbol.iterator property. But we can make this one Iterable by addin [Symbol.iterator] property to it.
-
+### Iterable customizado
+Esse objeto literal abaixo não tem nem herdaa propriedade `Symbol.iterator`. Mas é possível tornar ele iterável adicionando a propriedade [Symbol.iterator] para ele
 ```js
 let myIterable = {};
 
-// Add Symbol.iterator to it
+// Adiciona Symbol.iterator para ele
 myIterable[Symbol.iterator] = function* () {
     yield 1;
     yield 2;
     yield 3;
 };
 
-// And now it becomes iterable
+// E agora se torna iterable
 for(let value of myIterable){
     console.log(value);
 }
@@ -83,4 +79,3 @@ for(let value of myIterable){
 // 2
 // 3
 ```
-

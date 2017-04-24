@@ -1,13 +1,13 @@
-## Math new methods
-A couple of new methods have been added to the Math object
+## Novos métodos do objeto Math
+Um par de novos métodos foram adicionados ao objeto Math
 
 ```js
-Math.sign(); // returns the sign of a number as 1, -1 or 0.
-Math.trunc(); // returns the passed number without fractional digits.
-Math.cbrt(); // returns the cube root of a number.
+Math.sign(); // Retorna o sinal de um número como 1, -1 ou 0.
+Math.trunc(); // retorna o número passado sem dígitos fracionários, sem fração.
+Math.cbrt(); // Retorna a raíz do cubo de um número
 ```
 
-Examples:
+Exemplos:
 ```js
 Math.sign(5); // 1
 Math.sign(-9); // -1

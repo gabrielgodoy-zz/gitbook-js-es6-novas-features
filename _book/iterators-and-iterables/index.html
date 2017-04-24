@@ -712,10 +712,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <p>Iterators customizados como makeCustomIterator requerem a administra&#xE7;&#xE3;o do estado interno do Iterator. Generators s&#xE3;o &quot;f&#xE1;bricas de iterators&quot;, onde a palavra-chave <strong>yield</strong> define o ponto no qual a fun&#xE7;&#xE3;o ir&#xE1; parar quando o pr&#xF3;ximo m&#xE9;todo next() for chamado.</p>
 <p>O mesmo resultado da fun&#xE7;&#xE3;o makeCustomIterator pode ser alcan&#xE7;ado com um generator sem ter que administrar manualmente o estado do iterator, e o que deve ser retornado.</p>
 <h2 id="iterables">Iterables</h2>
-<p>An object is iterable if it defines its iteration behavior, such as what values are looped over in a for..of construct.</p>
-<p>In order to be iterable, an object must implement the @@iterator method, the object (or one of the objects up its prototype chain) must have a property with a Symbol.iterator key</p>
-<p>Built-in iterables</p>
-<p>String, Array, TypedArray, Map and Set are all built-in iterables, because the prototype objects of them all have a Symbol.iterator method</p>
+<p>Um objeto &#xE9; um iterable se define seu comportamento ao iterar, como quais valores s&#xE3;o exibidos durante um loop do construtor <code>for...of</code></p>
+<p>Para ser iterable, um objeto precisa implementar o m&#xE9;todo @@iterator, o objeto (ou um dos objetos at&#xE9; ao longo da cadeia de prot&#xF3;tipo) precisa ter a propriedade com a chave <code>Symbol.iterator</code></p>
+<h3 id="iterables-nativos">Iterables nativos</h3>
+<p>String, Array, TypedArray, Map e Set s&#xE3;o todos iterables nativos, porque os objetos de prot&#xF3;tipo de todos eles tem o m&#xE9;todo <code>Symbol.iterator</code></p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> runIterable <span class="token punctuation">(</span>iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> element <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Iterable element: &apos;</span><span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -723,30 +723,30 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span>
 
 <span class="token function">runIterable</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Godoy&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// Iterable element:  Gabriel</span>
-<span class="token comment" spellcheck="true">// Iterable element:  Godoy</span>
+<span class="token comment" spellcheck="true">// Elemento iterable:  Gabriel</span>
+<span class="token comment" spellcheck="true">// Elemento iterable:  Godoy</span>
 
 <span class="token function">runIterable</span><span class="token punctuation">(</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// Iterable element:  G</span>
-<span class="token comment" spellcheck="true">// Iterable element:  a</span>
-<span class="token comment" spellcheck="true">// Iterable element:  b</span>
-<span class="token comment" spellcheck="true">// Iterable element:  r</span>
-<span class="token comment" spellcheck="true">// Iterable element:  i</span>
-<span class="token comment" spellcheck="true">// Iterable element:  e</span>
-<span class="token comment" spellcheck="true">// Iterable element:  l</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  G</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  a</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  b</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  r</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  i</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  e</span>
+<span class="token comment" spellcheck="true">// Elemento Iterable :  l</span>
 </code></pre>
-<h3 id="custom-iterable">Custom Iterable</h3>
-<p>This literal object below natively neither have nor inherit Symbol.iterator property. But we can make this one Iterable by addin [Symbol.iterator] property to it.</p>
+<h3 id="iterable-customizado">Iterable customizado</h3>
+<p>Esse objeto literal abaixo n&#xE3;o tem nem herdaa propriedade <code>Symbol.iterator</code>. Mas &#xE9; poss&#xED;vel tornar ele iter&#xE1;vel adicionando a propriedade [Symbol.iterator] para ele</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> myIterable <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Add Symbol.iterator to it</span>
+<span class="token comment" spellcheck="true">// Adiciona Symbol.iterator para ele</span>
 myIterable<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">yield</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token keyword">yield</span> <span class="token number">2</span><span class="token punctuation">;</span>
     <span class="token keyword">yield</span> <span class="token number">3</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// And now it becomes iterable</span>
+<span class="token comment" spellcheck="true">// E agora se torna iterable</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> value <span class="token keyword">of</span> myIterable<span class="token punctuation">)</span><span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -787,7 +787,7 @@ myIterable<span class="token punctuation">[</span>Symbol<span class="token punct
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Iterators e Iterables","level":"1.6","depth":1,"next":{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"previous":{"title":"Generators","level":"1.5","depth":1,"path":"generators/README.md","ref":"generators/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"iterators-and-iterables/README.md","mtime":"2017-04-24T21:02:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T21:02:25.960Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Iterators e Iterables","level":"1.6","depth":1,"next":{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"previous":{"title":"Generators","level":"1.5","depth":1,"path":"generators/README.md","ref":"generators/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"iterators-and-iterables/README.md","mtime":"2017-04-24T21:49:42.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

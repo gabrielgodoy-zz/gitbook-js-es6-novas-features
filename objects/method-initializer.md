@@ -1,5 +1,6 @@
-## Method Initializer
-Create methods on objects using a shorthand
+## Inicializador de métodos
+Cria métodos em objeto usando o atalho
+
 ```js
 //ES6
 {

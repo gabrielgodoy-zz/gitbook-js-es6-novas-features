@@ -1,18 +1,19 @@
 # Object.assign (equivalent to .extend() in jQuery)
-Writing flexible and reusable functions
+Escrever funções flexíveis e reutilizáveis
 
-The Object.assign method copies properties from one or more source objects to a target object specified as the very first argument.
+O método `Object.assign` copia as propriedades de um ou mais objetos de origem para um objeto de destino especificado como o primeiro argumento.
 
-Object.assign(target, ...sources);
+Object.assign (target, ... sources);
 
-What if we want to call countdownTimer with different options:
+E se quisermos chamar countdownTimer com opções diferentes:
+
 ```js
-// The example function countdownTimer needs to be called in many different ways
+// A função de exemplo countdownTimer precisa ser chamada de muitas maneiras diferentes
 let btn = document.querySelector('.btn-undo');
-// As simple as this
+// Simples assim
 countdownTimer(btn, 60);
 
-// and as complicated as this
+// e complicado como isso
 countdownTimer(btn, 60, {
 	container: '.new-post-options'
 });
@@ -23,10 +24,11 @@ countdownTimer(btn, 3, {
 });
 ```
 
-## Object.assign to the rescue
-We want to merge 'options' passed by the caller of the function countdownTimer, with 'defaults'.
-Upon duplicate properties, those from 'options' must override properties from 'defaults'.
-Like the extend() jQuery method.
+## Object.assign para o resgate
+Queremos mergear 'options' passadas pela função que chamou a função countdownTimer, com 'defaults'.
+Em propriedades duplicadas, as de 'options' devem substituir propriedades de 'defaults'.
+Funciona como o método extend() jQuery.
+
 ```js
 function countdownTimer(target, timeLeft, options = {}){
 	let defaults = {
@@ -38,7 +40,7 @@ function countdownTimer(target, timeLeft, options = {}){
 		timeoutSoonTime: 10
 	};
 	
-	// This creates an entire new object with defaults and options merged
+	// Isso cria um novo objeto inteiro com defaults e options mergeadas
 	let settings = Object.assign({}, defaults, options);
 }
 ```

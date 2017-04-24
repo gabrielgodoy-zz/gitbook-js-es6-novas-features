@@ -1,22 +1,21 @@
 ## Maps
+Maps são estrutura de dados compostas de uma coleção de pares **chave/valor**
+ Maps são úteis para armazenar dados simples, como valores de propriedade.
 
-Maps are a data structure composed of a collection of **key/value** pairs.   
-Maps are useful to store simple data, such as property values.
+O método **set\(\)** é usado para adicionar entradas, e o método **get\(\)** para ler entradas
 
-The **set\(\)** method is used to add entries, and the **get\(\)** method to read entries
+### Problemas ao usar objetos como mapas
 
-### Issues with using objects as maps
-
-When using Objects as keys, **its keys are always converted to strings**
+Quando usar Objetos como chaves, **suas chaves são sempre convertidas para strings**
 
 ```js
-// Two different objects
+// Dois objetos diferentes
 let user1 = {name: "Sam"},
     user2 = {name: "Tyler"};
 
 let totalReplies = {};
 
-// Both objects below are converted to the string '[object Object]'
+// Os dois objetos abaixo são convertidos para a string '[object Object]'
 totalReplies[user1] = 5;
 totalReplies[user2] = 42;
 
@@ -24,39 +23,36 @@ console.log(totalReplies[user1]); // 42
 console.log(totalReplies[user2]); // 42
 console.log(Object.keys(totalReplies)); // ['[object Object]']
 ```
-
-Map fixes that:  
-When we use objects as keys on a map they are not converted to strings
+Map resolve esse problema:
+Quando usamos objetos como chaves em um map, eles não sào convertidos para strings
 
 ```js
 let user1 = {name: "Sam"},
      user2 = {name: "Tyler"};
 
 let totalReplies = new Map();
-// These two values are properly assigned to different keys
+// Esses dois valores são propriamente atribuídos a diferentes chaves
 totalReplies.set(user1, 5);
 totalReplies.set(user2, 42);
 
-// We use the get() and set() methods to access values in Maps)
+// Usamos os métodos get() e set() para acessar valores em Maps
 console.log(totalReplies.get(user1)); // 5
 console.log(totalReplies.get(user2)); // 42
 ```
 
-### When to use maps or objects to store data
+### Quando usar maps ou objetos para armazenar dados?
+Use Maps quando chaves não são conhecidas até runtime
 
-Use Maps when keys are unknown until runtime
-
-_Keys unknown until runtime, so...Map!_
+_Chaves desconhecidas até o runtime, então...Map!_
 
 ```js
 let recentPosts = new Map();
 createPost(newPost, (data) => {
-    // We dont know what data.author is going to be until you run this code
+  	// Não se sabe qual dados do author vai ser até que se rode o código
     recentPosts.set(data.author, data.message)
 });
 ```
-
-_Keys are previously defined, so...Objects!_
+_Chaves são previamente conhecidas, então...Objetos!_
 
 ```js
 const POSTS_PER_PAGE = 15;
@@ -66,19 +62,16 @@ let userSettings = {
 }
 ```
 
-### Iterating Maps with for...of
+### Iterando Maps com for...of
 
 ```js
 let mapSettings = new Map();
 
 mapSettings.set("user", "Sam");
 mapSettings.set("topic", "ES2015");
-mapSettings.set("replies", ["Can't wait!", "So Cool"]);
+mapSettings.set("replies", ["Mal posso esperar!", "Tão legal"]);
 
 for(let [key, value] of mapSettings) {
     console.log(`${key} = ${value}`);
 }
 ```
-
-
-

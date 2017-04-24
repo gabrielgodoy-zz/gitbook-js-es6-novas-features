@@ -1,5 +1,5 @@
-## Object Initializer
-Only works if the variable have the same names as the keys of the object being initialized
+## Inicializador de objetos
+Só funciona se a variável tem os mesmos nomes que as chaves do objeto que está sendo inicializado
 
 ```js
 // Old JS
@@ -15,7 +15,8 @@ let name = "Brook",
 	user = {name, totalReplies, avatar};
 ```
 
-### Shorthand Object property names (ES6)
+### Forma abreviada para nomes de propriedades de um objeto (ES6) 
+
 ```js
 // Old JS
 var a = "foo", 
@@ -30,8 +31,8 @@ let a = "foo",
 	obj = {a, b, c};
 ```
 
-### Computed property names (ES6)
-This feature lets you set dynamic key names of a literal object
+### Nomes de propriedades computadas (ES6)
+Esse recurso permite definir nomes de chaves dinâmicas de um objeto literal
 
 ```js
 let prop = "foo",

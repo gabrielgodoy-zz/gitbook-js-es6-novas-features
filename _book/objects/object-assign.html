@@ -687,16 +687,16 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="objectassign-equivalent-to-extend-in-jquery">Object.assign (equivalent to .extend() in jQuery)</h1>
-<p>Writing flexible and reusable functions</p>
-<p>The Object.assign method copies properties from one or more source objects to a target object specified as the very first argument.</p>
-<p>Object.assign(target, ...sources);</p>
-<p>What if we want to call countdownTimer with different options:</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// The example function countdownTimer needs to be called in many different ways</span>
+<p>Escrever fun&#xE7;&#xF5;es flex&#xED;veis e reutiliz&#xE1;veis</p>
+<p>O m&#xE9;todo <code>Object.assign</code> copia as propriedades de um ou mais objetos de origem para um objeto de destino especificado como o primeiro argumento.</p>
+<p>Object.assign (target, ... sources);</p>
+<p>E se quisermos chamar countdownTimer com op&#xE7;&#xF5;es diferentes:</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// A fun&#xE7;&#xE3;o de exemplo countdownTimer precisa ser chamada de muitas maneiras diferentes</span>
 <span class="token keyword">let</span> btn <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;.btn-undo&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// As simple as this</span>
+<span class="token comment" spellcheck="true">// Simples assim</span>
 <span class="token function">countdownTimer</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// and as complicated as this</span>
+<span class="token comment" spellcheck="true">// e complicado como isso</span>
 <span class="token function">countdownTimer</span><span class="token punctuation">(</span>btn<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
     container<span class="token punctuation">:</span> <span class="token string">&apos;.new-post-options&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -706,10 +706,10 @@
     timeoutClass<span class="token punctuation">:</span> <span class="token string">&apos;.time-is-up&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="objectassign-to-the-rescue">Object.assign to the rescue</h2>
-<p>We want to merge &apos;options&apos; passed by the caller of the function countdownTimer, with &apos;defaults&apos;.
-Upon duplicate properties, those from &apos;options&apos; must override properties from &apos;defaults&apos;.
-Like the extend() jQuery method.</p>
+<h2 id="objectassign-para-o-resgate">Object.assign para o resgate</h2>
+<p>Queremos mergear &apos;options&apos; passadas pela fun&#xE7;&#xE3;o que chamou a fun&#xE7;&#xE3;o countdownTimer, com &apos;defaults&apos;.
+Em propriedades duplicadas, as de &apos;options&apos; devem substituir propriedades de &apos;defaults&apos;.
+Funciona como o m&#xE9;todo extend() jQuery.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">countdownTimer</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> timeLeft<span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">let</span> defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
         container<span class="token punctuation">:</span> <span class="token string">&apos;.timer-display&apos;</span><span class="token punctuation">,</span>
@@ -720,7 +720,7 @@ Like the extend() jQuery method.</p>
         timeoutSoonTime<span class="token punctuation">:</span> <span class="token number">10</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">// This creates an entire new object with defaults and options merged</span>
+    <span class="token comment" spellcheck="true">// Isso cria um novo objeto inteiro com defaults e options mergeadas</span>
     <span class="token keyword">let</span> settings <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> defaults<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -757,7 +757,7 @@ Like the extend() jQuery method.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Object Assign","level":"1.11.2","depth":2,"next":{"title":"Object Destructuring","level":"1.11.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},"previous":{"title":"Method Initializer","level":"1.11.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"objects/object-assign.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T21:02:25.960Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Object Assign","level":"1.11.2","depth":2,"next":{"title":"Object Destructuring","level":"1.11.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},"previous":{"title":"Method Initializer","level":"1.11.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"objects/object-assign.md","mtime":"2017-04-24T22:27:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

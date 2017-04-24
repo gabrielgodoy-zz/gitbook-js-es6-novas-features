@@ -1,19 +1,19 @@
-## Async Functions and await operator
-Async function can contain await expression, that pauses the execution of the async function and waits for the passed promise's resolution, and resumes the async function's execution and returns the resolved value.
+## Funções Async e o operador await
+Funções Async podem conter expressões `await`, que pausa a execução da função async e espera pela resolução da promessa que foi passada, e conclui a execução da função async retornando o valor resolvido.
 
 ```js
-// Some function that returns a Promise
+// Alguma função que retorna uma Promise
 function getPromise() {
     return new Promise((resolve, reject) => Math.random() > .5 ? resolve('Lucky') : reject('Bad Luck'));
 }
 
 /*
-async function
-async/await let you write asynchronous code, using synchronous code structure
+Função Async
+async/await permite que se escreva código assíncrono usando uma estrutura de código síncrona
 */
 async function main() {
     let result;
-    // await receives a Promise, if rejected goes to catch block with respective error
+    // await recebe uma Promise, se rejeitada vai para o block catch com o erro correspondente
     try {
         result = await getPromise();
     } catch (error) {
@@ -22,6 +22,6 @@ async function main() {
     console.log(result);
 }
 
-// Run async function
+// Roda função async
 main();
 ```

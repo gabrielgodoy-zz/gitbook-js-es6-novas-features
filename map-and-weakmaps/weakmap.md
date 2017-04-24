@@ -1,28 +1,27 @@
 ## Weakmaps
-The WeakMap is a type of Map where **only objects** can be passed as keys.
-Primitive data types - such as strings, numbers, booleans, etc - are not allowed
+O Weakmap é um tipo de Map que **soment objetos** podem ser passados como chaves.
+Tipos de dados primitivos, como strings, números, booleanos, etc - não são permitidos
 
 ```js
 let user = {};
 let mapSettings = new WeakMap();
 mapSettings.set(user, "ES2015");
 
-console.log(mapSettings.get(user)); // Get reads the 'user' entry | 'ES2015'
-console.log(mapSettings.has(user)); // Returns true if there is an entrance for that key
-console.log(mapSettings.delete(user)); // Removes an entry, and returns a boolean based on whether that entrance existed
+console.log(mapSettings.get(user)); // Get lê a registro 'user' | 'ES2015'
+console.log(mapSettings.has(user)); // Retuorna true se tem um registro para essa chave
+console.log(mapSettings.delete(user)); // Remove um registro e retorna um booleano baseado se esse registro existe 
 ```
 
-**WeakMaps are not iterables with for...of for example**
+**WeakMaps não são iterables com for...of por exemplo**
 
-**Weakmaps are better with memory**
-WeakMaps are called weaks, because they hold weak references to the objects used as keys
+**Weakmaps são melhores com memória**
+WeakMaps são chamados weaks, porque eles armazenam referências fracas dos objetos usados como chaves.
+
 ```js
-let user = {}; // All objects occupy memory space
+let user = {}; // Todos os objetos ocupam espaço na mémória
 let userStatus = new WeakMap();
-mapStatus.set(user, "logged"); // Object reference passed as key to WeakMap
-// ..
-someOtherFunction(user); //Once it returns, 'user' can be garbage collected
+mapStatus.set(user, "logged"); // referência de objeto passado como chave ao WeakMap 
+someOtherFunction(user); // Uma vez que ele retorna 'user' pode ser coletado pelo garbage collector
 ```
 
-WeakMaps don't prevent the garbage collector from collecting objects currently used as keys, but that are no longer referenced anywhere else in the system.
-
+WeakMaps não impedem o coletor de lixo de coletar objetos atualmente usados como chaves, mas que não são mais referenciados em nenhum outro lugar no sistema.

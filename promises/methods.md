@@ -1,13 +1,15 @@
-## Promise methods
-### Promise.all(iterable)
-Returns a promise that resolves when all of the promises in the iterable argument have resolved. This is useful for aggregating results of multiple promises together.
+## Métodos de uma Promise
 
-### Promise.race(iterable)
-Returns a promise that resolves or rejects as soon as one of the promises in the iterable resolves or rejects, with the value or reason from that promise.
+### Promise.all (iterável)
+Retorna uma promessa que resolve quando todas as promessas no argumento iterable foram resolvidas. Isso é útil para agregar resultados de múltiplas promessas juntos.
 
-### Promise.reject(reason)
-Returns a Promise object that is rejected with the given reason.
+### Promise.race (iterável)
+Retorna uma promessa que resolve ou rejeita assim que uma das promessas no iterável resolve ou rejeita, com o valor ou razão dessa promessa.
 
-### Promise.resolve(value)
-Returns a Promise object that is resolved with the given value. If the value is a thenable (i.e. has a then method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value. Generally, if you want to know if a value is a promise or not - Promise.resolve(value) it instead and work with the return value as a promise.
+### Promise.reject (razão)
+Retorna um objeto Promise que é rejeitado com o motivo fornecido.
 
+### Promise.resolve (value)
+Retorna um objeto Promise que é resolvido com o valor especificado. Se o valor é um `thenable` (ou seja, tem um método then()), a promessa retornada "seguirá" esse `thenable`, adotando seu eventual estado; Caso contrário a promessa devolvida será cumprida com o valor. 
+
+Geralmente, se você quiser saber se um valor é uma promessa ou não - Dê um `Promise.resolve(value)` em vez disso e trabalhe com o valor de retorno como uma promessa.

@@ -1,19 +1,20 @@
-## Modules
-When loaded via the module system, ES6 treats a file as a separate module. 
+## Módulos
+Quando carregado através do sistema do módulo, o ES6 trata um arquivo como um módulo separado.
 
-Each module can both import other modules or specific API members, as well export their own public API members.
+Cada módulo pode importar outros módulos ou membros específicos da API, assim como exportar seus próprios membros públicos da API.
 
-There are two kinds of exports: 
-- **named exports** (several per module)
-- **default exports** (one per module)
+Existem dois tipos de exportações:
+- **named exports** (várias por módulo)
+- **exportações default** (uma por módulo)
 
-Modules on ES6 are designed around the `export` and `import` keywords. 
+Os módulos no ES6 são projetados em torno das palavras-chave `export` e` import`
 
-ES6 modules must be defined in separate files (one per module). 
+Os módulos ES6 devem ser definidos em arquivos separados (um por módulo).
 
-The browsers/engines have a default "module loader", which synchronously loads a module file when it’s imported.
+Os navegadores/motores têm um "carregador de módulo" padrão, que carrega de forma síncrona um arquivo de módulo quando é importado.
 
-Let’s examine an example with two modules right away:
+Vamos examinar um exemplo com dois módulos:
+
 ```js
 // bar.js File
 function hello(who) { 
@@ -21,32 +22,33 @@ function hello(who) {
 }
 export hello; 
 
-//foo.js File
-// import only `hello()` from the 'bar' module 
+// Arquivo foo.js 
+// importa somente `hello()` do módulo 'bar'
 import hello from 'bar'; 
 var hungry = 'hippo'; 
 export function awesome() { 
 	console.log(hello(hungry).toUpperCase()); 
 }
 
-// baz.js File
-// import the entire 'foo' and 'bar' modules 
+// Arquivo baz.js
+// Importa todos os módulos 'foo' e 'bar' 
 module foo from 'foo'; 
 module bar from 'bar'; 
-console.log( bar.hello( 'rhino' ) ); // Let me introduce: rhino 
-foo.awesome(); // LET ME INTRODUCE: HIPPO
+console.log( bar.hello( 'rhino' ) ); // Deixe-me introduzir: rhino
+foo.awesome(); // DEIXE-ME INTRODUZIR: HIPPO
 ```
 
 ### Default Exports
-**Modules that only export single values** are very popular in the Node.js community. 
+** Módulos que exportam valores únicos ** são muito populares na comunidade Node.js.
 
-But they are also common in frontend development where you often have constructors/classes for models, with one model per module. 
+Mas eles também são comuns no desenvolvimento de frontend onde muitas vezes você tem construtores / classes para modelos, com um modelo por módulo.
 
-An ECMAScript 6 module can pick a default export, the most important exported value.
- 
-Default exports are especially easy to import.
+Um módulo ECMAScript 6 pode escolher uma exportação padrão, o valor exportado mais importante.
+ 
+As exportações padrão são especialmente fáceis de importar.
 
-The following ECMAScript 6 module "is" a single function:
+O seguinte módulo ECMAScript 6 "é" uma única função:
+
 ```js
 //------ myFunc.js ------
 export default function () {...};
@@ -56,7 +58,8 @@ import myFunc from './myFunc';
 myFunc();
 ```
 
-An ECMAScript 6 module whose default export is a class looks as follows:
+Um módulo ECMAScript 6 que seu `export default` é uma classe parece da seguinte maneira:
+
 ```js
 //------ MyClass.js ------
 export default class { ... };
@@ -66,12 +69,12 @@ import MyClass from 'MyClass';
 let inst = new MyClass();
 ```
 
-Note: The operand of the default export declaration is an expression, it often does not have a name. Instead, it is to be identified **via its module’s name**.
+Nota: O operando da declaração de `export default` é uma expressão, muitas vezes não tem um nome. Em vez disso, ele deve ser identificado **através do nome do seu módulo**.
 
-### Named Exports (Several per module)
-A module can export multiple things by prefixing their declarations with the keyword `export`. 
+### Named Exports (várias por módulo)
+Um módulo pode exportar várias coisas, prefixando suas declarações com a palavra-chave `export`.
 
-These exports are distinguished by their names and are called **named exports**.
+Essas exportações são distinguidas por seus nomes e são chamadas **named exports**.
 
 ```js
 //------ lib.js ------
@@ -89,7 +92,8 @@ console.log(square(11)); // 121
 console.log(diag(4, 3)); // 5
 ```
 
-It is also possible to import the whole module and refer to its named exports via property notation:
+Também é possível importar todo o módulo e referir-se às suas exportações nomeadas através da notação de propriedade:
+
 ```js
 //------ main.js ------
 import * as lib from 'lib';
@@ -97,8 +101,8 @@ console.log(lib.square(11)); // 121
 console.log(lib.diag(4, 3)); // 5
 ```
 
-#### Exporting multiple function at once with curly braces
-It is also possible to store something in a variable, then export it 
+#### Exportação de múltiplas funções de uma só vez com chaves
+Também é possível armazenar algo em uma variável, e em seguida, exportá-lo
 
 ```js
 function double(x) {

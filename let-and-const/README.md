@@ -1,10 +1,11 @@
 ## let
-A new way to create scope
+Um novo jeito de criar escopo
 
-Using **var = variable** Its scope is trapped in the nearest surrounding function 
-Using **let = variable** Its scoped is trapped in the nearest curly braces
+Utilizando **var = variável** seu escopo está preso dentro da função mais próxima que envolve ela
+Utilizando **let = variável** seu escopo está preso dentro dos colchetes mais próximos que envolve ela
 
-*'let' statement does not hoist, that is why you need to put all your let statements on top of the blocks*
+
+*declarações 'let' não causam `hoist`, por isso se torna necessário colocar todas suas declaraçòes let no topo dos blocos antes de serem usadas*
 
 ```js
 if(true) {
@@ -12,8 +13,7 @@ if(true) {
 }
 console.log(x); // undefined
 ```
-
-This can make for cleaner code, resulting in fewer variables hanging around. 
+Isso torna o código mais limpo, resultando em menos variáveis soltas.
 
 ```js
 function foo(bar) {
@@ -29,19 +29,19 @@ function foo(bar) {
 foo("bar");
 ```
 
-let variables can be reassigned
+Variáveis let podem ser reatribuídas
 ```js
 let name = "Jerry Only";
 name = "Glenn Danzig";
 ```
 
-but not redeclared on the same scope. This gives a typeError
+Mas não podem ser redeclaradas no mesmo escopo. Isso gera um TypeError
+
 ```js
 let name = "Jerry Only";
 let name = "Glenn Danzig";
 ```
-
-In different scope it can be redeclared
+Em um escopo diferente ela pode ser redeclarada
 ```js
 let message = "web forum";
 
@@ -52,31 +52,30 @@ function printInCaps(value){
 printInCaps("profiles");
 console.log( message ); // web forum
 
-// Because message inside function is trapped with let, and console sees only the global message
 ```
+Porque `message` dentro da função está presa naquele escopo com let, e o console enxerga somente a variável `message` global
 
 ## const
-Use of Const to create immutable Variables
+Uso do `const` para criar variáveis imutáveis
 
-Constants are block-scoped, much like variables defined using the let statement. 
+Constantes tem escopo por bloco, assim como variáveis definidas usando let
 
-*'const' statement does not hoist, that is why you need to put all your let statements on top of the blocks*
+*declarações 'const' não causam `hoist`, por isso se torna necessário colocar todas suas declaraçòes const no topo dos blocos antes de serem usadas*
 
-The value of a constant cannot change through re-assignment, and it can't be redeclared.
+O valor de uma constante nã pode mudar através de reatribuíção, e não pode ser redeclarada.
 
-Constants always needs to be assigned:
-
+Constantes sempre precisam ser declaradas, e atribuídas um valor:
 ```js
-const MAX_USERS = 15; // Right
-const MAX_USERS; // Wrong
+const MAX_USERS = 15; // Certo
+const MAX_USERS; // errado
 ```
 
-There is another way to declare block-scoped variables. 
+Existe outra maneira de declarar variáveis com escopo em bloco.
 
-With const, you declare a read-only reference to a value. You must assign a variable directly. 
+Com const você declara uma referência read-only para um valor. É preciso atribuir uma valor a variável diretamente.
 
 ```js
 const myVar = 2;
 myVar = 3; // 3
-myVar // Still 2, and will always be 2
+myVar // Ainda 2, e sempre será 2
 ```

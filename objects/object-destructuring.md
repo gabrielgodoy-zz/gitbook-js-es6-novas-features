@@ -1,30 +1,32 @@
-## Destructuring an Object into variables
+## Desestruturando um objeto em variáveis
 
-Example of object destructuring:
+Exemplo de destructuring com objeto
+
 ```js
 function buildUser(first, last){
   let fullName = first + " " + last;
   return { first, last, fullName };
 }
-// Creating variable fullName, and assigning the fullName property returned by buildUser Function Object 
+// Criando a variável fullName e atribuindo a propriedade fullName retornada pelo objeto de função buildUser 
 let { fullName } = buildUser("Tyler", "Williams");
 ```
 
-Destructuring objects. 
-**Make sure to have matching keys:**
+Desestruturando objetos 
+**Tenha certeza que as chaves dão match:**
 ```js
 let obj = {x: 1, y: 2};
 let {x, y} = obj; // x = 1, y = 2
 ```
 
-You could also use this mechanism to change variable names:
+Você também pode usar esse mecanismo para alterar nomes de variáveis:
 ```js
 let obj = {x: 1, y: 2};
 let {x: a, y: b} = obj; // a = 1, b = 2
 ```
 
-Destructuring can be used to assign default values to argument objects. 
-With an object literal, you can actually simulate named parameters.
+A desestruturação pode ser usada para atribuir valores padrão a objetos de argumento.
+Com um objeto literal, você pode realmente simular parâmetros nomeados.
+
 ```js
 function doSomething({y = 1, z = 0}) {
    console.log(y, z);
@@ -32,5 +34,5 @@ function doSomething({y = 1, z = 0}) {
 doSomething({y: 2});
 ```
 
-More on destructuring
-[Destructuring gist examples](https://gist.github.com/mikaelbr/9900818)
+Mais em destructuring
+[gist com exemplos de destructuring](https://gist.github.com/mikaelbr/9900818)

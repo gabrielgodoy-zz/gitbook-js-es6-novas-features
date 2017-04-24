@@ -684,20 +684,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="async-functions-and-await-operator">Async Functions and await operator</h2>
-<p>Async function can contain await expression, that pauses the execution of the async function and waits for the passed promise&apos;s resolution, and resumes the async function&apos;s execution and returns the resolved value.</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Some function that returns a Promise</span>
+                                <h2 id="fun&#xE7;&#xF5;es-async-e-o-operador-await">Fun&#xE7;&#xF5;es Async e o operador await</h2>
+<p>Fun&#xE7;&#xF5;es Async podem conter express&#xF5;es <code>await</code>, que pausa a execu&#xE7;&#xE3;o da fun&#xE7;&#xE3;o async e espera pela resolu&#xE7;&#xE3;o da promessa que foi passada, e conclui a execu&#xE7;&#xE3;o da fun&#xE7;&#xE3;o async retornando o valor resolvido.</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Alguma fun&#xE7;&#xE3;o que retorna uma Promise</span>
 <span class="token keyword">function</span> <span class="token function">getPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token punctuation">.</span><span class="token number">5</span> <span class="token operator">?</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;Lucky&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">&apos;Bad Luck&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment" spellcheck="true">/*
-async function
-async/await let you write asynchronous code, using synchronous code structure
+Fun&#xE7;&#xE3;o Async
+async/await permite que se escreva c&#xF3;digo ass&#xED;ncrono usando uma estrutura de c&#xF3;digo s&#xED;ncrona
 */</span>
 <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> result<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// await receives a Promise, if rejected goes to catch block with respective error</span>
+    <span class="token comment" spellcheck="true">// await recebe uma Promise, se rejeitada vai para o block catch com o erro correspondente</span>
     <span class="token keyword">try</span> <span class="token punctuation">{</span>
         result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">getPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -706,7 +706,7 @@ async/await let you write asynchronous code, using synchronous code structure
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// Run async function</span>
+<span class="token comment" spellcheck="true">// Roda fun&#xE7;&#xE3;o async</span>
 <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
@@ -742,7 +742,7 @@ async/await let you write asynchronous code, using synchronous code structure
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Async Functions e o operador Await","level":"1.18","depth":1,"previous":{"title":"Symbols","level":"1.17","depth":1,"path":"symbols/README.md","ref":"symbols/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"async-await/README.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T21:02:25.960Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Async Functions e o operador Await","level":"1.18","depth":1,"previous":{"title":"Symbols","level":"1.17","depth":1,"path":"symbols/README.md","ref":"symbols/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"async-await/README.md","mtime":"2017-04-24T22:03:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

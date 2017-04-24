@@ -686,69 +686,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="promises-objects">Promises Objects</h2>
-<p>The Promise object is used for deferred (to delay, to retard) and asynchronous computations. </p>
-<p>A Promise represents an operation that hasn&apos;t completed yet, but is expected in the future.</p>
-<p>Creating a new Promise automatically sets it to the <strong>pending state</strong>.</p>
-<h3 id="promises-states">Promises States</h3>
-<p>Internally, a promise can be in one of three states:</p>
+                                <h2 id="objetos-promessas">Objetos Promessas</h2>
+<p>O objeto <code>Promise</code> &#xE9; usado para c&#xE1;lculos que s&#xE3;o adiados (demorados, retardados) e ass&#xED;ncronos.</p>
+<p>Uma Promessa representa uma opera&#xE7;&#xE3;o que ainda n&#xE3;o foi conclu&#xED;da, mas que est&#xE1; prevista para o futuro.</p>
+<p>A cria&#xE7;&#xE3;o de uma nova Promessa define-a automaticamente como <strong>estado pendente</strong>.</p>
+<h3 id="estados-de-uma-promise">Estados de uma Promise</h3>
+<p>Internamente, uma promessa pode estar em um de tr&#xEA;s estados:</p>
 <ul>
-<li><strong>Pending</strong>, when the final value is not available yet</li>
-<li><strong>Fulfilled</strong>, when and if the final value becomes available. A fulfillment value becomes permanently associated with the promise. This may be any value, including undefined.</li>
-<li><strong>Rejected</strong>, if an error prevented the final value from being determined. This may be any value, including undefined, though it is generally an Error object, like in exception handling.</li>
+<li><strong>Pendente</strong>, quando o valor final ainda n&#xE3;o est&#xE1; dispon&#xED;vel</li>
+<li><strong>Cumprida</strong>, quando e se o valor final se torna dispon&#xED;vel. Um valor de cumprimento se torna permanentemente associado &#xE0; promessa. Isso pode ser qualquer valor, incluindo undefined.</li>
+<li><strong>Rejeitado</strong>, se um erro impediu que o valor final fosse determinado. Isso pode ser qualquer valor, incluindo undefined, embora geralmente seja um objeto de Erro, como no tratamento de exce&#xE7;&#xF5;es.</li>
 </ul>
-<h3 id="creating-promises">Creating Promises</h3>
-<p>The Promise Constructor function takes an anonymous function with 2 arguments known as handlers (resolve, reject)</p>
+<h3 id="criando-promessas">Criando Promessas</h3>
+<p>A fun&#xE7;&#xE3;o construtora da Promise assume uma fun&#xE7;&#xE3;o an&#xF4;nima com 2 argumentos conhecidos como manipuladores (resolver, rejeitar)</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> randomPromise <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token punctuation">.</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;ok&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token string">&apos;fail&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Now using the created Promise
-The second parameter on the then function acts as a catch block when things go wrong.</p>
+<p>Agora usando a promessa criada
+O segundo par&#xE2;metro na fun&#xE7;&#xE3;o then() age como um bloco catch quando as coisas d&#xE3;o errado.</p>
 <pre class="language-"><code class="lang-js"><span class="token function">randomPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>result <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">,</span> err <span class="token operator">=</span><span class="token operator">&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="then-and-catch">then() and catch()</h3>
-<p>Promise.prototype.then and Promise.prototype.catch methods return promises, they can be chained</p>
-<h3 id="catch-block-to-treat-exceptions-and-errors">catch() block to treat exceptions and errors</h3>
-<pre class="language-"><code class="lang-js">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;oops, this is not a json to be parsed&apos;</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Try to parse a non-JSON data send us to catch block</span>
-  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Error: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>error<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Error is alerted</span>
+<h3 id="then-e-catch">then() e catch()</h3>
+<p>Os m&#xE9;todos <code>Promise.prototype.then</code> e <code>Promise.prototype.catch</code> retornam promessas, eles podem ser encadeados</p>
+<h3 id="o-bloco-catch-trata-exce&#xE7;&#xF5;es-e-erros">O bloco catch() trata exce&#xE7;&#xF5;es e erros</h3>
+<pre class="language-"><code class="lang-js">Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">&apos;oops, esse n&#xE3;o &#xE9; o json para ser parseado&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>data <span class="token operator">=</span><span class="token operator">&gt;</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Tentativa de parsear um arquivo que n&#xE3;o &#xE9; JSON nos leva pa o bloco catch</span>
+  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">alert</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Error: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>error<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Erro &#xE9; alertado</span>
 </code></pre>
-<h3 id="promise-chaining">Promise Chaining</h3>
-<p>The method then() returns a promise, so can be chained again on another then()</p>
+<h3 id="encadeamento-de-promises">Encadeamento de Promises</h3>
+<p>O m&#xE9;todo then() retorna uma promessa, ent&#xE3;o pode ser encadeado novamente em outro then()</p>
 <pre class="language-"><code class="lang-js">someFunction<span class="token punctuation">.</span><span class="token function">somePromiseReturned</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>getFiles<span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>generateIndex<span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>generatePosts<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="using-promises-for-ajax-requests-promisifying-xmlhttprequest">Using Promises for Ajax Requests (Promisifying XMLHttpRequest)</h3>
+<h3 id="usando-promessas-para-requisi&#xE7;&#xF5;es-ajax-promisifying-xmlhttprequest">Usando Promessas para requisi&#xE7;&#xF5;es Ajax (Promisifying XMLHttpRequest)</h3>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token keyword">get</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Do the usual XHR stuff</span>
     <span class="token keyword">let</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     req<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">&apos;GET&apos;</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     req<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// This is called even on 404, so check the status</span>
+      <span class="token comment" spellcheck="true">// Isso &#xE9; chamado mesmo com 404, ent&#xE3;o verifique o status</span>
       <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>status <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Resolve the promise with the response text</span>
+        <span class="token comment" spellcheck="true">// Resolve a promise com o texto de resposta</span>
         <span class="token function">resolve</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
       <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// Otherwise reject with the status text</span>
+        <span class="token comment" spellcheck="true">// Caso contr&#xE1;rio rejeitar com o texto de status</span>
         <span class="token function">reject</span><span class="token punctuation">(</span><span class="token function">Error</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">// Handle network errors</span>
+    <span class="token comment" spellcheck="true">// Lida com errors de rede</span>
     req<span class="token punctuation">.</span>onerror <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token function">reject</span><span class="token punctuation">(</span><span class="token function">Error</span><span class="token punctuation">(</span><span class="token string">&quot;Network Error&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">// Make the request</span>
+    <span class="token comment" spellcheck="true">// Faz o request</span>
     req<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// Use the promisified XHR</span>
+<span class="token comment" spellcheck="true">// Usando o XHR &quot;promissificado&quot;</span>
 <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;story.json&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Success!&quot;</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -788,7 +787,7 @@ The second parameter on the then function acts as a catch block when things go w
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Promises","level":"1.12","depth":1,"next":{"title":"Métodos de Promise","level":"1.12.1","depth":2,"path":"promises/methods.md","ref":"promises/methods.md","articles":[]},"previous":{"title":"Object Initializer","level":"1.11.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"promises/README.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T21:02:25.960Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promises","level":"1.12","depth":1,"next":{"title":"Métodos de Promise","level":"1.12.1","depth":2,"path":"promises/methods.md","ref":"promises/methods.md","articles":[]},"previous":{"title":"Object Initializer","level":"1.11.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"promises/README.md","mtime":"2017-04-24T22:43:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
