@@ -1,5 +1,9 @@
 ## for...of loops
 
+A declaração `for...of` itera sobre valores das propriedades de um objeto, 
+
+
+
 The for...of statement iterates over property values, and it's better way to loop over arrays and other iterable objects.
 
 * for..of only works with iterables. 
