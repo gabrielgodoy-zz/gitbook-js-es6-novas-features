@@ -1,27 +1,23 @@
 ## for...of loops
 
-A declaração `for...of` itera sobre valores das propriedades de um objeto, 
+A declaração `for...of` itera sobre valores das propriedades de um objeto, e é uma maneira melhore de fazer um loop em arrays e outros objetos iteráveis.
 
 
-
-The for...of statement iterates over property values, and it's better way to loop over arrays and other iterable objects.
-
-* for..of only works with iterables. 
-  Try to run for...of on objects return TypeError
+* for..of somente funciona com iteráveis.
+ 
+Tentar rodar for...of em objetos retorna TypeError
 
 ```js
 let names = ["Sam", "Alex", "Brook"];
 
-// Uses index to read actual element
+// Utiliza o index para ler o elemento em si
 for(let i in names) {
     console.log(name[i]);
 }
 
-// Reads element directly and with less code involved
+
+// Lê o elemento diretamente e com menos código escrito
 for(let name of names) {
     console.log(name);
 }
 ```
-
-
-

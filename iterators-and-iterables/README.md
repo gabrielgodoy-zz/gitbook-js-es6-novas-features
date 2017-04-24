@@ -1,12 +1,13 @@
 # Iterator
-An object is an iterator when it knows how to access items from a collection one at a time, while keeping track of its current position within that sequence.
 
-In JavaScript an iterator is an object that provides a next() method which returns the next item in the sequence. 
+Um objeto é um iterator quando ele sabe como acessar items de uma coleção, um de cada vez, enquanto mantém controle da sua posição atual dentro dessa sequência.
 
-This method returns an object with two properties: done and value.
+Em JavaScript um iterator é um objeto que fornece um método `next()` que retorna o próximo item na seqüência. 
+
+Este método retorna um objeto com duas propriedades: `done` e `value`.
 
 ```js
-// Example of a custom Iterator Creator
+// Exemplo de um criador de Iterator customizado
 function makeCustomIterator (array) {
     let nextIndex = 0;
     return {
@@ -17,7 +18,7 @@ function makeCustomIterator (array) {
 }
 
 /*
- makeIteratorFunc holds an object with the next method in it
+ makeIteratorFunc guarda um objeto com o método next nele
  */
 let makeIteratorFunc = makeCustomIterator(["Gabriel", "Godoy"]);
 
@@ -26,10 +27,10 @@ console.log('Custom Iterator: ', makeIteratorFunc.next()); // { value: 'Godoy', 
 console.log('Custom Iterator: ', makeIteratorFunc.next().done); // true
 ```
 
-Custom iterators like makeCustomIterator requires the management of the internal state of the iterator. Generators are "iterators factories", where the keyword yield sets the point in which the function will stop when the next next() method is called
 
-The same result of makeCustomIterator function could be achieved with a generator without having to manually manage the state of the iterator, and what should be returned.
+Iterators customizados como makeCustomIterator requerem a administração do estado interno do Iterator. Generators são "fábricas de iterators", onde a palavra-chave **yield** define o ponto no qual a função irá parar quando o próximo método next() for chamado.
 
+O mesmo resultado da função makeCustomIterator pode ser alcançado com um generator sem ter que administrar manualmente o estado do iterator, e o que deve ser retornado.
 
 ## Iterables
 An object is iterable if it defines its iteration behavior, such as what values are looped over in a for..of construct.
