@@ -125,7 +125,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -375,7 +375,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -388,7 +388,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -402,7 +402,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -428,7 +428,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -441,7 +441,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -504,7 +504,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -688,14 +688,16 @@
                                 
                                 <h2 id="generators-geradores">Generators (Geradores)</h2>
 <p>Um Generator administra seu pr&#xF3;prio estado iterativo, elas s&#xE3;o fun&#xE7;&#xF5;es <code>paus&#xE1;veis</code>. </p>
-<p>Uma fun&#xE7;&#xE3;o se torna um generator se ela cont&#xE9;m um ou mais express&#xF5;es <strong>yield</strong> (produzir)  e se utiliza a sintaxe com asterisco <code>function*</code></p>
+<p>Uma fun&#xE7;&#xE3;o se torna um generator se ela cont&#xE9;m uma ou mais express&#xF5;es <strong>yield</strong> (produzir)  e se utiliza a sintaxe com asterisco <code>function*</code></p>
 <h3 id="o-m&#xE9;todo-next-de-um-generator">O m&#xE9;todo <code>next()</code> de um Generator</h3>
 <p>O <code>next()</code> permite que se itere dentro de um generator</p>
 <p>Quando se atribui uma vari&#xE1;vel que armazena sua fun&#xE7;&#xE3;o de generator como:</p>
-<p><code>const ajaxGenSetup = ajaxGen();</code></p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> ajaxGenSetup <span class="token operator">=</span> <span class="token function">ajaxGen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p>A quantidade de <code>next()</code> dispon&#xED;veis para se usar representam a mesma quantidade de yields presentes na fun&#xE7;&#xE3;o do generator, at&#xE9; que <code>done = true</code></p>
 <p>O m&#xE9;todo <code>next()</code> retorna um objeto com duas propriedades, <strong>done</strong> and <strong>value</strong>.</p>
-<p><code>{ value: 3, done: false }</code></p>
+<pre class="language-"><code class="lang-js"><span class="token punctuation">{</span> value<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> done<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+</code></pre>
 <p>Cada termo <code>yield</code> &#xE9; um ponto de parada para um m&#xE9;todo <code>next()</code></p>
 <p>Na fun&#xE7;&#xE3;o abaixo, quando n&#xE3;o existem mais yields para se parar, o generator retorna a propriedade done como <code>true</code> </p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> myGenerator <span class="token operator">=</span> <span class="token keyword">function</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -729,7 +731,7 @@ storeGen<span class="token punctuation">.</span><span class="token function">nex
 <hr>
 <p><strong>&#xC9; como se o termo yield estivesse pausando e meio que fazendo um request externo por um valor. Esperando pelo pr&#xF3;ximo next() com um valor embutido nele</strong></p>
 <p>O valor passado no m&#xE9;todo <code>next()</code> meio que &apos;substitui&apos; toda a express&#xE3;o yield que foi pausada por &#xFA;ltimo.</p>
-<h3 id="generators-para-a&#xE7;&#xF5;es-async">Generators para a&#xE7;&#xF5;es Async</h3>
+<h3 id="generators-para-a&#xE7;&#xF5;es-ass&#xED;ncronas">Generators para a&#xE7;&#xF5;es ass&#xED;ncronas</h3>
 <p>&#xC9; poss&#xED;vel definir uma ordem espec&#xED;fica para requisi&#xE7;&#xF5;es ass&#xED;ncronas para rodar com geradores</p>
 <p>Peguei esse exemplo em um <a href="http://willianjusten.teachable.com/p/js-com-tdd-na-pratica" target="_blank">curso muito bom de um amigo meu</a>.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">ajax</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -841,7 +843,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Generators","level":"1.5","depth":1,"next":{"title":"Iterators e Iterables","level":"1.6","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"previous":{"title":"Parâmetros Rest","level":"1.4.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"generators/README.md","mtime":"2017-04-24T15:21:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Generators","level":"1.5","depth":1,"next":{"title":"Iterators e Iterables","level":"1.6","depth":1,"path":"iterators-and-iterables/README.md","ref":"iterators-and-iterables/README.md","articles":[{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]}]},"previous":{"title":"Parâmetros Rest","level":"1.4.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"generators/README.md","mtime":"2017-04-25T18:23:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

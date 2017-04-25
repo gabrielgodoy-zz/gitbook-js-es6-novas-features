@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Array Destructuring · ES6 e além</title>
+        <title>Desestruturação de Array · ES6 e além</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -123,7 +123,7 @@
                 <a href="array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -373,7 +373,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -386,7 +386,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -400,7 +400,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -413,7 +413,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -426,7 +426,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -439,7 +439,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -502,7 +502,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -669,7 +669,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Array Destructuring</a>
+        <a href=".." >Desestruturação de Array</a>
     </h1>
 </div>
 
@@ -684,8 +684,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="array-destructuring">Array destructuring</h2>
-<p>Destructuring permite extrair dados de arrays ou objetos em vari&#xE1;veis distintas</p>
+                                <h2 id="desestrutura&#xE7;&#xE3;o-de-arrays">Desestrutura&#xE7;&#xE3;o de Arrays</h2>
+<p>A Desestrutura&#xE7;&#xE3;o permite extrair dados de arrays ou objetos para vari&#xE1;veis distintas</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Maneira antiga</span>
 <span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> a <span class="token operator">=</span> users<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -698,7 +698,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token keyword">let</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">]</span> <span class="token operator">=</span> users<span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Sam Tyler Brook</span>
 </code></pre>
-<p>Outro exemplo</p>
+<p>Outro exemplo:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// x = 1, y = 2</span>
 
 <span class="token comment" spellcheck="true">// Maneira antiga</span>
@@ -712,7 +712,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>y<span class="token punctuation">,</span> x<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// x = 2, y = 1</span>
 </code></pre>
-<h3 id="destructuring-arrays-de-valores-de-retorno">Destructuring arrays de valores de retorno</h3>
+<h3 id="desestrutura&#xE7;&#xE3;o-arrays-de-valores-retornados">Desestrutura&#xE7;&#xE3;o arrays de valores retornados</h3>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Ao retornar arrays de fun&#xE7;&#xF5;es, &#xE9; poss&#xED;vel atribuir valores a m&#xFA;ltiplas vari&#xE1;veis de uma s&#xF3; vez</span>
 <span class="token keyword">function</span> <span class="token function">activeUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Alex&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -721,7 +721,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="ignorando-valores-retornados">Ignorando valores retornados</h3>
-<p>&#xC9; poss&#xED;vel ignorar valores de retorno que n&#xF5; seja interessante</p>
+<p>&#xC9; poss&#xED;vel ignorar valores retornados que n&#xE3;o sejam interessantes</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">activeUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Alex&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -730,7 +730,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Sam</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Brook</span>
 </code></pre>
-<h3 id="combinando-destructuring-de-array-com-par&#xE2;metros-rest">Combinando destructuring de Array com par&#xE2;metros Rest</h3>
+<h3 id="combinando-desestrutura&#xE7;&#xE3;o-de-array-com-par&#xE2;metros-rest">Combinando desestrutura&#xE7;&#xE3;o de Array com par&#xE2;metros rest</h3>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> users <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;Sam&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Tyler&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;Brook&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> <span class="token punctuation">[</span>first<span class="token punctuation">,</span> <span class="token operator">...</span>rest<span class="token punctuation">]</span> <span class="token operator">=</span> users<span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>first <span class="token operator">+</span> <span class="token string">&quot;, &quot;</span> <span class="token operator">+</span> rest<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Sam, [&quot;Tyler&quot;, &quot;Brook&quot;]</span>
@@ -768,7 +768,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Array Destructuring","level":"1.2.1","depth":2,"next":{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"previous":{"title":"Arrays","level":"1.2","depth":1,"ref":"","articles":[{"title":"Array Destructuring","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"arrays/array-destructuring.md","mtime":"2017-04-24T14:20:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Desestruturação de Array","level":"1.2.1","depth":2,"next":{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"previous":{"title":"Arrays","level":"1.2","depth":1,"ref":"","articles":[{"title":"Desestruturação de Array","level":"1.2.1","depth":2,"path":"arrays/array-destructuring.md","ref":"arrays/array-destructuring.md","articles":[]},{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"arrays/array-destructuring.md","mtime":"2017-04-25T17:30:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

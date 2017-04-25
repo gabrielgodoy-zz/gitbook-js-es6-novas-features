@@ -123,7 +123,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -373,7 +373,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -386,7 +386,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -400,7 +400,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -413,7 +413,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -426,7 +426,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -439,7 +439,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -502,7 +502,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -686,28 +686,29 @@
                                 
                                 <h2 id="classes">Classes</h2>
 <p>Classes em JS &#xE9; um assunto muito debatido. Alguns acreditam que o conceito de classes vai contra a natureza prototipal do Javascript, enquanto outro acreditam que ter o conceito de classe facilita a ado&#xE7;&#xE3;o da linguagem por novatos e desenvolvedores de outras linguagens, e que a utiliza&#xE7;&#xE3;o de classes facilita a cria&#xE7;&#xE3;o de aplica&#xE7;&#xF5;es escal&#xE1;veis. </p>
-<p>Classes s&#xE3;o constru&#xED;das ao redor de classes e construtores.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// O contrutor roda toda vez que uma nova inst&#xE2;ncia &#xE9; criada com &apos;new&apos;</span>
-       <span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span> 
-          <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-          <span class="token keyword">this</span><span class="token punctuation">.</span>kind <span class="token operator">=</span> <span class="token string">&apos;vehicle&apos;</span><span class="token punctuation">;</span>
-       <span class="token punctuation">}</span>
-       <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-       <span class="token punctuation">}</span><span class="token punctuation">,</span>
-       <span class="token comment" spellcheck="true">// Utilizar a conven&#xE7;&#xE3;o de prefixo com underline para m&#xE9;todos privados</span>
-       <span class="token function">_privateMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-          <span class="token comment" spellcheck="true">//...</span>
-   <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">// O construtor roda toda vez que uma nova inst&#xE2;ncia &#xE9; criada com &quot;new&quot;</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span> 
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>kind <span class="token operator">=</span> <span class="token string">&apos;vehicle&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// Utilizar a conven&#xE7;&#xE3;o de prefixo com underline para m&#xE9;todos privados</span>
+    <span class="token function">_privateMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+        <span class="token comment" spellcheck="true">//...</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// Create an instance</span>
+<span class="token comment" spellcheck="true">// Cria uma inst&#xE2;ncia</span>
 <span class="token keyword">let</span> myVehicle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vehicle</span><span class="token punctuation">(</span><span class="token string">&apos;rocky&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Note que a defini&#xE7;&#xE3;o de classe n&#xE3;o &#xE9; um objeto normal. Por isso, n&#xE0;o existem v&#xED;rgulas entre membros da classe.</p>
-<p>O m&#xE9;todo construtor &#xE9; um m&#xE9;todo especial para criar e inicializar um objeto.</p>
-<p>Para criar uma inst&#xE2;ncia de uma classe, <strong>&#xE9; preciso usar o termo new</strong></p>
+<p>Note que a defini&#xE7;&#xE3;o de classe n&#xE3;o &#xE9; um objeto normal. Por isso, n&#xE3;o existem v&#xED;rgulas entre membros da classe.</p>
+<p>O m&#xE9;todo construtor &#xE9; um m&#xE9;todo especial para criar e inicializar um objeto com propriedades pr&#xE9;-definidas.</p>
+<p>Para criar uma inst&#xE2;ncia de uma classe, <strong>&#xE9; preciso usar o termo <code>new</code></strong></p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> myCar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Car</span><span class="token punctuation">(</span><span class="token string">&apos;bumpy&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h3 id="criando-uma-subclasse">Criando uma subclasse</h3>
@@ -723,7 +724,7 @@
 myCar<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;bumpy&apos;</span>
 myCar <span class="token keyword">instanceof</span> <span class="token class-name">Car</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
-<p>Atrav&#xE9;s das subclasses, &#xE9; poss&#xED;vel utilizar o termo <strong>super()</strong> dentro do construtor ou m&#xE9;todos para acessar a classe base:</p>
+<p>Atrav&#xE9;s das subclasses, &#xE9; poss&#xED;vel utilizar o termo <strong>super()</strong> dentro do construtor ou m&#xE9;todos para acessar a classe pai:</p>
 <p>Para chamar um outro membro, use, por exemplo <strong>super.getName()</strong></p>
 <p>Exemplo de subclasse:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">class</span> <span class="token class-name">Animal</span> <span class="token punctuation">{</span>
@@ -780,7 +781,7 @@ myCar <span class="token keyword">instanceof</span> <span class="token class-nam
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Classes","level":"1.3","depth":1,"next":{"title":"Funções","level":"1.4","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.4.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Parâmetros Default","level":"1.4.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Parâmetros Named","level":"1.4.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Parâmetros Rest","level":"1.4.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"previous":{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"classes/README.md","mtime":"2017-04-24T14:43:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Classes","level":"1.3","depth":1,"next":{"title":"Funções","level":"1.4","depth":1,"ref":"","articles":[{"title":"Arrow Functions","level":"1.4.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},{"title":"Parâmetros Default","level":"1.4.2","depth":2,"path":"functions/default-parameters.md","ref":"functions/default-parameters.md","articles":[]},{"title":"Parâmetros Named","level":"1.4.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},{"title":"Parâmetros Rest","level":"1.4.4","depth":2,"path":"functions/rest-parameters.md","ref":"functions/rest-parameters.md","articles":[]}]},"previous":{"title":"Novos métodos","level":"1.2.2","depth":2,"path":"arrays/new-methods.md","ref":"arrays/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"classes/README.md","mtime":"2017-04-25T18:15:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -28,7 +28,10 @@ pre.language- {
     opacity: .8;
 }
 
-p > code {
+p > code,
+p > em > code,
+p > strong > code,
+li> code {
     padding: 2px 6px !important;
     background: #F2F7F9 !important;
     color: #256FC7 !important;

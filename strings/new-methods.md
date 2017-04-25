@@ -1,8 +1,8 @@
-## String new methods
+## Novos métodos de String
 
-A couple of convenience methods have been added to the String prototype. 
+Um par de métodos convenientes foram adicionados ao protótipo String.
 
-Most of them basically eliminate some workarounds with the indexOf\(\) method to achieve the same:
+A maioria deles basicamente eliminam algumas soluções alternativas com o método `indexOf\(\)` para obter o mesmo:
 
 ```js
 'my string'.startsWith('my'); //true
@@ -10,7 +10,7 @@ Most of them basically eliminate some workarounds with the indexOf\(\) method to
 'my string'.includes('str'); // true
 ```
 
-Another method has been added to create a repeating string:
+Outro método foi adicionado para criar uma seqüência de repetição:
 
 ```js
 'my '.repeat(3); // 'my my my '

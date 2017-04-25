@@ -3,9 +3,9 @@
 A declaração `for...of` itera sobre valores das propriedades de um objeto, e é uma maneira melhore de fazer um loop em arrays e outros objetos iteráveis.
 
 
-* for..of somente funciona com iteráveis.
- 
-Tentar rodar for...of em objetos retorna TypeError
+* `for..of` funciona somente com iteráveis.
+
+Tentar rodar `for...of` em objetos retorna TypeError
 
 ```js
 let names = ["Sam", "Alex", "Brook"];

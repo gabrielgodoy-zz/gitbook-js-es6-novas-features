@@ -14,7 +14,7 @@ doSomething(5, 3); // 15
 
 ### Rest e defaults
 
-```
+```js
 let ajax = function({ url = "localhost", port: p = 80 }, ...data) {
     console.log("Url:", url, "Port:", p, "Rest:", data);
 };
@@ -25,12 +25,11 @@ ajax({}, "additional", "data", "hello"); // Url: localhost Port: 80 Rest: [ 'add
 
 ajax({}); // Url: localhost Port: 80 Rest: []
 
-// Não funciona porque se está tentando desestruturar undefined
+// A tentativa abaixo não funciona porque se está tentando desestruturar undefined
 ajax(); // Uncaught TypeError: Cannot match against 'undefined' or 'null'
 
 // Para consertar isso, é preciso ter valores padrões para parâmetros da função
 // Nota: Olhe o "= {}" no final, sinaliza um objeto vazio como padrão, caso o primeiro argumento seja undefined
-
 let ajax = ({ url: url = "localhost", port: p = 80 } = {}) => {
     console.log("Url:", url, "Port:", p);
 };

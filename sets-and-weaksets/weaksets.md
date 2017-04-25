@@ -1,14 +1,15 @@
 ## Weaksets
 
-More memory efficient type of Sets
-The WeakSets is a type where only objects are allowed to be stored
+É um tipo de Set que utiliza memória de maneira mais eficiente
 
-**WeakSets are not iterable, and you cannot read values**
+O WeakSets é um tipo onde somente objetos podem ser armazenados
+
+** WeakSets não são iteráveis, e você não pode ler valores **
 
 ```js
 let weakTags = new WeakSet();
 
-weakTags.add("Javascript"); // Invalid, Only objects can be added to Weaksets
+weakTags.add("Javascript"); // Inválido, somente objetos podem ser adicionados a Weaksets
 weakTags.add({name: "Javascript"});
 let iOS = {name: "iOS"};
 weakTags.add(iOS);
@@ -16,36 +17,38 @@ weakTags.has(iOS); // true
 weakTags.delete(iOS); // true
 ```
 
-### WeakSets use cases
-We can use weakSets to create special groups from existing objects **without mutating them**. Favoring immutable objects allows for much simpler code with **no unexpected side efffetcs**.
+### Casos de uso de WeakSets
+Podemos usar weakSets para criar grupos especiais a partir de objetos existentes **sem mutações**. Favorecer objetos imutáveis permite um código mais simples com **nenhum efeito colateral inesperado**.
 
-Example of unecessary mutation on each post object without Weaksets
+Exemplo de mutação não necessária em cada objeto post sem Weaksets
+
 ```js
 let readPosts = new WeakSet();
 postList.addEventListener('click', (event) => {
-	// Mutates 'post' objets, crating a new property to indicate if it has been read
+	// Muta objetos 'post', criando uma nova propriedade para indicar se ela foi lida
 	post.isRead = true; 
 });
-// ... rendering posts
+// ... renderizando posts
 for(let post of postArray) {
-	if(!post.isRead) { // Checks a property on each post
+	if(!post.isRead) { // Verifica uma propriedade em cada post
 		_addClassToPost(post.element);
 	}
 }
 ```
 
-Example using WeakSets without the need to mutate objects (create flag properties)
-Creating group of objects and check for the presence of those objects on the weakset group
+Exemplo usando WeakSets sem a necessidade de mutação de objetos (criar propriedades flag)
+Criando grupo de objetos e verificando a presença desses objetos no grupo de weakset
+
 ```js
 let readPosts = new WeakSet();
 
-postList.addEventListener('click', (event) => {
-	readPosts.add(post); // Add objects to a group of read posts weakset
+postList.addEventListener('click', () => {
+	readPosts.add(post); // Adicionar objetos a um grupo de posts de leitura weakset
 });
 
-// ... rendering posts
+// ... renderizando posts
 for(let post of postArray) {
-	if(!readPosts.has(post)) { // has() checks wether an object is present in the WeakSet
+	if(!readPosts.has(post)) { // has() verifica se um objeto está presente no WeakSet
 		_addClassToPost(post.element);
 	}
 }

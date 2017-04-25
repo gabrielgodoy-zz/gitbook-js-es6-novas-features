@@ -1,5 +1,5 @@
 ## Inicializador de métodos
-Cria métodos em objeto usando o atalho
+Cria métodos em objeto usando um atalho
 
 ```js
 //ES6

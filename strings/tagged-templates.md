@@ -1,15 +1,15 @@
 ## Tagged templates literal
-Allows to modify the output of template literals using a function.
+Permite modificar a saída de template literals usando uma função.
+
 ```js
 let a = 5,
 	b = 10;
 
 /*
-The first argument contains an array of string 
-literals ("Hello " , " world", and "" in this case below)
-The second, and each argument after the first one, 
-are the values of the processed 
-(or sometimes called cooked) substitution expressions ("15" and "50" here).
+O primeiro argumento contém um array de string
+literals ("Olá", "mundo" e "" neste caso abaixo)
+O segundo, e cada argumento após o primeiro, são os valores das
+(Ou às vezes chamado cooked) expressões de substituição ("15" e "50" aqui) processadas
 */
 function someFunction(strings, ...values) {
   console.log(strings[0]); // "Hello "
@@ -22,11 +22,11 @@ function someFunction(strings, ...values) {
 }
 
 someFunction`Hello ${ a + b } world ${ a * b }`;
-//In the end, your function returns your manipulated string.
+// No final, sua função retorna sua string manipulada.
 // "Bazinga!"
 ```
 
-Tag functions don't need to return a string, as shown in the following example.
+As funções Tag não precisam retornar uma string, como mostrado no exemplo a seguir:
 ```js
 function template(strings, ...keys) {
   return (function(...values) {
@@ -47,7 +47,7 @@ t2Closure('Hello', {foo: 'World'});  // "Hello World!"
 ```
 
 ### Raw Strings
-The special raw property, available on the first function argument of tagged template literals, allows you to access the raw strings as they were entered.
+A propriedade especial raw, disponível no primeiro argumento de função de tagged temoplates literals, permite que você acesse as raw strings conforme elas foram inseridas.
 ```js
 function tag(strings, ...values) {
   console.log(strings.raw[0]); 
@@ -57,7 +57,8 @@ function tag(strings, ...values) {
 tag`string text line 1 \n string text line 2`;
 ```
 
-In addition, the String.raw() method exists to create raw strings just like the default template function and string concatenation would create.
+Além disso, o método `String.raw()` existe para criar strings raw exatamente como uma `default template function` e uma concatenação de string iria criar.
+
 ```js
 String.raw`Hi\n${2+3}!`;
 // "Hi\n5!"

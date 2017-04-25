@@ -125,7 +125,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -375,7 +375,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -388,7 +388,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -402,7 +402,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -428,7 +428,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -441,7 +441,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -504,7 +504,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -687,16 +687,16 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="symbols">Symbols</h2>
-<p>Symbols are a new primitive data type, like Number and String. You can use symbols to create unique identifiers for object properties or to create unique constants.</p>
+<p>Symbols s&#xE3;o um novo tipo de dados primitivos, como Number e String. Voc&#xEA; pode usar symbols para criar identificadores exclusivos para propriedades de objeto ou para criar constantes exclusivas.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> MY_CONSTANT <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 obj<span class="token punctuation">[</span>MY_CONSTANT<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Note that key-value pairs set with symbols are not returned by Object.getOwnPropertyNames(), and they are not visible in for...in iterations, Object.keys() or JSON.stringify(). 
-This is in contrast to regular string-based keys. 
-You can get an array of symbols for an object with Object.getOwnPropertySymbols().
-Symbols work naturally with const because of their immutable character:</p>
+<p>Observe que pares de valor-chave definidos com symbols n&#xE3;o s&#xE3;o retornados por <code>Object.getOwnPropertyNames()</code> e eles n&#xE3;o s&#xE3;o vis&#xED;veis em itera&#xE7;&#xF5;es <code>for...in</code>, <code>Object.keys()</code> ou <code>JSON.stringify()</code>.</p>
+<p>Isso est&#xE1; em contraste com chaves baseadas em string.</p>
+<p>Voc&#xEA; pode obter um array de symbols para um objeto com <code>Object.getOwnPropertySymbols()</code></p>
+<p>Os s&#xED;mbolos trabalham naturalmente com <code>const</code> devido ao seu car&#xE1;ter imut&#xE1;vel:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> CHINESE <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> ENGLISH <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> SPANISH <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -717,7 +717,7 @@ Symbols work naturally with const because of their immutable character:</p>
       <span class="token keyword">break</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>You can give a symbol a description. You can&#x2019;t use it to access the symbol itself, but it&#x2019;s useful for debugging.</p>
+<p>Voc&#xEA; pode dar a um symbol uma descri&#xE7;&#xE3;o. Voc&#xEA; n&#xE3;o pode us&#xE1;-lo para acessar o pr&#xF3;prio s&#xED;mbolo, mas &#xE9; &#xFA;til para debugging.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> CONST_1 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&apos;my symbol&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> CONST_2 <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">&apos;my symbol&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -758,7 +758,7 @@ CONST_1 <span class="token operator">===</span> CONST_2<span class="token punctu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Symbols","level":"1.17","depth":1,"next":{"title":"Async Functions e o operador Await","level":"1.18","depth":1,"path":"async-await/README.md","ref":"async-await/README.md","articles":[]},"previous":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"symbols/README.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Symbols","level":"1.17","depth":1,"next":{"title":"Async Functions e o operador Await","level":"1.18","depth":1,"path":"async-await/README.md","ref":"async-await/README.md","articles":[]},"previous":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"symbols/README.md","mtime":"2017-04-25T17:26:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

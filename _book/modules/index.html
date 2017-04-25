@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Módulos import/export · ES6 e além</title>
+        <title>Módulos import / export · ES6 e além</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -123,7 +123,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -373,7 +373,7 @@
                 <a href="./">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -386,7 +386,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -400,7 +400,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -413,7 +413,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -426,7 +426,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -439,7 +439,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -502,7 +502,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -669,7 +669,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Módulos import/export</a>
+        <a href=".." >Módulos import / export</a>
     </h1>
 </div>
 
@@ -696,13 +696,13 @@
 <p>Os m&#xF3;dulos ES6 devem ser definidos em arquivos separados (um por m&#xF3;dulo).</p>
 <p>Os navegadores/motores t&#xEA;m um &quot;carregador de m&#xF3;dulo&quot; padr&#xE3;o, que carrega de forma s&#xED;ncrona um arquivo de m&#xF3;dulo quando &#xE9; importado.</p>
 <p>Vamos examinar um exemplo com dois m&#xF3;dulos:</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// bar.js File</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// bar.js</span>
 <span class="token keyword">function</span> <span class="token function">hello</span><span class="token punctuation">(</span>who<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`Let me introduce: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>who<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`DEIXE-ME APRESENTAR: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>who<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
 <span class="token keyword">export</span> hello<span class="token punctuation">;</span> 
 
-<span class="token comment" spellcheck="true">// Arquivo foo.js </span>
+<span class="token comment" spellcheck="true">// foo.js </span>
 <span class="token comment" spellcheck="true">// importa somente `hello()` do m&#xF3;dulo &apos;bar&apos;</span>
 <span class="token keyword">import</span> hello <span class="token keyword">from</span> <span class="token string">&apos;bar&apos;</span><span class="token punctuation">;</span> 
 <span class="token keyword">var</span> hungry <span class="token operator">=</span> <span class="token string">&apos;hippo&apos;</span><span class="token punctuation">;</span> 
@@ -710,18 +710,18 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">hello</span><span class="token punctuation">(</span>hungry<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
 
-<span class="token comment" spellcheck="true">// Arquivo baz.js</span>
+<span class="token comment" spellcheck="true">// baz.js</span>
 <span class="token comment" spellcheck="true">// Importa todos os m&#xF3;dulos &apos;foo&apos; e &apos;bar&apos; </span>
 module foo <span class="token keyword">from</span> <span class="token string">&apos;foo&apos;</span><span class="token punctuation">;</span> 
 module bar <span class="token keyword">from</span> <span class="token string">&apos;bar&apos;</span><span class="token punctuation">;</span> 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> bar<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span> <span class="token string">&apos;rhino&apos;</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Deixe-me introduzir: rhino</span>
-foo<span class="token punctuation">.</span><span class="token function">awesome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// DEIXE-ME INTRODUZIR: HIPPO</span>
+foo<span class="token punctuation">.</span><span class="token function">awesome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// DEIXE-ME APRESENTAR: HIPPO</span>
 </code></pre>
 <h3 id="default-exports">Default Exports</h3>
-<p><strong> M&#xF3;dulos que exportam valores &#xFA;nicos </strong> s&#xE3;o muito populares na comunidade Node.js.</p>
-<p>Mas eles tamb&#xE9;m s&#xE3;o comuns no desenvolvimento de frontend onde muitas vezes voc&#xEA; tem construtores / classes para modelos, com um modelo por m&#xF3;dulo.</p>
-<p>Um m&#xF3;dulo ECMAScript 6 pode escolher uma exporta&#xE7;&#xE3;o padr&#xE3;o, o valor exportado mais importante.</p>
-<p>As exporta&#xE7;&#xF5;es padr&#xE3;o s&#xE3;o especialmente f&#xE1;ceis de importar.</p>
+<p><strong>M&#xF3;dulos que exportam valores &#xFA;nicos</strong> s&#xE3;o muito populares na comunidade Node.js.</p>
+<p>Mas eles tamb&#xE9;m s&#xE3;o comuns no desenvolvimento de frontend onde muitas vezes voc&#xEA; tem construtores/classes para modelos, com um modelo por m&#xF3;dulo.</p>
+<p>Um m&#xF3;dulo ES6 pode escolher <code>export default</code>, o valor exportado mais importante.</p>
+<p><code>Default export</code> s&#xE3;o especialmente f&#xE1;ceis de importar.</p>
 <p>O seguinte m&#xF3;dulo ECMAScript 6 &quot;&#xE9;&quot; uma &#xFA;nica fun&#xE7;&#xE3;o:</p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">//------ myFunc.js ------</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -809,7 +809,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Módulos import/export","level":"1.10","depth":1,"next":{"title":"Objects","level":"1.11","depth":1,"ref":"","articles":[{"title":"Method Initializer","level":"1.11.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object Assign","level":"1.11.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Object Destructuring","level":"1.11.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Object Initializer","level":"1.11.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"Novos métodos","level":"1.9.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"modules/README.md","mtime":"2017-04-24T22:23:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Módulos import / export","level":"1.10","depth":1,"next":{"title":"Objetos","level":"1.11","depth":1,"ref":"","articles":[{"title":"Inicializador de método","level":"1.11.1","depth":2,"path":"objects/method-initializer.md","ref":"objects/method-initializer.md","articles":[]},{"title":"Object.assign()","level":"1.11.2","depth":2,"path":"objects/object-assign.md","ref":"objects/object-assign.md","articles":[]},{"title":"Desestruturação de Objeto","level":"1.11.3","depth":2,"path":"objects/object-destructuring.md","ref":"objects/object-destructuring.md","articles":[]},{"title":"Inicializador de Objeto","level":"1.11.4","depth":2,"path":"objects/object-initializer.md","ref":"objects/object-initializer.md","articles":[]}]},"previous":{"title":"Novos métodos","level":"1.9.1","depth":2,"path":"math-object/new-methods.md","ref":"math-object/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"modules/README.md","mtime":"2017-04-25T18:36:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

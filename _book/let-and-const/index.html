@@ -123,7 +123,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -373,7 +373,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -386,7 +386,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -400,7 +400,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -413,7 +413,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -426,7 +426,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -439,7 +439,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -502,7 +502,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -686,9 +686,13 @@
                                 
                                 <h2 id="let">let</h2>
 <p>Um novo jeito de criar escopo</p>
-<p>Utilizando <strong>var = vari&#xE1;vel</strong> seu escopo est&#xE1; preso dentro da fun&#xE7;&#xE3;o mais pr&#xF3;xima que envolve ela
-Utilizando <strong>let = vari&#xE1;vel</strong> seu escopo est&#xE1; preso dentro dos colchetes mais pr&#xF3;ximos que envolve ela</p>
-<p><em>declara&#xE7;&#xF5;es &apos;let&apos; n&#xE3;o causam <code>hoist</code>, por isso se torna necess&#xE1;rio colocar todas suas declara&#xE7;&#xF2;es let no topo dos blocos antes de serem usadas</em></p>
+<ul>
+<li>Utilizando <code>var = vari&#xE1;vel</code> seu escopo est&#xE1; preso dentro da fun&#xE7;&#xE3;o mais pr&#xF3;xima que envolve ela</li>
+<li>Utilizando <code>let = vari&#xE1;vel</code> seu escopo est&#xE1; preso dentro dos colchetes mais pr&#xF3;ximos que envolve ela</li>
+</ul>
+<blockquote>
+<p>Declara&#xE7;&#xF5;es <code>let</code> n&#xE3;o causam <code>hoist</code>, por isso se torna necess&#xE1;rio colocar todas suas declara&#xE7;&#xF5;es let no topo dos blocos antes de serem usadas</p>
+</blockquote>
 <pre class="language-"><code class="lang-js"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
    <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
@@ -701,9 +705,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
      <span class="token keyword">if</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span> <span class="token punctuation">{</span>
           <span class="token keyword">let</span> bam <span class="token operator">=</span> baz<span class="token punctuation">;</span>
      <span class="token punctuation">}</span>
-     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bam<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Error</span>
+     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bam<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Erro</span>
    <span class="token punctuation">}</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Error</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Erro</span>
 <span class="token punctuation">}</span>
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token string">&quot;bar&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -715,7 +719,7 @@ name <span class="token operator">=</span> <span class="token string">&quot;Glen
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&quot;Jerry Only&quot;</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&quot;Glenn Danzig&quot;</span><span class="token punctuation">;</span>
 </code></pre>
-<p>Em um escopo diferente ela pode ser redeclarada</p>
+<p>Em um escopo diferente ela pode ser redeclarada:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">&quot;web forum&quot;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">printInCaps</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -725,18 +729,19 @@ name <span class="token operator">=</span> <span class="token string">&quot;Glen
 <span class="token function">printInCaps</span><span class="token punctuation">(</span><span class="token string">&quot;profiles&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> message <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// web forum</span>
 </code></pre>
-<p>Porque <code>message</code> dentro da fun&#xE7;&#xE3;o est&#xE1; presa naquele escopo com let, e o console enxerga somente a vari&#xE1;vel <code>message</code> global</p>
+<p><code>message</code> dentro da fun&#xE7;&#xE3;o est&#xE1; presa naquele escopo com let, e o console enxerga somente a vari&#xE1;vel <code>message</code> global</p>
 <h2 id="const">const</h2>
-<p>Uso do <code>const</code> para criar vari&#xE1;veis imut&#xE1;veis</p>
-<p>Constantes tem escopo por bloco, assim como vari&#xE1;veis definidas usando let</p>
-<p><em>declara&#xE7;&#xF5;es &apos;const&apos; n&#xE3;o causam <code>hoist</code>, por isso se torna necess&#xE1;rio colocar todas suas declara&#xE7;&#xF2;es const no topo dos blocos antes de serem usadas</em></p>
+<p>Utilizando <code>const</code> &#xE9; poss&#xED;vel criar vari&#xE1;veis imut&#xE1;veis</p>
+<p>Constantes tem escopo por bloco, assim como vari&#xE1;veis definidas usando <code>let</code></p>
+<blockquote>
+<p>declara&#xE7;&#xF5;es &apos;const&apos; n&#xE3;o causam <code>hoist</code>, por isso se torna necess&#xE1;rio colocar todas suas declara&#xE7;&#xF5;es const no topo dos blocos antes de serem usadas*</p>
+</blockquote>
 <p>O valor de uma constante n&#xE3; pode mudar atrav&#xE9;s de reatribu&#xED;&#xE7;&#xE3;o, e n&#xE3;o pode ser redeclarada.</p>
 <p>Constantes sempre precisam ser declaradas, e atribu&#xED;das um valor:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> MAX_USERS <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Certo</span>
-<span class="token keyword">const</span> MAX_USERS<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// errado</span>
+<span class="token keyword">const</span> MAX_USERS<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Errado</span>
 </code></pre>
-<p>Existe outra maneira de declarar vari&#xE1;veis com escopo em bloco.</p>
-<p>Com const voc&#xEA; declara uma refer&#xEA;ncia read-only para um valor. &#xC9; preciso atribuir uma valor a vari&#xE1;vel diretamente.</p>
+<p>Com <code>const</code> voc&#xEA; declara uma refer&#xEA;ncia read-only para um valor.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">const</span> myVar <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
 myVar <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
 myVar <span class="token comment" spellcheck="true">// Ainda 2, e sempre ser&#xE1; 2</span>
@@ -774,7 +779,7 @@ myVar <span class="token comment" spellcheck="true">// Ainda 2, e sempre ser&#xE
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"let e const","level":"1.7","depth":1,"next":{"title":"Map e Weakmaps","level":"1.8","depth":1,"ref":"","articles":[{"title":"Map","level":"1.8.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.8.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"previous":{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"let-and-const/README.md","mtime":"2017-04-24T22:01:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"let e const","level":"1.7","depth":1,"next":{"title":"Map e Weakmaps","level":"1.8","depth":1,"ref":"","articles":[{"title":"Map","level":"1.8.1","depth":2,"path":"map-and-weakmaps/map.md","ref":"map-and-weakmaps/map.md","articles":[]},{"title":"Weakmaps","level":"1.8.2","depth":2,"path":"map-and-weakmaps/weakmap.md","ref":"map-and-weakmaps/weakmap.md","articles":[]}]},"previous":{"title":"for...of loops","level":"1.6.1","depth":2,"path":"iterators-and-iterables/for-of-loops.md","ref":"iterators-and-iterables/for-of-loops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"let-and-const/README.md","mtime":"2017-04-25T18:32:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

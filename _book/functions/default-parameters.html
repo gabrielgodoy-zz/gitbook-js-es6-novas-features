@@ -125,7 +125,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -375,7 +375,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -388,7 +388,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -402,7 +402,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -428,7 +428,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -441,7 +441,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -504,7 +504,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -698,37 +698,37 @@
 <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 15</span>
 </code></pre>
 <h3 id="rest-e-defaults">Rest e defaults</h3>
-<pre class="language-"><code>let ajax = function({ url = &quot;localhost&quot;, port: p = 80 }, ...data) {
-    console.log(&quot;Url:&quot;, url, &quot;Port:&quot;, p, &quot;Rest:&quot;, data);
-};
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> ajax <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">{</span> url <span class="token operator">=</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> port<span class="token punctuation">:</span> p <span class="token operator">=</span> <span class="token number">80</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token operator">...</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Url:&quot;</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token string">&quot;Port:&quot;</span><span class="token punctuation">,</span> p<span class="token punctuation">,</span> <span class="token string">&quot;Rest:&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-ajax({ url: &quot;someHost&quot; }, &quot;additional&quot;, &quot;data&quot;, &quot;hello&quot;); // Url: someHost Port: 80 Rest: [ &apos;additional&apos;, &apos;data&apos;, &apos;hello&apos; ]
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">&quot;someHost&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;additional&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Url: someHost Port: 80 Rest: [ &apos;additional&apos;, &apos;data&apos;, &apos;hello&apos; ]</span>
 
-ajax({}, &quot;additional&quot;, &quot;data&quot;, &quot;hello&quot;); // Url: localhost Port: 80 Rest: [ &apos;additional&apos;, &apos;data&apos;, &apos;hello&apos; ]
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;additional&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Url: localhost Port: 80 Rest: [ &apos;additional&apos;, &apos;data&apos;, &apos;hello&apos; ]</span>
 
-ajax({}); // Url: localhost Port: 80 Rest: []
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Url: localhost Port: 80 Rest: []</span>
 
-// N&#xE3;o funciona porque se est&#xE1; tentando desestruturar undefined
-ajax(); // Uncaught TypeError: Cannot match against &apos;undefined&apos; or &apos;null&apos;
+<span class="token comment" spellcheck="true">// A tentativa abaixo n&#xE3;o funciona porque se est&#xE1; tentando desestruturar undefined</span>
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught TypeError: Cannot match against &apos;undefined&apos; or &apos;null&apos;</span>
 
-// Para consertar isso, &#xE9; preciso ter valores padr&#xF5;es para par&#xE2;metros da fun&#xE7;&#xE3;o
-// Nota: Olhe o &quot;= {}&quot; no final, sinaliza um objeto vazio como padr&#xE3;o, caso o primeiro argumento seja undefined
+<span class="token comment" spellcheck="true">// Para consertar isso, &#xE9; preciso ter valores padr&#xF5;es para par&#xE2;metros da fun&#xE7;&#xE3;o</span>
+<span class="token comment" spellcheck="true">// Nota: Olhe o &quot;= {}&quot; no final, sinaliza um objeto vazio como padr&#xE3;o, caso o primeiro argumento seja undefined</span>
+<span class="token keyword">let</span> ajax <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> url<span class="token punctuation">:</span> url <span class="token operator">=</span> <span class="token string">&quot;localhost&quot;</span><span class="token punctuation">,</span> port<span class="token punctuation">:</span> p <span class="token operator">=</span> <span class="token number">80</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;Url:&quot;</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token string">&quot;Port:&quot;</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-let ajax = ({ url: url = &quot;localhost&quot;, port: p = 80 } = {}) =&gt; {
-    console.log(&quot;Url:&quot;, url, &quot;Port:&quot;, p);
-};
+<span class="token comment" spellcheck="true">// Agora funciona</span>
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Url: localhost Port: 80</span>
 
-// Agora funciona
-ajax(); // Url: localhost Port: 80
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Url: localhost Port: 80</span>
 
-ajax({}); // Url: localhost Port: 80
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span> port<span class="token punctuation">:</span> <span class="token number">8080</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//  =&gt; Url: localhost Port: 8080</span>
 
-ajax({ port: 8080 });
-//  =&gt; Url: localhost Port: 8080
-
-ajax({ url: &quot;someHost&quot;, port: 8080 });
-//  =&gt; Url: someHost Port: 8080
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">&quot;someHost&quot;</span><span class="token punctuation">,</span> port<span class="token punctuation">:</span> <span class="token number">8080</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//  =&gt; Url: someHost Port: 8080</span>
 </code></pre>
+
                                 
                                 </section>
                             
@@ -761,7 +761,7 @@ ajax({ url: &quot;someHost&quot;, port: 8080 });
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parâmetros Default","level":"1.4.2","depth":2,"next":{"title":"Parâmetros Named","level":"1.4.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},"previous":{"title":"Arrow Functions","level":"1.4.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"functions/default-parameters.md","mtime":"2017-04-24T14:54:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Parâmetros Default","level":"1.4.2","depth":2,"next":{"title":"Parâmetros Named","level":"1.4.3","depth":2,"path":"functions/named-parameters.md","ref":"functions/named-parameters.md","articles":[]},"previous":{"title":"Arrow Functions","level":"1.4.1","depth":2,"path":"functions/arrow-functions.md","ref":"functions/arrow-functions.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"functions/default-parameters.md","mtime":"2017-04-25T18:19:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

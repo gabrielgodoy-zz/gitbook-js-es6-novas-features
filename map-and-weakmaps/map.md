@@ -24,7 +24,7 @@ console.log(totalReplies[user2]); // 42
 console.log(Object.keys(totalReplies)); // ['[object Object]']
 ```
 Map resolve esse problema:
-Quando usamos objetos como chaves em um map, eles não sào convertidos para strings
+Quando usamos objetos como chaves em um map, eles não são convertidos para strings
 
 ```js
 let user1 = {name: "Sam"},

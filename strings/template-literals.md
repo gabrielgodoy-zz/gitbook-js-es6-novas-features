@@ -1,10 +1,13 @@
 ## Template Literals
-Template literals provide a clean way to create strings and perform string interpolation. 
-You might already be familiar with the syntax; it’s based on the dollar sign and curly braces ${..}
+Template Literals fornecem uma maneira limpa para criar strings e executar interpolação strings.
+Você já deve estar familiarizado com a sintaxe; 
 
-Template literals are enclosed by backticks (`${}`)
+É baseado no sinal do dólar e chaves $ {..}
 
-Here’s a quick demonstration:
+Template Literals são incluídos com sinais de crase (`$ {}`)
+
+Aqui está uma demonstração rápida:
+
 ```js
 let name = 'John',
    apples = 5,
@@ -14,21 +17,22 @@ let name = 'John',
 console.log(`This is ${name}.`);
 console.log(`He carries ${apples} apples, ${pears} pears, and ${bananas()} bananas.`);
 
-// ES5 equivalent:
+// Equivalente em ES5:
 console.log('He carries ' + apples + ' apples, ' + pears + ' pears, and ' + bananas() +' bananas.');
 ```
 
-In the form above, compared to ES5, they’re merely a convenience for string concatenation. However, template literals can also be used for multi-line strings. Keep in mind that white space is part of the string:
+
+No formulário acima, em comparação com o ES5, eles são apenas uma conveniência para concatenação strings. No entanto, template literals também podem ser usados para strings com várias linhas. Tenha em mente que o espaço em branco é parte da string:
+
 ```js
 let x = `1...
 2...
 3 lines long!`; // Yay
 
-// ES5 equivalents:
+// Equivalente em ES5:
 var x = "1...\n" + 
 "2...\n" +
 "3 lines long!";
 
 var x = "1...\n2...\n3 lines long!";
 ```
-

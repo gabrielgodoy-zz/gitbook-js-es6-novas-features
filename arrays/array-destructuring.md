@@ -1,5 +1,5 @@
-## Array destructuring
-Destructuring permite extrair dados de arrays ou objetos em variáveis distintas
+## Desestruturação de Arrays
+A Desestruturação permite extrair dados de arrays ou objetos para variáveis distintas
 
 ```js
 // Maneira antiga
@@ -15,7 +15,8 @@ let [a, b, c] = users;
 console.log(a, b, c); // Sam Tyler Brook
 ```
 
-Outro exemplo
+Outro exemplo:
+
 ```js
 let [x, y] = [1, 2]; // x = 1, y = 2
 
@@ -33,7 +34,7 @@ let x = 1,
 [x, y] = [y, x]; // x = 2, y = 1
 ```
 
-### Destructuring arrays de valores de retorno
+### Desestruturação arrays de valores retornados
 ```js
 // Ao retornar arrays de funções, é possível atribuir valores a múltiplas variáveis de uma só vez
 function activeUsers() {
@@ -44,7 +45,7 @@ console.log(a, b, c);
 ```
 
 ### Ignorando valores retornados
-É possível ignorar valores de retorno que nõ seja interessante
+É possível ignorar valores retornados que não sejam interessantes
 ```js
 function activeUsers() {
   return ["Sam", "Alex", "Brook"];
@@ -55,7 +56,7 @@ console.log(a); // Sam
 console.log(b); // Brook
 ```
 
-### Combinando destructuring de Array com parâmetros Rest
+### Combinando desestruturação de Array com parâmetros rest
 ```js
 let users = ["Sam","Tyler","Brook"];
 let [first, ...rest] = users;

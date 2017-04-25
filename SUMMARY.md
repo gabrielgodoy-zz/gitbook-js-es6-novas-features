@@ -2,7 +2,7 @@
 
 * [Introdução](README.md)
 * Arrays
-    * [Array Destructuring](arrays/array-destructuring.md)
+    * [Desestruturação de Array](arrays/array-destructuring.md)
     * [Novos métodos](arrays/new-methods.md)
 * [Classes](classes/README.md)
 * Funções
@@ -19,16 +19,16 @@
     * [Weakmaps](map-and-weakmaps/weakmap.md)
 * Objeto Math
     * [Novos métodos](math-object/new-methods.md)
-* [Módulos import/export](modules/README.md)
-* Objects
-    * [Method Initializer](objects/method-initializer.md)
-    * [Object Assign](objects/object-assign.md)
-    * [Object Destructuring](objects/object-destructuring.md)
-    * [Object Initializer](objects/object-initializer.md)
+* [Módulos import / export](modules/README.md)
+* Objetos
+    * [Inicializador de método](objects/method-initializer.md)
+    * [Object.assign()](objects/object-assign.md)
+    * [Desestruturação de Objeto](objects/object-destructuring.md)
+    * [Inicializador de Objeto](objects/object-initializer.md)
 * [Promises](promises/README.md)
 	* [Métodos de Promise](promises/methods.md)
 * [Proxy](proxy/README.md)
-* [Spread Operators](spread-operators/README.md)
+* [Operadores Spread](spread-operators/README.md)
 * Sets e Weaksets
     * [Sets](sets-and-weaksets/sets.md)
     * [Weaksets](sets-and-weaksets/weaksets.md)

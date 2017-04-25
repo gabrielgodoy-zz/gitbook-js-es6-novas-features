@@ -1,8 +1,9 @@
 ## Sets
-The **Set** Object stores unique values of any type, wheter primitives or object references
+O objeto **Set** armazena valores únicos de qualquer tipo, seja primitivas ou referências a objetos
 
-Problems with arrays
-In arrays, duplicate entries are allowed, like below:
+Problemas com arrays
+
+Em arrays, entradas duplicadas são permitidas, como abaixo:
 
 ```js
 let tags = [];
@@ -17,21 +18,21 @@ tags.push("Web"); // Duplicate entry
 console.log("Total items: ", tags.length); // 4
 ```
 
-Sets prevent duplicate entries
-We use the add() method to add elements to a Set
+Sets impedem entradas duplicadas
+Usamos o método `add()` para adicionar elementos a um Set
 
 ```js
 let tags = new Set();
 tags.add("Javascript");
 tags.add("Programming");
-tags.add({version: "2015"}); // Primitive values and objects are allowed
+tags.add({version: "2015"}); // Valires primitivos e objetos são permitidos
 tags.add("Web");
-tags.add("Web"); // Duplicate entries are ignored
+tags.add("Web"); // Entradas duplicadas são ignoradas
 
-console.log('Total items: ', tags.size); // 4, the second "Web" was ignored
+console.log('Total items: ', tags.size); // 4, o segundo "Web" foi ignorado
 ```
 
-**Set objects are iterable. We can use them with for...of and destructuring**
+**Sets são iteráveis. Podemos usá-los com for...of e desestruturação**
 
 ```js
 let tags = new Set();

@@ -1,5 +1,5 @@
 ## Symbols
-Symbols are a new primitive data type, like Number and String. You can use symbols to create unique identifiers for object properties or to create unique constants.
+Symbols são um novo tipo de dados primitivos, como Number e String. Você pode usar symbols para criar identificadores exclusivos para propriedades de objeto ou para criar constantes exclusivas.
 
 ```js
 const MY_CONSTANT = Symbol();
@@ -8,10 +8,13 @@ let obj = {};
 obj[MY_CONSTANT] = 1;
 ```
 
-Note that key-value pairs set with symbols are not returned by Object.getOwnPropertyNames(), and they are not visible in for...in iterations, Object.keys() or JSON.stringify(). 
-This is in contrast to regular string-based keys. 
-You can get an array of symbols for an object with Object.getOwnPropertySymbols().
-Symbols work naturally with const because of their immutable character:
+Observe que pares de valor-chave definidos com symbols não são retornados por `Object.getOwnPropertyNames()` e eles não são visíveis em iterações `for...in`, `Object.keys()` ou `JSON.stringify()`.
+
+Isso está em contraste com chaves baseadas em string.
+
+Você pode obter um array de symbols para um objeto com `Object.getOwnPropertySymbols()`
+
+Os símbolos trabalham naturalmente com `const` devido ao seu caráter imutável:
 
 ```js
 const CHINESE = Symbol();
@@ -35,7 +38,7 @@ switch(language) {
 }
 ```
 
-You can give a symbol a description. You can’t use it to access the symbol itself, but it’s useful for debugging.
+Você pode dar a um symbol uma descrição. Você não pode usá-lo para acessar o próprio símbolo, mas é útil para debugging.
 
 ```js
 const CONST_1 = Symbol('my symbol');

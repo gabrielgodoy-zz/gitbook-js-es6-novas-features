@@ -1,11 +1,11 @@
 ## let
 Um novo jeito de criar escopo
 
-Utilizando **var = variável** seu escopo está preso dentro da função mais próxima que envolve ela
-Utilizando **let = variável** seu escopo está preso dentro dos colchetes mais próximos que envolve ela
+- Utilizando `var = variável` seu escopo está preso dentro da função mais próxima que envolve ela
+- Utilizando `let = variável` seu escopo está preso dentro dos colchetes mais próximos que envolve ela
 
 
-*declarações 'let' não causam `hoist`, por isso se torna necessário colocar todas suas declaraçòes let no topo dos blocos antes de serem usadas*
+> Declarações `let` não causam `hoist`, por isso se torna necessário colocar todas suas declarações let no topo dos blocos antes de serem usadas
 
 ```js
 if(true) {
@@ -22,9 +22,9 @@ function foo(bar) {
      if(baz) {
           let bam = baz;
      }
-     console.log(bam); // Error
+     console.log(bam); // Erro
    }
-    console.log(baz); // Error
+    console.log(baz); // Erro
 }
 foo("bar");
 ```
@@ -41,7 +41,9 @@ Mas não podem ser redeclaradas no mesmo escopo. Isso gera um TypeError
 let name = "Jerry Only";
 let name = "Glenn Danzig";
 ```
-Em um escopo diferente ela pode ser redeclarada
+
+Em um escopo diferente ela pode ser redeclarada:
+
 ```js
 let message = "web forum";
 
@@ -53,26 +55,25 @@ printInCaps("profiles");
 console.log( message ); // web forum
 
 ```
-Porque `message` dentro da função está presa naquele escopo com let, e o console enxerga somente a variável `message` global
+`message` dentro da função está presa naquele escopo com let, e o console enxerga somente a variável `message` global
 
 ## const
-Uso do `const` para criar variáveis imutáveis
+Utilizando `const` é possível criar variáveis imutáveis
 
-Constantes tem escopo por bloco, assim como variáveis definidas usando let
+Constantes tem escopo por bloco, assim como variáveis definidas usando `let`
 
-*declarações 'const' não causam `hoist`, por isso se torna necessário colocar todas suas declaraçòes const no topo dos blocos antes de serem usadas*
+> declarações 'const' não causam `hoist`, por isso se torna necessário colocar todas suas declarações const no topo dos blocos antes de serem usadas*
 
 O valor de uma constante nã pode mudar através de reatribuíção, e não pode ser redeclarada.
 
 Constantes sempre precisam ser declaradas, e atribuídas um valor:
+
 ```js
 const MAX_USERS = 15; // Certo
-const MAX_USERS; // errado
+const MAX_USERS; // Errado
 ```
 
-Existe outra maneira de declarar variáveis com escopo em bloco.
-
-Com const você declara uma referência read-only para um valor. É preciso atribuir uma valor a variável diretamente.
+Com `const` você declara uma referência read-only para um valor.
 
 ```js
 const myVar = 2;

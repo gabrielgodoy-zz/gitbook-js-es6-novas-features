@@ -1,20 +1,24 @@
 ## Generators (Geradores)
 Um Generator administra seu próprio estado iterativo, elas são funções `pausáveis`. 
 
-Uma função se torna um generator se ela contém um ou mais expressões **yield** (produzir)  e se utiliza a sintaxe com asterisco `function*`
+Uma função se torna um generator se ela contém uma ou mais expressões **yield** (produzir)  e se utiliza a sintaxe com asterisco `function*`
 
 ### O método `next()` de um Generator
 O `next()` permite que se itere dentro de um generator
 
 Quando se atribui uma variável que armazena sua função de generator como:
 
-`const ajaxGenSetup = ajaxGen();`
+```js
+const ajaxGenSetup = ajaxGen();
+```
 
 A quantidade de `next()` disponíveis para se usar representam a mesma quantidade de yields presentes na função do generator, até que `done = true`
 
 O método `next()` retorna um objeto com duas propriedades, **done** and **value**.
 
-`{ value: 3, done: false }`
+```js
+{ value: 3, done: false }
+```
 
 Cada termo `yield` é um ponto de parada para um método `next()`
 
@@ -62,7 +66,7 @@ E em qualquer momento que o generator é reiniciado com outra função `next()`,
 O valor passado no método `next()` meio que 'substitui' toda a expressão yield que foi pausada por último.
 
 
-### Generators para ações Async
+### Generators para ações assíncronas
 É possível definir uma ordem específica para requisições assíncronas para rodar com geradores
 
 Peguei esse exemplo em um [curso muito bom de um amigo meu](http://willianjusten.teachable.com/p/js-com-tdd-na-pratica).

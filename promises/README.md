@@ -1,5 +1,4 @@
 ## Objetos Promessas
-
 O objeto `Promise` é usado para cálculos que são adiados (demorados, retardados) e assíncronos.
 
 Uma Promessa representa uma operação que ainda não foi concluída, mas que está prevista para o futuro.
@@ -8,6 +7,7 @@ A criação de uma nova Promessa define-a automaticamente como **estado pendente
 
 ### Estados de uma Promise
 Internamente, uma promessa pode estar em um de três estados:
+
 - **Pendente**, quando o valor final ainda não está disponível
 - **Cumprida**, quando e se o valor final se torna disponível. Um valor de cumprimento se torna permanentemente associado à promessa. Isso pode ser qualquer valor, incluindo undefined.
 - **Rejeitado**, se um erro impediu que o valor final fosse determinado. Isso pode ser qualquer valor, incluindo undefined, embora geralmente seja um objeto de Erro, como no tratamento de exceções.
@@ -35,7 +35,8 @@ Promise.resolve('oops, esse não é o json para ser parseado')
 ```
 
 ### Encadeamento de Promises
-O método then() retorna uma promessa, então pode ser encadeado novamente em outro then()
+O método `then()` retorna uma promessa, então pode ser encadeado novamente em outro `then()`
+
 ```js
 someFunction.somePromiseReturned()
   .then(getFiles)
@@ -44,6 +45,7 @@ someFunction.somePromiseReturned()
 ```
 
 ### Usando Promessas para requisições Ajax (Promisifying XMLHttpRequest)
+
 ```js
 function get(url) {
   return new Promise(function(resolve, reject) {

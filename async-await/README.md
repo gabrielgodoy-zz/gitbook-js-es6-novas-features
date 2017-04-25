@@ -1,5 +1,5 @@
 ## Funções Async e o operador await
-Funções Async podem conter expressões `await`, que pausa a execução da função async e espera pela resolução da promessa que foi passada, e conclui a execução da função async retornando o valor resolvido.
+Funções Async podem conter expressões `await`, que pausam a execução da função `async` e espera pela resolução da promessa que foi passada, e conclui a execução da função `async`, retornando o valor resolvido.
 
 ```js
 // Alguma função que retorna uma Promise

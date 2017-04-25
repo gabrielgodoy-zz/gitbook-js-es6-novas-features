@@ -16,13 +16,13 @@ Os navegadores/motores têm um "carregador de módulo" padrão, que carrega de f
 Vamos examinar um exemplo com dois módulos:
 
 ```js
-// bar.js File
+// bar.js
 function hello(who) { 
-	return `Let me introduce: ${who}`; 
+	return `DEIXE-ME APRESENTAR: ${who}`; 
 }
 export hello; 
 
-// Arquivo foo.js 
+// foo.js 
 // importa somente `hello()` do módulo 'bar'
 import hello from 'bar'; 
 var hungry = 'hippo'; 
@@ -30,22 +30,22 @@ export function awesome() {
 	console.log(hello(hungry).toUpperCase()); 
 }
 
-// Arquivo baz.js
+// baz.js
 // Importa todos os módulos 'foo' e 'bar' 
 module foo from 'foo'; 
 module bar from 'bar'; 
 console.log( bar.hello( 'rhino' ) ); // Deixe-me introduzir: rhino
-foo.awesome(); // DEIXE-ME INTRODUZIR: HIPPO
+foo.awesome(); // DEIXE-ME APRESENTAR: HIPPO
 ```
 
 ### Default Exports
-** Módulos que exportam valores únicos ** são muito populares na comunidade Node.js.
+**Módulos que exportam valores únicos** são muito populares na comunidade Node.js.
 
-Mas eles também são comuns no desenvolvimento de frontend onde muitas vezes você tem construtores / classes para modelos, com um modelo por módulo.
+Mas eles também são comuns no desenvolvimento de frontend onde muitas vezes você tem construtores/classes para modelos, com um modelo por módulo.
 
-Um módulo ECMAScript 6 pode escolher uma exportação padrão, o valor exportado mais importante.
- 
-As exportações padrão são especialmente fáceis de importar.
+Um módulo ES6 pode escolher `export default`, o valor exportado mais importante.
+
+`Default export` são especialmente fáceis de importar.
 
 O seguinte módulo ECMAScript 6 "é" uma única função:
 

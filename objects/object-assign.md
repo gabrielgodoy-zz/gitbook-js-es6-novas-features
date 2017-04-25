@@ -1,11 +1,12 @@
 # Object.assign (equivalent to .extend() in jQuery)
-Escrever funções flexíveis e reutilizáveis
 
 O método `Object.assign` copia as propriedades de um ou mais objetos de origem para um objeto de destino especificado como o primeiro argumento.
 
-Object.assign (target, ... sources);
+```js
+Object.assign(target, ... sources);
+```
 
-E se quisermos chamar countdownTimer com opções diferentes:
+E se quisermos chamar `countdownTimer` com opções diferentes:
 
 ```js
 // A função de exemplo countdownTimer precisa ser chamada de muitas maneiras diferentes

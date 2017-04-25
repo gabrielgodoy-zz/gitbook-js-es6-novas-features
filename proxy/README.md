@@ -1,34 +1,35 @@
 ## Proxy
 
-Define different behaviours for methods inside an object.
+Definir comportamentos diferentes para métodos dentro de um objeto.
 
-The base syntax is `let myProxy = new Proxy(target, handler);`
+A sintaxe base é `let myProxy = new Proxy (target, handler);`
 
-**target** is an object (can be any object, including arrays, functions or even another proxy) or a function to wrap with Proxy.
+**target** é um objeto (pode ser qualquer objeto, incluindo arrays, funções ou até mesmo outro proxy) ou uma função para quebrar com Proxy.
 
-**handler** is an object whose properties are functions which define the behavior of the proxy when an operation is performed on it.
+**manipulador** é um objeto cujas propriedades são funções que definem o comportamento do proxy quando uma operação é realizada sobre ele.
 
-**traps** Traps are used in Proxies to override native methods from an object. Trap is analogous to the concept of traps in operating systems.
+**traps (armadilhas)** Armadilhas são usadas em Proxies para substituir métodos nativos de um objeto. Trap é análogo ao conceito de armadilhas em sistemas operacionais.
 
-### List of Handler methods
-- `handler.getPrototypeOf()` A trap for Object.getPrototypeOf
-- `handler.setPrototypeOf()` A trap for Object.setPrototypeOf
-- `handler.isExtensible()` A trap for Object.isExtensible
-- `handler.preventExtensions()` A trap for Object.preventExtensions
-- `handler.getOwnPropertyDescriptor()` A trap for Object.getOwnPropertyDescriptor
-- `handler.defineProperty()` A trap for Object.defineProperty
-- `handler.has()` A trap for the in operator
-- `handler.get()` A trap for getting property values
-- `handler.set()` A trap for setting property values
-- `handler.deleteProperty()` A trap for the delete operator
-- `handler.ownKeys()` A trap for Object.getOwnPropertyNames
-- `handler.apply()` A trap for a function call
-- `handler.construct()` A trap for the new operator
+### Liste de métodos Handler 
+- `handler.getPrototypeOf()` Uma armadilha para Object.getPrototypeOf
+- `handler.setPrototypeOf()` Uma armadilha para Object.setPrototypeOf
+- `handler.isExtensible()` Uma armadilha para Object.isExtensible
+- `handler.preventExtensions()` Uma armadilha para Object.preventExtensions
+- `handler.getOwnPropertyDescriptor()` Uma armadilha para Object.getOwnPropertyDescriptor
+- `handler.defineProperty()` Uma armadilha para Object.defineProperty
+- `handler.has()` Uma armadilha para the in operator
+- `handler.get()` Uma armadilha para getting property values
+- `handler.set()` Uma armadilha para setting property values
+- `handler.deleteProperty()` Uma armadilha para the delete operator
+- `handler.ownKeys()` Uma armadilha para Object.getOwnPropertyNames
+- `handler.apply()` Uma armadilha para uma chamada de função
+- `handler.construct()` Uma armadilha para the new operator
 
-#### Basic Example
-In this example a random number between 1 and 10 gets returned as the default value when the object property does not exist 
+#### Exemplo Básico
+Neste exemplo, um número aleatório entre 1 e 10 é retornado como o valor padrão quando a propriedade do objeto não existe
 
-It is using the get handler inside the object propety
+Ele está usando o manipulador `get` dentro da propriedade do objeto
+
 ```js
 let handler = {
     get(object, prop) {
@@ -41,5 +42,5 @@ myProxy.a = 1;
 myProxy.b = undefined;
 
 console.log(myProxy.a, myProxy.b); // 1, undefined
-console.log(myProxy.anotherProperty); // Random number between 1 and 10
+console.log(myProxy.anotherProperty); // Número aleatório entre 1 e 10
 ```

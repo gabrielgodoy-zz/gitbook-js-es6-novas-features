@@ -123,7 +123,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -373,7 +373,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -386,7 +386,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -400,7 +400,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -413,7 +413,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -426,7 +426,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -439,7 +439,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -502,7 +502,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -685,44 +685,44 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="weaksets">Weaksets</h2>
-<p>More memory efficient type of Sets
-The WeakSets is a type where only objects are allowed to be stored</p>
-<p><strong>WeakSets are not iterable, and you cannot read values</strong></p>
+<p>&#xC9; um tipo de Set que utiliza mem&#xF3;ria de maneira mais eficiente</p>
+<p>O WeakSets &#xE9; um tipo onde somente objetos podem ser armazenados</p>
+<p><strong> WeakSets n&#xE3;o s&#xE3;o iter&#xE1;veis, e voc&#xEA; n&#xE3;o pode ler valores </strong></p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> weakTags <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Invalid, Only objects can be added to Weaksets</span>
+weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Inv&#xE1;lido, somente objetos podem ser adicionados a Weaksets</span>
 weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;Javascript&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> iOS <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">&quot;iOS&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 weakTags<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span>
 weakTags<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 weakTags<span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span>iOS<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
-<h3 id="weaksets-use-cases">WeakSets use cases</h3>
-<p>We can use weakSets to create special groups from existing objects <strong>without mutating them</strong>. Favoring immutable objects allows for much simpler code with <strong>no unexpected side efffetcs</strong>.</p>
-<p>Example of unecessary mutation on each post object without Weaksets</p>
+<h3 id="casos-de-uso-de-weaksets">Casos de uso de WeakSets</h3>
+<p>Podemos usar weakSets para criar grupos especiais a partir de objetos existentes <strong>sem muta&#xE7;&#xF5;es</strong>. Favorecer objetos imut&#xE1;veis permite um c&#xF3;digo mais simples com <strong>nenhum efeito colateral inesperado</strong>.</p>
+<p>Exemplo de muta&#xE7;&#xE3;o n&#xE3;o necess&#xE1;ria em cada objeto post sem Weaksets</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> readPosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 postList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// Mutates &apos;post&apos; objets, crating a new property to indicate if it has been read</span>
+    <span class="token comment" spellcheck="true">// Muta objetos &apos;post&apos;, criando uma nova propriedade para indicar se ela foi lida</span>
     post<span class="token punctuation">.</span>isRead <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// ... rendering posts</span>
+<span class="token comment" spellcheck="true">// ... renderizando posts</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> post <span class="token keyword">of</span> postArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>post<span class="token punctuation">.</span>isRead<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// Checks a property on each post</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>post<span class="token punctuation">.</span>isRead<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// Verifica uma propriedade em cada post</span>
         <span class="token function">_addClassToPost</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>Example using WeakSets without the need to mutate objects (create flag properties)
-Creating group of objects and check for the presence of those objects on the weakset group</p>
+<p>Exemplo usando WeakSets sem a necessidade de muta&#xE7;&#xE3;o de objetos (criar propriedades flag)
+Criando grupo de objetos e verificando a presen&#xE7;a desses objetos no grupo de weakset</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> readPosts <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-postList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-    readPosts<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Add objects to a group of read posts weakset</span>
+postList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    readPosts<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Adicionar objetos a um grupo de posts de leitura weakset</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// ... rendering posts</span>
+<span class="token comment" spellcheck="true">// ... renderizando posts</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> post <span class="token keyword">of</span> postArray<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>readPosts<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// has() checks wether an object is present in the WeakSet</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>readPosts<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// has() verifica se um objeto est&#xE1; presente no WeakSet</span>
         <span class="token function">_addClassToPost</span><span class="token punctuation">(</span>post<span class="token punctuation">.</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
@@ -760,7 +760,7 @@ postList<span class="token punctuation">.</span><span class="token function">add
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Weaksets","level":"1.15.2","depth":2,"next":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"Novos métodos","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"previous":{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"sets-and-weaksets/weaksets.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Weaksets","level":"1.15.2","depth":2,"next":{"title":"Strings","level":"1.16","depth":1,"ref":"","articles":[{"title":"Novos métodos","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]}]},"previous":{"title":"Sets","level":"1.15.1","depth":2,"path":"sets-and-weaksets/sets.md","ref":"sets-and-weaksets/sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"sets-and-weaksets/weaksets.md","mtime":"2017-04-25T17:11:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

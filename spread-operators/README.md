@@ -1,12 +1,12 @@
 ## Spread Operators
-The spread operator `...` is a syntax to expand elements of an array in specific places, such as arguments in function calls.
+O operador spread `...` é uma sintaxe para expandir elementos de um array em locais específicos, como argumentos em chamadas de função.
 
-**Difference between Rest and Spread operator**
- 
-Rest parameters is used in function definitions, and the spread operator is used in function invocations
+**Diferença entre operador Rest e Spread**
+ 
+Parâmetros Rest são usados em definições de função, e o operador Spread é usado em chamadas de função
 
-### In Arrays
-Expand elements of an array within another array:
+### Em Arrays
+Expande elementos de um array dentro de outro array:
 
 ```js
 let values = [1, 2, 4],
@@ -19,36 +19,38 @@ let values = [1, 2, 4];
 // Iterate, push, sweat, repeat...
 ```
 
-### In Function calls
-The spread syntax is also powerful when calling functions with arguments:
+### Em chamadas de funções
+A sintaxe Spread também é poderoso ao chamar funções com argumentos:
 
 ```js
 let values = [1, 2, 4];
 
-doSomething(...values); // Same as doSomething(values[0], values[1], values[2])
+doSomething(...values); // Mesma coisa que doSomething(values[0], values[1], values[2])
 ```
 
-The syntax is very flexible, because the spread operator can be used anywhere in the argument list. 
+A sintaxe é muito flexível, porque o operador Spread pode ser usado em qualquer lugar na lista de argumentos.
 
-This means that the following invocation produces the same result:
+Isso significa que a seguinte invocação produz o mesmo resultado:
+
 ```js
 let values = [2, 4];
-doSomething(1, ...values);  // Same as doSomething(1, values[0], values[1])
+doSomething(1, ...values);  // Mesma coisa que doSomething(1, values[0], values[1])
 ```
 
-### In iterables 
-It can be applied to all iterable objects, such as a NodeList:
+### Em iterables 
+Ele pode ser aplicado a todos os objetos iteráveis, como um NodeList:
 ```js
 let form = document.querySelector('#my-form'),
 	inputs = form.querySelectorAll('input'),
 	selects = form.querySelectorAll('select');
 
 let allElements = [form, ...inputs, ...selects];
-// Now, allElements is a flat array containing the `<form>` node and its `<input \>` and `<select>` child nodes.
+// Agora, allElements é um array flat contendo o `<form>` node e seu `<input \>` e `<select>` child nodes.
 ```
 
-### In Objects
-Lets you use the spread `...` operator to copy enumerable properties from one object to another or override them
+### Em Objetos
+Permite usar o operador spread `...` para copiar propriedades enumeráveis de um objeto para outro, ou substituí-las
+
 ```js
 let state = {someProp: '', visibilityFilter: false};
 function mergeObjects(state) {

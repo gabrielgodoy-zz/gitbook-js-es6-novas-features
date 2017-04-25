@@ -29,11 +29,11 @@ Com zero ou mais de um argumento, os parênteses são obrigatórios:
 // No arguments
 books.map(() => 1); // [1, 1]
 
-// Multiple arguments
+// Múltiplos argumentos
 [1,2].map((n, index) => n * index); // [0, 2]
 ```
 
-Coloque os colchetes `{...}` caso se tenha necessidade de inserir mais lógica na função, ou mais espaço em branco.
+Coloque chaves `{...}` caso se tenha necessidade de inserir mais lógica na função, ou mais espaço em branco.
 
 ```js
 let result = [1, 2, 3, 4, 5].map( n => {

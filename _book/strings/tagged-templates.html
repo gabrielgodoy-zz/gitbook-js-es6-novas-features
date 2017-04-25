@@ -125,7 +125,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -375,7 +375,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -388,7 +388,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -402,7 +402,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -428,7 +428,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -441,7 +441,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -504,7 +504,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -687,16 +687,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="tagged-templates-literal">Tagged templates literal</h2>
-<p>Allows to modify the output of template literals using a function.</p>
+<p>Permite modificar a sa&#xED;da de template literals usando uma fun&#xE7;&#xE3;o.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
     b <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
 
 <span class="token comment" spellcheck="true">/*
-The first argument contains an array of string 
-literals (&quot;Hello &quot; , &quot; world&quot;, and &quot;&quot; in this case below)
-The second, and each argument after the first one, 
-are the values of the processed 
-(or sometimes called cooked) substitution expressions (&quot;15&quot; and &quot;50&quot; here).
+O primeiro argumento cont&#xE9;m um array de string
+literals (&quot;Ol&#xE1;&quot;, &quot;mundo&quot; e &quot;&quot; neste caso abaixo)
+O segundo, e cada argumento ap&#xF3;s o primeiro, s&#xE3;o os valores das
+(Ou &#xE0;s vezes chamado cooked) express&#xF5;es de substitui&#xE7;&#xE3;o (&quot;15&quot; e &quot;50&quot; aqui) processadas
 */</span>
 <span class="token keyword">function</span> <span class="token function">someFunction</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token operator">...</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot;Hello &quot;</span>
@@ -709,10 +708,10 @@ are the values of the processed
 <span class="token punctuation">}</span>
 
 someFunction<span class="token template-string"><span class="token string">`Hello </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> a <span class="token operator">+</span> b <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> world </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> a <span class="token operator">*</span> b <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//In the end, your function returns your manipulated string.</span>
+<span class="token comment" spellcheck="true">// No final, sua fun&#xE7;&#xE3;o retorna sua string manipulada.</span>
 <span class="token comment" spellcheck="true">// &quot;Bazinga!&quot;</span>
 </code></pre>
-<p>Tag functions don&apos;t need to return a string, as shown in the following example.</p>
+<p>As fun&#xE7;&#xF5;es Tag n&#xE3;o precisam retornar uma string, como mostrado no exemplo a seguir:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">template</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token operator">...</span>keys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token operator">...</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">let</span> dict <span class="token operator">=</span> values<span class="token punctuation">[</span>values<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -731,7 +730,7 @@ someFunction<span class="token template-string"><span class="token string">`Hell
 <span class="token function">t2Closure</span><span class="token punctuation">(</span><span class="token string">&apos;Hello&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>foo<span class="token punctuation">:</span> <span class="token string">&apos;World&apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// &quot;Hello World!&quot;</span>
 </code></pre>
 <h3 id="raw-strings">Raw Strings</h3>
-<p>The special raw property, available on the first function argument of tagged template literals, allows you to access the raw strings as they were entered.</p>
+<p>A propriedade especial raw, dispon&#xED;vel no primeiro argumento de fun&#xE7;&#xE3;o de tagged temoplates literals, permite que voc&#xEA; acesse as raw strings conforme elas foram inseridas.</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">tag</span><span class="token punctuation">(</span>strings<span class="token punctuation">,</span> <span class="token operator">...</span>values<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>strings<span class="token punctuation">.</span>raw<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
   <span class="token comment" spellcheck="true">// &quot;string text line 1 \n string text line 2&quot;</span>
@@ -739,7 +738,7 @@ someFunction<span class="token template-string"><span class="token string">`Hell
 
 tag<span class="token template-string"><span class="token string">`string text line 1 \n string text line 2`</span></span><span class="token punctuation">;</span>
 </code></pre>
-<p>In addition, the String.raw() method exists to create raw strings just like the default template function and string concatenation would create.</p>
+<p>Al&#xE9;m disso, o m&#xE9;todo <code>String.raw()</code> existe para criar strings raw exatamente como uma <code>default template function</code> e uma concatena&#xE7;&#xE3;o de string iria criar.</p>
 <pre class="language-"><code class="lang-js">String<span class="token punctuation">.</span>raw<span class="token template-string"><span class="token string">`Hi\n</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">3</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">!`</span></span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// &quot;Hi\n5!&quot;</span>
 </code></pre>
@@ -776,7 +775,7 @@ tag<span class="token template-string"><span class="token string">`string text l
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tagged templates","level":"1.16.2","depth":2,"next":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"previous":{"title":"Novos métodos","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"strings/tagged-templates.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tagged templates","level":"1.16.2","depth":2,"next":{"title":"Template Strings","level":"1.16.3","depth":2,"path":"strings/template-literals.md","ref":"strings/template-literals.md","articles":[]},"previous":{"title":"Novos métodos","level":"1.16.1","depth":2,"path":"strings/new-methods.md","ref":"strings/new-methods.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"strings/tagged-templates.md","mtime":"2017-04-25T17:34:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

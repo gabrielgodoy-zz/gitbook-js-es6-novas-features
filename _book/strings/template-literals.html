@@ -125,7 +125,7 @@
                 <a href="../arrays/array-destructuring.html">
             
                     
-                    Array Destructuring
+                    Desestruturação de Array
             
                 </a>
             
@@ -375,7 +375,7 @@
                 <a href="../modules/">
             
                     
-                    Módulos import/export
+                    Módulos import / export
             
                 </a>
             
@@ -388,7 +388,7 @@
                 <span>
             
                     
-                    Objects
+                    Objetos
             
                 </span>
             
@@ -402,7 +402,7 @@
                 <a href="../objects/method-initializer.html">
             
                     
-                    Method Initializer
+                    Inicializador de método
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="../objects/object-assign.html">
             
                     
-                    Object Assign
+                    Object.assign()
             
                 </a>
             
@@ -428,7 +428,7 @@
                 <a href="../objects/object-destructuring.html">
             
                     
-                    Object Destructuring
+                    Desestruturação de Objeto
             
                 </a>
             
@@ -441,7 +441,7 @@
                 <a href="../objects/object-initializer.html">
             
                     
-                    Object Initializer
+                    Inicializador de Objeto
             
                 </a>
             
@@ -504,7 +504,7 @@
                 <a href="../spread-operators/">
             
                     
-                    Spread Operators
+                    Operadores Spread
             
                 </a>
             
@@ -687,10 +687,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="template-literals">Template Literals</h2>
-<p>Template literals provide a clean way to create strings and perform string interpolation. 
-You might already be familiar with the syntax; it&#x2019;s based on the dollar sign and curly braces ${..}</p>
-<p>Template literals are enclosed by backticks (<code>${}</code>)</p>
-<p>Here&#x2019;s a quick demonstration:</p>
+<p>Template Literals fornecem uma maneira limpa para criar strings e executar interpola&#xE7;&#xE3;o strings.
+Voc&#xEA; j&#xE1; deve estar familiarizado com a sintaxe; </p>
+<p>&#xC9; baseado no sinal do d&#xF3;lar e chaves $ {..}</p>
+<p>Template Literals s&#xE3;o inclu&#xED;dos com sinais de crase (<code>$ {}</code>)</p>
+<p>Aqui est&#xE1; uma demonstra&#xE7;&#xE3;o r&#xE1;pida:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&apos;John&apos;</span><span class="token punctuation">,</span>
    apples <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
    pears <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span>
@@ -699,15 +700,15 @@ You might already be familiar with the syntax; it&#x2019;s based on the dollar s
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`This is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`He carries </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>apples<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> apples, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pears<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> pears, and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">bananas</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> bananas.`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// ES5 equivalent:</span>
+<span class="token comment" spellcheck="true">// Equivalente em ES5:</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;He carries &apos;</span> <span class="token operator">+</span> apples <span class="token operator">+</span> <span class="token string">&apos; apples, &apos;</span> <span class="token operator">+</span> pears <span class="token operator">+</span> <span class="token string">&apos; pears, and &apos;</span> <span class="token operator">+</span> <span class="token function">bananas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">&apos; bananas.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>In the form above, compared to ES5, they&#x2019;re merely a convenience for string concatenation. However, template literals can also be used for multi-line strings. Keep in mind that white space is part of the string:</p>
+<p>No formul&#xE1;rio acima, em compara&#xE7;&#xE3;o com o ES5, eles s&#xE3;o apenas uma conveni&#xEA;ncia para concatena&#xE7;&#xE3;o strings. No entanto, template literals tamb&#xE9;m podem ser usados para strings com v&#xE1;rias linhas. Tenha em mente que o espa&#xE7;o em branco &#xE9; parte da string:</p>
 <pre class="language-"><code class="lang-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token template-string"><span class="token string">`1...
 2...
 3 lines long!`</span></span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Yay</span>
 
-<span class="token comment" spellcheck="true">// ES5 equivalents:</span>
+<span class="token comment" spellcheck="true">// Equivalente em ES5:</span>
 <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token string">&quot;1...\n&quot;</span> <span class="token operator">+</span> 
 <span class="token string">&quot;2...\n&quot;</span> <span class="token operator">+</span>
 <span class="token string">&quot;3 lines long!&quot;</span><span class="token punctuation">;</span>
@@ -747,7 +748,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Template Strings","level":"1.16.3","depth":2,"next":{"title":"Symbols","level":"1.17","depth":1,"path":"symbols/README.md","ref":"symbols/README.md","articles":[]},"previous":{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"strings/template-literals.md","mtime":"2017-04-24T14:03:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-24T22:51:45.372Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Template Strings","level":"1.16.3","depth":2,"next":{"title":"Symbols","level":"1.17","depth":1,"path":"symbols/README.md","ref":"symbols/README.md","articles":[]},"previous":{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"strings/tagged-templates.md","ref":"strings/tagged-templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"strings/template-literals.md","mtime":"2017-04-25T17:23:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-25T18:43:24.906Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
