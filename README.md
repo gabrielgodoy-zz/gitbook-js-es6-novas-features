@@ -1,6 +1,4 @@
-**Content in PORTUGUESE**
-
-# [ES6 e além](https://gabrielgodoy.gitbooks.io/es6-e-alem/content/)
+# [ES6 e além](https://globoesporte.gitbooks.io/es6-e-alem/content/)
 
 📚 Anotações sobre as novas features do Javascript
 
