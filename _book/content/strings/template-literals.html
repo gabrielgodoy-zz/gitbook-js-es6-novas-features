@@ -1,0 +1,795 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Template Strings · ES6 e além</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Gabriel Godoy">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../assets/main.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../symbols/" />
+    
+    
+    <link rel="prev" href="tagged-templates.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Arrays
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../arrays/array-destructuring.html">
+            
+                <a href="../arrays/array-destructuring.html">
+            
+                    
+                    Desestruturação de Array
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../arrays/new-methods.html">
+            
+                <a href="../arrays/new-methods.html">
+            
+                    
+                    Novos métodos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../classes/">
+            
+                <a href="../classes/">
+            
+                    
+                    Classes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Funções
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../functions/arrow-functions.html">
+            
+                <a href="../functions/arrow-functions.html">
+            
+                    
+                    Arrow Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../functions/default-parameters.html">
+            
+                <a href="../functions/default-parameters.html">
+            
+                    
+                    Parâmetros Default
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../functions/named-parameters.html">
+            
+                <a href="../functions/named-parameters.html">
+            
+                    
+                    Parâmetros Named
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../functions/rest-parameters.html">
+            
+                <a href="../functions/rest-parameters.html">
+            
+                    
+                    Parâmetros Rest
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../generators/">
+            
+                <a href="../generators/">
+            
+                    
+                    Generators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../iterators-and-iterables/">
+            
+                <a href="../iterators-and-iterables/">
+            
+                    
+                    Iterators e Iterables
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../iterators-and-iterables/for-of-loops.html">
+            
+                <a href="../iterators-and-iterables/for-of-loops.html">
+            
+                    
+                    for...of loops
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../let-and-const/">
+            
+                <a href="../let-and-const/">
+            
+                    
+                    let e const
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Map e Weakmaps
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../map-and-weakmaps/map.html">
+            
+                <a href="../map-and-weakmaps/map.html">
+            
+                    
+                    Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../map-and-weakmaps/weakmap.html">
+            
+                <a href="../map-and-weakmaps/weakmap.html">
+            
+                    
+                    Weakmaps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Objeto Math
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../math-object/new-methods.html">
+            
+                <a href="../math-object/new-methods.html">
+            
+                    
+                    Novos métodos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../modules/">
+            
+                <a href="../modules/">
+            
+                    
+                    Módulos import / export
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    Objetos
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../objects/method-initializer.html">
+            
+                <a href="../objects/method-initializer.html">
+            
+                    
+                    Inicializador de método
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../objects/object-assign.html">
+            
+                <a href="../objects/object-assign.html">
+            
+                    
+                    Object.assign()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../objects/object-destructuring.html">
+            
+                <a href="../objects/object-destructuring.html">
+            
+                    
+                    Desestruturação de Objeto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../objects/object-initializer.html">
+            
+                <a href="../objects/object-initializer.html">
+            
+                    
+                    Inicializador de Objeto
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../promises/">
+            
+                <a href="../promises/">
+            
+                    
+                    Promises
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../promises/methods.html">
+            
+                <a href="../promises/methods.html">
+            
+                    
+                    Métodos de Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../proxy/">
+            
+                <a href="../proxy/">
+            
+                    
+                    Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../spread-operators/">
+            
+                <a href="../spread-operators/">
+            
+                    
+                    Operadores Spread
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" >
+            
+                <span>
+            
+                    
+                    Sets e Weaksets
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../sets-and-weaksets/sets.html">
+            
+                <a href="../sets-and-weaksets/sets.html">
+            
+                    
+                    Sets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../sets-and-weaksets/weaksets.html">
+            
+                <a href="../sets-and-weaksets/weaksets.html">
+            
+                    
+                    Weaksets
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" >
+            
+                <span>
+            
+                    
+                    Strings
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="new-methods.html">
+            
+                <a href="new-methods.html">
+            
+                    
+                    Novos métodos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="tagged-templates.html">
+            
+                <a href="tagged-templates.html">
+            
+                    
+                    Tagged templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.16.3" data-path="template-literals.html">
+            
+                <a href="template-literals.html">
+            
+                    
+                    Template Strings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../symbols/">
+            
+                <a href="../symbols/">
+            
+                    
+                    Symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../async-await/">
+            
+                <a href="../async-await/">
+            
+                    
+                    Async Functions e o operador Await
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Template Strings</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="template-literals">Template Literals</h2>
+<p>Template Literals fornecem uma maneira limpa para criar strings e executar interpola&#xE7;&#xE3;o strings.
+Voc&#xEA; j&#xE1; deve estar familiarizado com a sintaxe; </p>
+<p>&#xC9; baseado no sinal do d&#xF3;lar e chaves $ {..}</p>
+<p>Template Literals s&#xE3;o inclu&#xED;dos com sinais de crase (<code>$ {}</code>)</p>
+<p>Aqui est&#xE1; uma demonstra&#xE7;&#xE3;o r&#xE1;pida:</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">&apos;John&apos;</span><span class="token punctuation">,</span>
+   apples <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">,</span>
+   pears <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">,</span>
+   bananas <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`This is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`He carries </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>apples<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> apples, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>pears<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> pears, and </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">bananas</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> bananas.`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Equivalente em ES5:</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;He carries &apos;</span> <span class="token operator">+</span> apples <span class="token operator">+</span> <span class="token string">&apos; apples, &apos;</span> <span class="token operator">+</span> pears <span class="token operator">+</span> <span class="token string">&apos; pears, and &apos;</span> <span class="token operator">+</span> <span class="token function">bananas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">&apos; bananas.&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>No formul&#xE1;rio acima, em compara&#xE7;&#xE3;o com o ES5, eles s&#xE3;o apenas uma conveni&#xEA;ncia para concatena&#xE7;&#xE3;o strings. No entanto, template literals tamb&#xE9;m podem ser usados para strings com v&#xE1;rias linhas. Tenha em mente que o espa&#xE7;o em branco &#xE9; parte da string:</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token template-string"><span class="token string">`1...
+2...
+3 lines long!`</span></span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Yay</span>
+
+<span class="token comment" spellcheck="true">// Equivalente em ES5:</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token string">&quot;1...\n&quot;</span> <span class="token operator">+</span> 
+<span class="token string">&quot;2...\n&quot;</span> <span class="token operator">+</span>
+<span class="token string">&quot;3 lines long!&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token string">&quot;1...\n2...\n3 lines long!&quot;</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Template Strings","level":"1.16.3","depth":2,"next":{"title":"Symbols","level":"1.17","depth":1,"path":"content/symbols/README.md","ref":"content/symbols/README.md","articles":[]},"previous":{"title":"Tagged templates","level":"1.16.2","depth":2,"path":"content/strings/tagged-templates.md","ref":"content/strings/tagged-templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ES6 e além","gitbook":"*","description":"Anotações sobre as novas features do Javascript"},"file":{"path":"content/strings/template-literals.md","mtime":"2017-04-29T03:15:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-29T03:25:40.456Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

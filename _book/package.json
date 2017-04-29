@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gitbook serve",
     "build": "gitbook build",
+    "postinstall": "npm run installPlugins",
     "installPlugins": "gitbook install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,8 @@
   "author": "Gabriel <ggodoyoliveira@gmail.com> (http://www.gabrielgodoy.com/)",
   "license": "MIT",
   "dependencies": {
-    "gitbook-api": "2.1.3"
+    "gitbook-api": "2.1.3",
+    "gitbook-cli": "^2.3.0",
+    "gitbook-plugin-toggle-chapters": "0.0.3"
   }
 }
