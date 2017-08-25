@@ -1,10 +1,12 @@
 ## Classes
-Classes em JS é um assunto muito debatido. Alguns acreditam que o conceito de classes vai contra a natureza prototipal do Javascript, enquanto outro acreditam que ter o conceito de classe facilita a adoção da linguagem por novatos e desenvolvedores de outras linguagens, e que a utilização de classes facilita a criação de aplicações escaláveis. 
+A sintaxe de classe no JS é somente "cosmética". Por baixo dos panos, o JS continua trabalhando com prototype e não com herança de classes.
+
+Essa sintaxe de classe facilita a adoção da linguagem por novatos e desenvolvedores que vem de outras linguagens.
 
 ```js
 class Vehicle {
   	// O construtor roda toda vez que uma nova instância é criada com "new"
-	constructor(name){ 
+	constructor(name){
 		this.name = name;
 		this.kind = 'vehicle';
 	}
@@ -14,7 +16,7 @@ class Vehicle {
 	}
 
 	// Utilizar a convenção de prefixo com underline para métodos privados
-	_privateMethod() { 
+	_privateMethod() {
 		//...
 	}
 }
@@ -23,18 +25,20 @@ class Vehicle {
 let myVehicle = new Vehicle('rocky');
 ```
 
-Note que a definição de classe não é um objeto normal. Por isso, não existem vírgulas entre membros da classe.
+Note que a definição de classe não é um objeto literal normal. Por isso, não existem vírgulas entre membros da classe.
 
-O método construtor é um método especial para criar e inicializar um objeto com propriedades pré-definidas.
+O método construtor é um método especial para criar e inicializar um objeto que será uma instância dessa classe. Possuindo propriedades pré-definidas.
 
-Para criar uma instância de uma classe, **é preciso usar o termo `new`**
- 
+Para criar uma instância da classe, **é preciso usar o termo `new`**
+
  ```js
 let myCar = new Car('bumpy');
 ```
 
+
 ### Criando uma subclasse
-Para herdar de uma classe base, use **extends**:
+Para herdar de uma outra classe, use **extends**:
+
 ```js
 class Car extends Vehicle {
 	constructor(name) {
@@ -48,7 +52,9 @@ myCar.getName(); // 'bumpy'
 myCar instanceof Car; // true
 ```
 
-Através das subclasses, é possível utilizar o termo **super()** dentro do construtor ou métodos para acessar a classe pai:
+Através das subclasses, é possível utilizar o termo **super()** dentro do construtor ou de métodos para acessar a classe pai.
+
+O termo **super()** precisa ser a primeira coisa declarada dentro do construtor da subclasse.
 
 Para chamar um outro membro, use, por exemplo **super.getName()**
 
