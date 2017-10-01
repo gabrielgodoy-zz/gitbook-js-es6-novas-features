@@ -37,7 +37,7 @@ let values = [2, 4];
 doSomething(1, ...values);  // Mesma coisa que doSomething(1, values[0], values[1])
 ```
 
-### Em iterables 
+### Em iterables
 Ele pode ser aplicado a todos os objetos iteráveis, como um NodeList:
 ```js
 let form = document.querySelector('#my-form'),
@@ -56,4 +56,24 @@ let state = {someProp: '', visibilityFilter: false};
 function mergeObjects(state) {
 	return { ...state, visibilityFilter: true }
 }
+```
+
+### Copiando Objetos ou Array que possuem outros Objetos ou array aninhados
+
+> É importante notar que o operador spread só faz uma cópia "rasa" do objeto ou array. Portanto se dentro desse array ou objeto tiver mais um array ou objeto aninhado, este vai permanecer com a mesma referência do objeto ou array original.
+
+Por exemplo:
+
+```js
+const originalArray = [
+    {
+      "person": {
+        name: "Gabriel"
+      }
+    }
+];
+
+const newCopy = [...originalArray];
+newCopy[0].person.name = "Rodrigo";
+console.log(originalArray[0].person.name) // Rodrigo
 ```
