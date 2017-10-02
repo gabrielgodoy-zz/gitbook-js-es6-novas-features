@@ -81,3 +81,33 @@ let fluffy = new Cat('Fluffy', 'White');
 display(Object.keys(fluffly.__proto__.__proto__)); // Array
 display(fluffy.__proto__.__proto__.hasOwnProperty('speak')); // true
 ```
+
+## Métodos estáticos
+
+Métodos estáticos pertencem a classe, mas não as instâncias dessa classe.
+
+Métodos estáticos servem como funções utilitárias de uma determinada classe, que não pertencem a suas instâncias. É um método geral.
+
+```js
+class Article {
+  constructor(title, date) {
+    this.title = title;
+    this.date = date;
+  }
+
+  static compare(articleA, articleB) {
+    return articleA.date - articleB.date;
+  }
+}
+
+// usage
+let articles = [
+  new Article("Mind", new Date(2016, 1, 1)),
+  new Article("Body", new Date(2016, 0, 1)),
+  new Article("JavaScript", new Date(2016, 11, 1))
+];
+
+articles.sort(Article.compare);
+
+alert( articles[0].title ); // Body
+```
