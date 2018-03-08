@@ -10,9 +10,6 @@
     "installPlugins": "gitbook install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "structure": {
-    "readme": "INTRODUCTION.md"
-  },
   "keywords": [],
   "author": "Gabriel <ggodoyoliveira@gmail.com> (http://www.gabrielgodoy.com/)",
   "license": "MIT",
