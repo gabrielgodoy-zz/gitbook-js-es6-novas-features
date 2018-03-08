@@ -1,0 +1,28 @@
+{
+	"title": "ES6 e além",
+	"description": "Anotações sobre as novas features do Javascript",
+	"author": "Gabriel Godoy",
+	"styles": {
+		"website": "./assets/main.css"
+	},
+	"plugins": [
+		"theme-api",
+		"prism",
+		"-highlight",
+		"hints",
+		"expandable-chapters"
+	],
+	"structure": {
+    "readme": "INTRODUCTION.md"
+  },
+	"pluginsConfig": {
+		"theme-api": {
+			"theme": "dark"
+		},
+		"prism": {
+			"css": [
+				"prismjs/themes/prism-tomorrow.css"
+			]
+		}
+	}
+}
