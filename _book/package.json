@@ -16,6 +16,10 @@
   "dependencies": {
     "gitbook-api": "2.1.3",
     "gitbook-cli": "^2.3.0",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-hints": "^1.0.2",
+    "gitbook-plugin-prism": "^2.3.0",
+    "gitbook-plugin-theme-api": "^1.1.2",
     "gitbook-plugin-toggle-chapters": "0.0.3"
   }
 }
