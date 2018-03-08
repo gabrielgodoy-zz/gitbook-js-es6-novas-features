@@ -12,9 +12,6 @@
 		"hints",
 		"expandable-chapters"
 	],
-	"structure": {
-    "readme": "INTRODUCTION.md"
-  },
 	"pluginsConfig": {
 		"theme-api": {
 			"theme": "dark"
